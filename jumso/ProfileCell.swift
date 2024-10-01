@@ -1,9 +1,3 @@
-//
-//  ProfileCell.swift
-//  jumso
-//
-//  Created by junha on 9/29/24.
-//
 
 import UIKit
 

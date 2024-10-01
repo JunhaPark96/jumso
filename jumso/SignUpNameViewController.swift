@@ -15,15 +15,18 @@ class SignUpNameViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func SignUpNameDidTap(_ sender: UIButton) {
+        
+        // 1. 스토리보드 생성
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        
+        // 2. 뷰 컨트롤러 생성
+        let signUpBirthDayViewController = storyboard.instantiateViewController(withIdentifier: "SignUpBirthDayVC") as! SignUpBirthDayViewController
+        
+        // 3. 화면전환 메소드로 화면 전환
+//        self.present(registerViewController, animated: true, completion: nil)
+        // container view controller
+        self.navigationController?.pushViewController(signUpBirthDayViewController, animated: true)
     }
-    */
-
+    
 }

@@ -1,29 +1,42 @@
-//
-//  EmailAuthenticationViewController.swift
-//  jumso
-//
-//  Created by junha on 9/29/24.
-//
-
 import UIKit
 
 class EmailAuthenticationViewController: UIViewController {
-
+    
+    var shouldManageKeyboardObservers: Bool = true
+    
+    @IBOutlet weak var InputEmailIDTextField: UITextField!
+    @IBOutlet weak var EmailAddressLabel: UILabel!
+    @IBOutlet weak var emailAuthenticationButton: UIButton!
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if shouldManageKeyboardObservers {
+            setupKeyBoardDismissal()
+        }
+    }
+    deinit {
+        if shouldManageKeyboardObservers {
+            removeKeyboardNotificationObservers()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func emailAuthenticateDidTap(_ sender: UIButton) {
+        // 키보드 내리기 -> 키보드가 안내려가면 화면전환이 안됨
+        dismissKeyboard()
+        
+        // 1. 스토리보드 생성
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        
+        // 2. 뷰 컨트롤러 생성
+        let emailAuthenticationViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticationCodeVC") as! AuthenticationCodeViewController
+        
+        // 3. 화면전환 메소드로 화면 전환
+        self.navigationController?.pushViewController(emailAuthenticationViewController, animated: true)
+        
     }
-    */
+    
 
 }
