@@ -32,19 +32,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회사 이메일 인증" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ0-ce-CG8">
-                                <rect key="frame" x="122" y="70" width="131" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="RUx-dE-UVq"/>
-                                </constraints>
+                                <rect key="frame" x="122" y="70" width="131" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일 아이디만 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1I-SR-dvk">
-                                <rect key="frame" x="30" y="180" width="315" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Yuz-Hf-bpB"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="253" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일 아이디만 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1I-SR-dvk">
+                                <rect key="frame" x="30" y="186" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -55,20 +49,14 @@
                                     <constraint firstAttribute="height" constant="2" id="qSb-z9-ChM"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="이메일 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAz-HL-ejM">
-                                <rect key="frame" x="30" y="145" width="78" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="HD8-zj-VuO"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="이메일 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAz-HL-ejM">
+                                <rect key="frame" x="30" y="151" width="78" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzN-mW-Sjz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzN-mW-Sjz">
                                 <rect key="frame" x="29.999999999999993" y="252" width="88.333333333333314" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="IKY-KR-7Kd"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -83,7 +71,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SI-dF-uBh">
                                 <rect key="frame" x="30" y="564" width="315" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ECr-JU-sKG"/>
+                                    <constraint firstAttribute="height" constant="50" id="csL-OJ-zeG"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
@@ -106,7 +94,7 @@
                             <constraint firstItem="vZ0-ce-CG8" firstAttribute="centerX" secondItem="iFS-8I-qk4" secondAttribute="centerX" id="af2-6G-1tO"/>
                             <constraint firstItem="Azi-6L-yRP" firstAttribute="top" secondItem="h1I-SR-dvk" secondAttribute="bottom" constant="15" id="brK-qs-VAL"/>
                             <constraint firstItem="5SI-dF-uBh" firstAttribute="leading" secondItem="mzN-mW-Sjz" secondAttribute="leading" id="cNZ-uh-a1N"/>
-                            <constraint firstItem="5SI-dF-uBh" firstAttribute="top" secondItem="AhL-wj-0Uw" secondAttribute="bottom" constant="275" id="eJP-KY-bPn"/>
+                            <constraint firstItem="5SI-dF-uBh" firstAttribute="top" relation="lessThanOrEqual" secondItem="AhL-wj-0Uw" secondAttribute="bottom" constant="275" id="eJP-KY-bPn"/>
                             <constraint firstItem="vZ0-ce-CG8" firstAttribute="top" secondItem="eA8-kz-saa" secondAttribute="top" constant="20" id="fvg-b6-q5u"/>
                             <constraint firstItem="5SI-dF-uBh" firstAttribute="trailing" secondItem="h1I-SR-dvk" secondAttribute="trailing" id="jdt-uQ-KVb"/>
                             <constraint firstItem="LAz-HL-ejM" firstAttribute="leading" secondItem="eA8-kz-saa" secondAttribute="leading" constant="30" id="kN8-w2-oSa"/>
@@ -119,7 +107,7 @@
                     <connections>
                         <outlet property="EmailAddressLabel" destination="LAz-HL-ejM" id="lME-xM-PDH"/>
                         <outlet property="InputEmailIDTextField" destination="h1I-SR-dvk" id="ibY-c7-LeR"/>
-                        <outlet property="buttonBottomConstraint" destination="eJP-KY-bPn" id="07I-B8-xQK"/>
+                        <outlet property="buttonBottomConstraint" destination="J9T-uS-2ZX" id="2po-t0-ZYW"/>
                         <outlet property="emailAuthenticationButton" destination="5SI-dF-uBh" id="a1q-dD-5OZ"/>
                     </connections>
                 </viewController>
