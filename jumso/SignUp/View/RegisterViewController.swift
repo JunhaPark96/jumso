@@ -10,6 +10,8 @@ class RegisterViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var findCompanySearchBar: UISearchBar!
     @IBOutlet weak var companiesTableView: UITableView!
     
+    var companies: [CompanyItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,11 +22,14 @@ class RegisterViewController: UIViewController, UISearchBarDelegate {
         
         companiesTableView.register(UINib(nibName: "CompaniesCell", bundle: nil), forCellReuseIdentifier: "CompaniesCell")
         
-//        companiesTableView.register(UINib(nibName: "ProfileCell", bundle: nil), forCellReuseIdentifier: "ProfileCell")
         findCompanySearchBar.delegate = self
         
         if shouldManageKeyboardObservers {
             setupKeyBoardDismissal()
+        }
+        
+        if let data = loadCompaniesData(filename: "companyMock") {
+            decodeCompanyItems(from: data)
         }
     }
     deinit {
@@ -35,11 +40,37 @@ class RegisterViewController: UIViewController, UISearchBarDelegate {
         }
    
     
+    func loadCompaniesData(filename: String) -> Data? {
+        guard let fileUrl = Bundle.main.url(forResource: filename, withExtension: "json") else {
+                return nil
+        }
+        do {
+            return try Data(contentsOf: fileUrl)
+        } catch {
+            print("JSON 파일을 불러오는 중 에러 발생: \(error)")
+            return nil
+        }
+                
+    }
+    
+    func decodeCompanyItems(from data: Data) {
+        
+        let decoder = JSONDecoder()
+        do {
+            let companyResponse = try decoder.decode(CompanyResponse.self, from: data)
+            self.companies = companyResponse.data.companies
+            self.companiesTableView.reloadData()
+        } catch {
+            print("JSON 파싱 에러 \(error)")
+        }
+    }
+    
+    
 }
 
 extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return companies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,9 +81,8 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
         }
                 
         // 셀의 companyNameLabel에 텍스트 설정
-        cell.companyNameLabel.text = "Company's name \(indexPath.row + 1)"
-        
-//        cell.textLabel?.text = "Comapanies' name \(indexPath.row + 1)"
+        let company = companies[indexPath.row]
+        cell.companyNameLabel.text = company.name
         
         return cell
     }
