@@ -20,6 +20,10 @@
 		3C5F94BF2CA99B1C00E477DD /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */; };
 		3C5F94C12CA99CB400E477DD /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */; };
 		3C5F94C32CA9A2A400E477DD /* SignUpBirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */; };
+		3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */; };
+		3CC4A1222CAEAD0A00E92D4E /* companyMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CC4A1212CAEAD0A00E92D4E /* companyMock.json */; };
+		3CC4A12E2CAEC88A00E92D4E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A12D2CAEC88A00E92D4E /* RegisterViewModel.swift */; };
+		3CC4A1302CAECB2200E92D4E /* FindCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A12F2CAECB2200E92D4E /* FindCompanyViewModel.swift */; };
 		3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F422CA03A010028BDC3 /* LoginViewController.swift */; };
 		3CD83F452CA03EFB0028BDC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */; };
 		3CD83F482CA18AF50028BDC3 /* CompaniesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */; };
@@ -65,6 +69,10 @@
 		3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
 		3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBirthDayViewController.swift; sourceTree = "<group>"; };
+		3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
+		3CC4A1212CAEAD0A00E92D4E /* companyMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = companyMock.json; sourceTree = "<group>"; };
+		3CC4A12D2CAEC88A00E92D4E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3CC4A12F2CAECB2200E92D4E /* FindCompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCompanyViewModel.swift; sourceTree = "<group>"; };
 		3CD83F422CA03A010028BDC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesCell.swift; sourceTree = "<group>"; };
@@ -123,22 +131,15 @@
 		3C2C29602C9B281000E03830 /* jumso */ = {
 			isa = PBXGroup;
 			children = (
+				3CC4A1272CAEC75600E92D4E /* Login */,
+				3CC4A1262CAEC71200E92D4E /* SignUp */,
 				3C2C29612C9B281000E03830 /* AppDelegate.swift */,
 				3C2C29632C9B281000E03830 /* SceneDelegate.swift */,
 				3C2C29652C9B281000E03830 /* ViewController.swift */,
 				3C2C29672C9B281000E03830 /* Main.storyboard */,
-				3CD83F522CA874A10028BDC3 /* SignUp.storyboard */,
-				3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */,
-				3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */,
-				3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */,
-				3C5F94BC2CA9953300E477DD /* AuthenticationCodeViewController.swift */,
-				3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */,
-				3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */,
-				3CD83F502CA871F20028BDC3 /* EmailAuthenticationViewController.swift */,
 				3CD83F4A2CA86A4A0028BDC3 /* ProfileCell.swift */,
 				3CD83F4B2CA86A4A0028BDC3 /* ProfileCell.xib */,
 				3CD83F472CA18AF50028BDC3 /* CompaniesCell.xib */,
-				3CD83F422CA03A010028BDC3 /* LoginViewController.swift */,
 				3C2C296A2C9B281200E03830 /* Assets.xcassets */,
 				3C2C296C2C9B281200E03830 /* LaunchScreen.storyboard */,
 				3C2C296F2C9B281200E03830 /* Info.plist */,
@@ -161,6 +162,97 @@
 				3C2C29842C9B281200E03830 /* jumsoUITestsLaunchTests.swift */,
 			);
 			path = jumsoUITests;
+			sourceTree = "<group>";
+		};
+		3CC4A11C2CAEA87300E92D4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */,
+				3CC4A1212CAEAD0A00E92D4E /* companyMock.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3CC4A11D2CAEA8A700E92D4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */,
+				3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */,
+				3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */,
+				3C5F94BC2CA9953300E477DD /* AuthenticationCodeViewController.swift */,
+				3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */,
+				3CD83F502CA871F20028BDC3 /* EmailAuthenticationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3CC4A11E2CAEA8B100E92D4E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3CC4A12D2CAEC88A00E92D4E /* RegisterViewModel.swift */,
+				3CC4A12F2CAECB2200E92D4E /* FindCompanyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3CC4A1262CAEC71200E92D4E /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				3CC4A12C2CAEC7E000E92D4E /* StoryBoard */,
+				3CC4A12B2CAEC7D000E92D4E /* Cell */,
+				3CC4A11C2CAEA87300E92D4E /* Model */,
+				3CC4A11E2CAEA8B100E92D4E /* ViewModel */,
+				3CC4A11D2CAEA8A700E92D4E /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		3CC4A1272CAEC75600E92D4E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3CC4A12A2CAEC77600E92D4E /* ViewModel */,
+				3CC4A1292CAEC77400E92D4E /* View */,
+				3CC4A1282CAEC77100E92D4E /* Model */,
+				3CD83F422CA03A010028BDC3 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3CC4A1282CAEC77100E92D4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3CC4A1292CAEC77400E92D4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3CC4A12A2CAEC77600E92D4E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3CC4A12B2CAEC7D000E92D4E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3CC4A12C2CAEC7E000E92D4E /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				3CD83F522CA874A10028BDC3 /* SignUp.storyboard */,
+			);
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +364,7 @@
 				3CD83F532CA874A10028BDC3 /* SignUp.storyboard in Resources */,
 				3C2C296B2C9B281200E03830 /* Assets.xcassets in Resources */,
 				3C2C29692C9B281000E03830 /* Main.storyboard in Resources */,
+				3CC4A1222CAEAD0A00E92D4E /* companyMock.json in Resources */,
 				3CD83F4D2CA86A4A0028BDC3 /* ProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,11 +391,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */,
+				3CC4A12E2CAEC88A00E92D4E /* RegisterViewModel.swift in Sources */,
+				3CC4A1302CAECB2200E92D4E /* FindCompanyViewModel.swift in Sources */,
 				3CD83F512CA871F20028BDC3 /* EmailAuthenticationViewController.swift in Sources */,
 				3CD83F452CA03EFB0028BDC3 /* RegisterViewController.swift in Sources */,
 				3C2C29662C9B281000E03830 /* ViewController.swift in Sources */,
 				3C5F94BD2CA9953300E477DD /* AuthenticationCodeViewController.swift in Sources */,
 				3C5F94C32CA9A2A400E477DD /* SignUpBirthDayViewController.swift in Sources */,
+				3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */,
 				3CD83F482CA18AF50028BDC3 /* CompaniesCell.swift in Sources */,
 				3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */,
 				3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */,
@@ -416,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -473,7 +569,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -490,6 +586,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RX2DUS3488;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jumso/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -497,6 +594,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,6 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RX2DUS3488;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jumso/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -524,6 +623,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,7 +645,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumsoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,7 +664,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumsoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

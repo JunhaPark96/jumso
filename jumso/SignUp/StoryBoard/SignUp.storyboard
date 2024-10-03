@@ -2,9 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,37 +34,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회사 이메일 인증" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ0-ce-CG8">
-                                <rect key="frame" x="122" y="70" width="131" height="31"/>
+                                <rect key="frame" x="122" y="70" width="131" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="253" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일 아이디만 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1I-SR-dvk">
-                                <rect key="frame" x="30" y="186" width="315" height="34"/>
+                                <rect key="frame" x="30" y="179" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Azi-6L-yRP">
-                                <rect key="frame" x="36" y="235" width="303" height="2"/>
+                                <rect key="frame" x="36" y="228" width="303" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="qSb-z9-ChM"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="이메일 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAz-HL-ejM">
-                                <rect key="frame" x="30" y="151" width="78" height="20"/>
+                                <rect key="frame" x="30" y="144" width="78" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzN-mW-Sjz">
-                                <rect key="frame" x="29.999999999999993" y="252" width="88.333333333333314" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" misplaced="YES" text="이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzN-mW-Sjz">
+                                <rect key="frame" x="30" y="252" width="100" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhL-wj-0Uw">
-                                <rect key="frame" x="36" y="287" width="303" height="2"/>
+                                <rect key="frame" x="36" y="290" width="303" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="sLd-oR-ywd"/>
@@ -79,21 +81,37 @@
                                     <action selector="emailAuthenticateDidTap:" destination="2uJ-gl-eAl" eventType="touchUpInside" id="Pgh-hv-ozt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S56-IN-fpY">
+                                <rect key="frame" x="20" y="245" width="335" height="30"/>
+                                <menu key="menu" id="mcR-PD-NYp">
+                                    <children>
+                                        <command title="Item 1" id="qTj-cY-Iaq"/>
+                                        <command title="Item 2" id="f3H-UJ-YZI"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="emailDomainButtonTapped:" destination="2uJ-gl-eAl" eventType="touchUpInside" id="gPB-Bb-tOA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eA8-kz-saa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Azi-6L-yRP" secondAttribute="trailing" constant="20" id="0Qv-zp-V3A"/>
                             <constraint firstItem="h1I-SR-dvk" firstAttribute="leading" secondItem="eA8-kz-saa" secondAttribute="leading" constant="30" id="1HP-yO-hyE"/>
+                            <constraint firstItem="S56-IN-fpY" firstAttribute="top" secondItem="Azi-6L-yRP" secondAttribute="bottom" constant="15" id="1Ly-qh-4jG"/>
                             <constraint firstItem="mzN-mW-Sjz" firstAttribute="leading" secondItem="eA8-kz-saa" secondAttribute="leading" constant="30" id="C3z-eR-jdW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AhL-wj-0Uw" secondAttribute="trailing" constant="20" id="IwY-0E-hHD"/>
                             <constraint firstItem="mzN-mW-Sjz" firstAttribute="top" secondItem="Azi-6L-yRP" secondAttribute="bottom" constant="15" id="J4f-5U-BIh"/>
                             <constraint firstItem="eA8-kz-saa" firstAttribute="bottom" secondItem="5SI-dF-uBh" secondAttribute="bottom" constant="164" id="J9T-uS-2ZX"/>
                             <constraint firstItem="Azi-6L-yRP" firstAttribute="leading" secondItem="iFS-8I-qk4" secondAttribute="leadingMargin" constant="20" id="KE4-Nt-PmQ"/>
+                            <constraint firstItem="AhL-wj-0Uw" firstAttribute="top" secondItem="S56-IN-fpY" secondAttribute="bottom" constant="15" id="KTI-C9-xzL"/>
                             <constraint firstItem="AhL-wj-0Uw" firstAttribute="top" secondItem="mzN-mW-Sjz" secondAttribute="bottom" constant="15" id="Mh0-Ws-wzB"/>
                             <constraint firstItem="vZ0-ce-CG8" firstAttribute="centerX" secondItem="iFS-8I-qk4" secondAttribute="centerX" id="af2-6G-1tO"/>
                             <constraint firstItem="Azi-6L-yRP" firstAttribute="top" secondItem="h1I-SR-dvk" secondAttribute="bottom" constant="15" id="brK-qs-VAL"/>
                             <constraint firstItem="5SI-dF-uBh" firstAttribute="leading" secondItem="mzN-mW-Sjz" secondAttribute="leading" id="cNZ-uh-a1N"/>
+                            <constraint firstItem="eA8-kz-saa" firstAttribute="trailing" secondItem="S56-IN-fpY" secondAttribute="trailing" constant="20" id="cop-XP-H9n"/>
                             <constraint firstItem="5SI-dF-uBh" firstAttribute="top" relation="lessThanOrEqual" secondItem="AhL-wj-0Uw" secondAttribute="bottom" constant="275" id="eJP-KY-bPn"/>
                             <constraint firstItem="vZ0-ce-CG8" firstAttribute="top" secondItem="eA8-kz-saa" secondAttribute="top" constant="20" id="fvg-b6-q5u"/>
                             <constraint firstItem="5SI-dF-uBh" firstAttribute="trailing" secondItem="h1I-SR-dvk" secondAttribute="trailing" id="jdt-uQ-KVb"/>
@@ -102,10 +120,13 @@
                             <constraint firstItem="LAz-HL-ejM" firstAttribute="top" secondItem="vZ0-ce-CG8" secondAttribute="bottom" constant="50" id="phC-9L-75S"/>
                             <constraint firstItem="h1I-SR-dvk" firstAttribute="top" secondItem="LAz-HL-ejM" secondAttribute="bottom" constant="15" id="q5l-q9-1sr"/>
                             <constraint firstItem="eA8-kz-saa" firstAttribute="trailing" secondItem="h1I-SR-dvk" secondAttribute="trailing" constant="30" id="tVg-Ko-1h7"/>
+                            <constraint firstItem="S56-IN-fpY" firstAttribute="leading" secondItem="eA8-kz-saa" secondAttribute="leading" constant="20" id="xtj-CM-1vj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="EmailAddressLabel" destination="LAz-HL-ejM" id="lME-xM-PDH"/>
+                        <outlet property="EmailDomainButton" destination="S56-IN-fpY" id="LTm-id-eoL"/>
+                        <outlet property="EmailDomainLabel" destination="mzN-mW-Sjz" id="Ugs-sS-gNt"/>
                         <outlet property="InputEmailIDTextField" destination="h1I-SR-dvk" id="ibY-c7-LeR"/>
                         <outlet property="buttonBottomConstraint" destination="J9T-uS-2ZX" id="2po-t0-ZYW"/>
                         <outlet property="emailAuthenticationButton" destination="5SI-dF-uBh" id="a1q-dD-5OZ"/>
