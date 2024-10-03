@@ -51,44 +51,60 @@ class EmailAuthenticationViewController: UIViewController {
             EmailDomainLabel.isHidden = true
             EmailDomainButton.isHidden = false
             EmailDomainButton.setTitle(emailDomains.first, for: .normal)
+            
+            let firstDomain = emailDomains.first ?? "Select Domain"
+            setButtonWithTextAndImage(title: firstDomain, image: UIImage(systemName: "chevron.down"))
             selectedEmailDomain = emailDomains.first
+            
+            var actions: [UIAction] = []
+            for domain in emailDomains {
+                let action = UIAction(title: domain, handler: { [weak self] _ in
+                    self?.EmailDomainButton.setTitle(domain, for: .normal)
+                    self?.setButtonWithTextAndImage(title: domain, image: UIImage(systemName: "chevron.down"))
+                    self?.selectedEmailDomain = domain
+                })
+                actions.append(action)
+            }
+            EmailDomainButton.menu = UIMenu(title: "Select Email Domain", options: .displayInline, children: actions)
+            EmailDomainButton.showsMenuAsPrimaryAction = true // 버튼 클릭 시 바로 메뉴가 보이게 설정
         }
     }
     
-    @IBAction func emailDomainButtonTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "Select Email Domain", message: nil, preferredStyle: .actionSheet)
-        
-        companyEmailDomains?.forEach { domain in
-            let action = UIAlertAction(title: domain, style: .default) { [weak self] _ in
-                self?.EmailDomainButton.setTitle(domain, for: .normal)
-                self?.selectedEmailDomain = domain
-            }
-            alertController.addAction(action)
+    private func setButtonWithTextAndImage(title: String, image: UIImage?) {
+        var config = UIButton.Configuration.plain()
+        config.title = title
+        if let image = image {
+            let resizedImage = image.withConfiguration(UIImage.SymbolConfiguration(pointSize: 10, weight: .regular))
+            config.image = resizedImage.withRenderingMode(.alwaysTemplate)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
+        config.imagePadding = 20
+        config.baseBackgroundColor = .black
+        config.imagePlacement = .trailing
         
-        
-        present(alertController, animated: true, completion: nil)
+        EmailDomainButton.configuration = config
+        EmailDomainButton.tintColor = .black
     }
+
     
     
     @IBAction func emailAuthenticateDidTap(_ sender: UIButton) {
         dismissKeyboard()
         
         guard let email = InputEmailIDTextField.text, let domain = selectedEmailDomain else {
-            print("이메일 또는 도메인이 선택되지 않았습니다.")
+            print("EmailAuthentication - 이메일 또는 도메인이 선택되지 않았습니다.")
             return
         }
         
         let completeEmail = "\(email)@\(domain)"
-        print("이메일 인증할 주소: \(completeEmail)")
+        print("EmailAuthentication - 이메일 인증할 주소: \(completeEmail)")
+        
         
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        let emailAuthenticationViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticationCodeVC") as! AuthenticationCodeViewController
+        let authenticationCodeViewController = storyboard.instantiateViewController(withIdentifier: "AuthenticationCodeVC") as! AuthenticationCodeViewController
         
-        self.navigationController?.pushViewController(emailAuthenticationViewController, animated: true)
+        authenticationCodeViewController.fullEmailAddress = completeEmail
+        self.navigationController?.pushViewController(authenticationCodeViewController, animated: true)
     }
 }
 

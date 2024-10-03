@@ -1,18 +1,16 @@
-//
-//  AuthenticationCodeViewController.swift
-//  jumso
-//
-//  Created by junha on 9/29/24.
-//
-
 import UIKit
 
 class AuthenticationCodeViewController: UIViewController {
+    var fullEmailAddress: String?
 
+    @IBOutlet weak var FullEmailAddressLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let fullEmailAddress {
+            FullEmailAddressLabel.text = fullEmailAddress
+        }
     }
     
     @IBAction func emailAuthorizedDidTap(_ sender: UIButton) {

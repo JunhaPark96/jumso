@@ -81,15 +81,17 @@
                                     <action selector="emailAuthenticateDidTap:" destination="2uJ-gl-eAl" eventType="touchUpInside" id="Pgh-hv-ozt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S56-IN-fpY">
-                                <rect key="frame" x="20" y="245" width="335" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S56-IN-fpY">
+                                <rect key="frame" x="30" y="245" width="325" height="30"/>
                                 <menu key="menu" id="mcR-PD-NYp">
                                     <children>
                                         <command title="Item 1" id="qTj-cY-Iaq"/>
                                         <command title="Item 2" id="f3H-UJ-YZI"/>
                                     </children>
                                 </menu>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="emailDomainButtonTapped:" destination="2uJ-gl-eAl" eventType="touchUpInside" id="gPB-Bb-tOA"/>
                                 </connections>
@@ -120,7 +122,7 @@
                             <constraint firstItem="LAz-HL-ejM" firstAttribute="top" secondItem="vZ0-ce-CG8" secondAttribute="bottom" constant="50" id="phC-9L-75S"/>
                             <constraint firstItem="h1I-SR-dvk" firstAttribute="top" secondItem="LAz-HL-ejM" secondAttribute="bottom" constant="15" id="q5l-q9-1sr"/>
                             <constraint firstItem="eA8-kz-saa" firstAttribute="trailing" secondItem="h1I-SR-dvk" secondAttribute="trailing" constant="30" id="tVg-Ko-1h7"/>
-                            <constraint firstItem="S56-IN-fpY" firstAttribute="leading" secondItem="eA8-kz-saa" secondAttribute="leading" constant="20" id="xtj-CM-1vj"/>
+                            <constraint firstItem="S56-IN-fpY" firstAttribute="leading" secondItem="eA8-kz-saa" secondAttribute="leading" constant="30" id="xtj-CM-1vj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -174,7 +176,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이메일아이디@회사이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-u1-emd">
-                                <rect key="frame" x="43" y="116" width="268" height="48"/>
+                                <rect key="frame" x="43" y="117" width="268" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -184,6 +186,9 @@
                         <viewLayoutGuide key="safeArea" id="3kv-4N-LKS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="FullEmailAddressLabel" destination="MKs-u1-emd" id="0xn-dK-cIn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04b-70-Mf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -470,7 +475,7 @@
     </scenes>
     <resources>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
