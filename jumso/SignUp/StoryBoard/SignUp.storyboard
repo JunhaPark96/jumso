@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -76,7 +77,11 @@
                                     <constraint firstAttribute="height" constant="50" id="csL-OJ-zeG"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="JumsoColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="emailAuthenticateDidTap:" destination="2uJ-gl-eAl" eventType="touchUpInside" id="Pgh-hv-ozt"/>
                                 </connections>
@@ -146,27 +151,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증 대기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRb-AV-bZh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="인증 대기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRb-AV-bZh">
                                 <rect key="frame" x="150.66666666666666" y="70" width="73.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ae-3c-Yk5">
-                                <rect key="frame" x="43" y="564" width="294" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="emailAuthorizedDidTap:" destination="A81-Gt-KRK" eventType="touchUpInside" id="Cok-pc-0pS"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="인증번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SI9-4k-uRx">
                                 <rect key="frame" x="30" y="179" width="315" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Cwx-MB-f6g"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일아이디@회사이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-u1-emd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="이메일아이디@회사이메일도메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-u1-emd">
                                 <rect key="frame" x="30.000000000000014" y="144" width="221.33333333333337" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -179,32 +178,55 @@
                                     <constraint firstAttribute="height" constant="2" id="tZR-NH-Mg8"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMr-EY-ZIP">
-                                <rect key="frame" x="30" y="245" width="29.666666666666671" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="이메일은 인증에만 사용되며, 그 외에의 용도로는 사용되지 않습니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMr-EY-ZIP">
+                                <rect key="frame" x="30" y="255" width="295.33333333333348" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" name="JumsoColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98X-GK-kHV">
+                                <rect key="frame" x="31" y="564" width="313" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="f2b-nL-YVd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="JumsoColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="codeAuthenticatedDidTap:" destination="A81-Gt-KRK" eventType="touchUpInside" id="tce-K9-ro6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3kv-4N-LKS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="a26-2a-gH6" firstAttribute="top" secondItem="SI9-4k-uRx" secondAttribute="bottom" constant="15" id="11H-j2-rT2"/>
                             <constraint firstItem="nMr-EY-ZIP" firstAttribute="leading" secondItem="3kv-4N-LKS" secondAttribute="leading" constant="30" id="1Ci-Un-rnu"/>
-                            <constraint firstItem="nMr-EY-ZIP" firstAttribute="top" secondItem="a26-2a-gH6" secondAttribute="bottom" constant="15" id="2fR-vh-MGX"/>
+                            <constraint firstItem="nMr-EY-ZIP" firstAttribute="top" secondItem="a26-2a-gH6" secondAttribute="bottom" constant="25" id="2fR-vh-MGX"/>
                             <constraint firstItem="SI9-4k-uRx" firstAttribute="leading" secondItem="3kv-4N-LKS" secondAttribute="leading" constant="30" id="CU6-5t-hGa"/>
+                            <constraint firstItem="98X-GK-kHV" firstAttribute="trailing" secondItem="a26-2a-gH6" secondAttribute="trailing" id="E9b-GL-V2g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a26-2a-gH6" secondAttribute="trailing" constant="15" id="JYX-Cu-iMM"/>
                             <constraint firstItem="MKs-u1-emd" firstAttribute="top" secondItem="lRb-AV-bZh" secondAttribute="bottom" constant="50" id="MB4-sQ-Jk4"/>
                             <constraint firstItem="MKs-u1-emd" firstAttribute="leading" secondItem="3kv-4N-LKS" secondAttribute="leading" constant="30" id="SJ6-Yb-odg"/>
+                            <constraint firstItem="3kv-4N-LKS" firstAttribute="bottom" secondItem="98X-GK-kHV" secondAttribute="bottom" constant="164" id="V1h-nl-E5T"/>
+                            <constraint firstItem="98X-GK-kHV" firstAttribute="leading" secondItem="a26-2a-gH6" secondAttribute="leading" id="Z3L-MA-qH4"/>
                             <constraint firstItem="3kv-4N-LKS" firstAttribute="trailing" secondItem="SI9-4k-uRx" secondAttribute="trailing" constant="30" id="aVH-wH-sYl"/>
                             <constraint firstItem="a26-2a-gH6" firstAttribute="leading" secondItem="jIM-nj-ses" secondAttribute="leadingMargin" constant="15" id="lnh-VS-4ET"/>
                             <constraint firstItem="SI9-4k-uRx" firstAttribute="top" secondItem="MKs-u1-emd" secondAttribute="bottom" constant="15" id="paX-wV-JoI"/>
                             <constraint firstItem="lRb-AV-bZh" firstAttribute="centerX" secondItem="jIM-nj-ses" secondAttribute="centerX" id="qJb-X9-j2O"/>
+                            <constraint firstItem="98X-GK-kHV" firstAttribute="top" relation="lessThanOrEqual" secondItem="nMr-EY-ZIP" secondAttribute="bottom" constant="275" id="qmc-Zy-ZIn"/>
                             <constraint firstItem="lRb-AV-bZh" firstAttribute="top" secondItem="3kv-4N-LKS" secondAttribute="top" constant="20" id="tlt-4f-1Ha"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AuthenticationCodeInputTextField" destination="SI9-4k-uRx" id="cPI-P1-Hre"/>
                         <outlet property="FullEmailAddressLabel" destination="MKs-u1-emd" id="0xn-dK-cIn"/>
+                        <outlet property="buttonBottomConstraint" destination="V1h-nl-E5T" id="nwY-dk-8TB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04b-70-Mf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -491,11 +513,17 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="JumsoColor">
+            <color red="0.75686274509803919" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

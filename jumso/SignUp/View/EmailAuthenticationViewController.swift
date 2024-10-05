@@ -1,11 +1,9 @@
 import UIKit
 
 
-class EmailAuthenticationViewController: UIViewController {
+class EmailAuthenticationViewController: ViewController {
     
-    var shouldManageKeyboardObservers: Bool = true
     var companyEmailDomains: [String]?
-    
     
     @IBOutlet weak var InputEmailIDTextField: UITextField!
     @IBOutlet weak var EmailAddressLabel: UILabel!
@@ -19,9 +17,9 @@ class EmailAuthenticationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if shouldManageKeyboardObservers {
-            setupKeyBoardDismissal()
-        }
+        //        if shouldManageKeyboardObservers {
+        //            setupKeyBoardDismissal()
+        //        }
         
         if let emailDomains = companyEmailDomains {
             EmailDomainLabel.text = emailDomains.joined(separator: ", ")
@@ -30,10 +28,18 @@ class EmailAuthenticationViewController: UIViewController {
         configureEmailDomainUI()
     }
     
-    deinit {
-        if shouldManageKeyboardObservers {
-            removeKeyboardNotificationObservers()
+    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+        if keyboardShowing {
+            let keyboardHeight = keyboardHeight + 10
+            UIView.animate(withDuration: 0.3) {
+                self.buttonBottomConstraint.constant = keyboardHeight
+                self.view.layoutIfNeeded()
+            }
         }
+    }
+    
+    deinit {
+        removeKeyboardNotificationObservers()
     }
     
     private func configureEmailDomainUI() {
@@ -85,7 +91,7 @@ class EmailAuthenticationViewController: UIViewController {
         EmailDomainButton.configuration = config
         EmailDomainButton.tintColor = .black
     }
-
+    
     
     
     @IBAction func emailAuthenticateDidTap(_ sender: UIButton) {
@@ -98,6 +104,8 @@ class EmailAuthenticationViewController: UIViewController {
         
         let completeEmail = "\(email)@\(domain)"
         print("EmailAuthentication - 이메일 인증할 주소: \(completeEmail)")
+        
+        // TODO: 실제 이메일 주소로 인증API 데이터 전달
         
         
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
