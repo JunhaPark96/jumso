@@ -18,9 +18,9 @@ class AuthenticationCodeViewController: ViewController {
             FullEmailAddressLabel.text = fullEmailAddress
         }
         
-        if shouldManageKeyboardObservers {
-            setupKeyBoardDismissal()
-        }
+//        if shouldManageKeyboardObservers {
+//            setupKeyBoardDismissal()
+//        }
     }
     override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
         if keyboardShowing {

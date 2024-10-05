@@ -241,52 +241,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWZ-lK-Gf2">
-                                <rect key="frame" x="122" y="70" width="131" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWZ-lK-Gf2">
+                                <rect key="frame" x="133.33333333333334" y="70" width="108.33333333333334" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYx-Vl-63E">
-                                <rect key="frame" x="46" y="172" width="288" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYx-Vl-63E">
+                                <rect key="frame" x="30" y="180" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2E-y7-qNz">
-                                <rect key="frame" x="46" y="143" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2E-y7-qNz">
+                                <rect key="frame" x="30" y="144" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB2-4m-gsq">
-                                <rect key="frame" x="46" y="222" width="93" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB2-4m-gsq">
+                                <rect key="frame" x="30" y="229" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAx-cI-dPb">
-                                <rect key="frame" x="46" y="251" width="288" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAx-cI-dPb">
+                                <rect key="frame" x="30" y="265" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpo-YA-x1t">
-                                <rect key="frame" x="43" y="564" width="294" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9J-Qp-KpW">
+                                <rect key="frame" x="30" y="564" width="315" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u8z-mo-Eq2"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="JumsoColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="SignUpPasswordDidTap:" destination="6mA-N8-Kso" eventType="touchUpInside" id="ppQ-1q-xIR"/>
+                                    <action selector="SignUpPasswordDidTap:" destination="6mA-N8-Kso" eventType="touchUpInside" id="xZE-ut-hi8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nkg-Cz-qWa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OB2-4m-gsq" firstAttribute="leading" secondItem="Nkg-Cz-qWa" secondAttribute="leading" constant="30" id="6kW-9X-nVx"/>
+                            <constraint firstItem="q2E-y7-qNz" firstAttribute="leading" secondItem="Nkg-Cz-qWa" secondAttribute="leading" constant="30" id="7LG-UG-nXV"/>
+                            <constraint firstItem="Nkg-Cz-qWa" firstAttribute="trailing" secondItem="VAx-cI-dPb" secondAttribute="trailing" constant="30" id="CPq-IO-Yli"/>
+                            <constraint firstItem="Nkg-Cz-qWa" firstAttribute="trailing" secondItem="IYx-Vl-63E" secondAttribute="trailing" constant="30" id="I9i-tU-KLW"/>
+                            <constraint firstItem="VAx-cI-dPb" firstAttribute="leading" secondItem="Nkg-Cz-qWa" secondAttribute="leading" constant="30" id="NGX-eN-qWM"/>
+                            <constraint firstItem="IYx-Vl-63E" firstAttribute="leading" secondItem="Nkg-Cz-qWa" secondAttribute="leading" constant="30" id="QCw-7E-6xf"/>
+                            <constraint firstItem="IYx-Vl-63E" firstAttribute="top" secondItem="q2E-y7-qNz" secondAttribute="bottom" constant="15" id="UTd-eg-q4n"/>
+                            <constraint firstItem="N9J-Qp-KpW" firstAttribute="top" relation="lessThanOrEqual" secondItem="VAx-cI-dPb" secondAttribute="bottom" constant="265" id="ZfV-Wp-kIO"/>
+                            <constraint firstItem="Nkg-Cz-qWa" firstAttribute="bottom" secondItem="N9J-Qp-KpW" secondAttribute="bottom" constant="164" id="ZfX-7E-w4D"/>
+                            <constraint firstItem="Nkg-Cz-qWa" firstAttribute="trailing" secondItem="N9J-Qp-KpW" secondAttribute="trailing" constant="30" id="dmj-fr-PqQ"/>
+                            <constraint firstItem="VAx-cI-dPb" firstAttribute="top" secondItem="OB2-4m-gsq" secondAttribute="bottom" constant="15" id="ljA-iL-qgl"/>
+                            <constraint firstItem="N9J-Qp-KpW" firstAttribute="leading" secondItem="Nkg-Cz-qWa" secondAttribute="leading" constant="30" id="nLN-Dz-36g"/>
+                            <constraint firstItem="aWZ-lK-Gf2" firstAttribute="centerX" secondItem="f6I-gX-cgM" secondAttribute="centerX" id="v9W-cO-MoH"/>
+                            <constraint firstItem="q2E-y7-qNz" firstAttribute="top" secondItem="aWZ-lK-Gf2" secondAttribute="bottom" constant="50" id="vbj-aT-ibU"/>
+                            <constraint firstItem="OB2-4m-gsq" firstAttribute="top" secondItem="IYx-Vl-63E" secondAttribute="bottom" constant="15" id="vd9-3K-SYV"/>
+                            <constraint firstItem="aWZ-lK-Gf2" firstAttribute="top" secondItem="Nkg-Cz-qWa" secondAttribute="top" constant="20" id="xM3-hh-gRY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="PasswordConfirmInputTextField" destination="VAx-cI-dPb" id="Tfh-rL-Hxr"/>
+                        <outlet property="PasswordInputTextField" destination="IYx-Vl-63E" id="BxI-7Q-k02"/>
+                        <outlet property="SignUpPasswordButton" destination="N9J-Qp-KpW" id="Gf4-gK-iGm"/>
+                        <outlet property="buttonBottomConstraint" destination="ZfX-7E-w4D" id="NwE-h8-clk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ca-5U-rdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,28 +340,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입 후에 변경 O/X ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW5-tx-tHj">
-                                <rect key="frame" x="59" y="239" width="236" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnr-iG-2xA">
                                 <rect key="frame" x="43" y="564" width="294" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="JumsoColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="SignUpNameDidTap:" destination="0RG-ff-lGc" eventType="touchUpInside" id="XRH-7N-ve6"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zo9-xv-WUj">
-                                <rect key="frame" x="40" y="60" width="295" height="4"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zo9-xv-WUj">
+                                <rect key="frame" x="40" y="70" width="295" height="4"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="이름 또는 닉네임을 입력해주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epa-DF-jmE">
                                 <rect key="frame" x="43" y="100" width="256" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입 후에 변경 O/X ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW5-tx-tHj">
+                                <rect key="frame" x="40" y="309" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
