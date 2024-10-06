@@ -1,21 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SignUpProfileTableViewCell" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignUpProfileTableViewCell" id="KGk-i7-Jjw" customClass="SignUpProfileTableViewCell" customModule="jumso" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신은 어떤사람인가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMS-Od-Hcn">
+                        <rect key="frame" x="15" y="11.666666666666664" width="160" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbL-8b-SFm">
+                        <rect key="frame" x="264" y="7" width="41" height="30"/>
+                        <menu key="menu" id="cDO-Yh-RIX">
+                            <children>
+                                <command title="Item 1" id="e6x-p6-ECv"/>
+                                <command title="Item 2" id="amo-m7-amY"/>
+                            </children>
+                        </menu>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hbL-8b-SFm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9Ls-F1-gsW"/>
+                    <constraint firstItem="hbL-8b-SFm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rMS-Od-Hcn" secondAttribute="trailing" constant="50" id="P9Z-4E-lfL"/>
+                    <constraint firstItem="rMS-Od-Hcn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dSi-Aq-LoL"/>
+                    <constraint firstItem="rMS-Od-Hcn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="l6N-oU-L8J"/>
+                    <constraint firstAttribute="trailing" secondItem="hbL-8b-SFm" secondAttribute="trailing" constant="15" id="zBN-78-7XV"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="ProfileLabel" destination="rMS-Od-Hcn" id="eGV-wS-xMr"/>
+                <outlet property="ProfilePopUpButton" destination="hbL-8b-SFm" id="QHN-N4-Kj4"/>
+            </connections>
+            <point key="canvasLocation" x="149.61832061068702" y="-22.535211267605636"/>
         </tableViewCell>
     </objects>
 </document>

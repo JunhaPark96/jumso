@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C169B5E2CB2C51300933AFE /* SignUpGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C169B5D2CB2C51300933AFE /* SignUpGenderViewController.swift */; };
+		3C169B602CB2C7FD00933AFE /* SignUpDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C169B5F2CB2C7FD00933AFE /* SignUpDistanceViewController.swift */; };
+		3C169B632CB2CA5F00933AFE /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C169B612CB2CA5F00933AFE /* SignUpProfileViewController.swift */; };
+		3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C169B652CB2CE8300933AFE /* SignUpProfileTableViewCell.swift */; };
+		3C169B682CB2CE8300933AFE /* SignUpProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C169B662CB2CE8300933AFE /* SignUpProfileTableViewCell.xib */; };
 		3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29612C9B281000E03830 /* AppDelegate.swift */; };
 		3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29632C9B281000E03830 /* SceneDelegate.swift */; };
 		3C2C29662C9B281000E03830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29652C9B281000E03830 /* ViewController.swift */; };
@@ -52,6 +57,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C169B5D2CB2C51300933AFE /* SignUpGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpGenderViewController.swift; sourceTree = "<group>"; };
+		3C169B5F2CB2C7FD00933AFE /* SignUpDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDistanceViewController.swift; sourceTree = "<group>"; };
+		3C169B612CB2CA5F00933AFE /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
+		3C169B652CB2CE8300933AFE /* SignUpProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileTableViewCell.swift; sourceTree = "<group>"; };
+		3C169B662CB2CE8300933AFE /* SignUpProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpProfileTableViewCell.xib; sourceTree = "<group>"; };
 		3C2C295E2C9B281000E03830 /* jumso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jumso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2C29612C9B281000E03830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2C29632C9B281000E03830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +149,6 @@
 				3C2C29672C9B281000E03830 /* Main.storyboard */,
 				3CD83F4A2CA86A4A0028BDC3 /* ProfileCell.swift */,
 				3CD83F4B2CA86A4A0028BDC3 /* ProfileCell.xib */,
-				3CD83F472CA18AF50028BDC3 /* CompaniesCell.xib */,
 				3C2C296A2C9B281200E03830 /* Assets.xcassets */,
 				3C2C296C2C9B281200E03830 /* LaunchScreen.storyboard */,
 				3C2C296F2C9B281200E03830 /* Info.plist */,
@@ -182,6 +191,9 @@
 				3C5F94BC2CA9953300E477DD /* AuthenticationCodeViewController.swift */,
 				3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */,
 				3CD83F502CA871F20028BDC3 /* EmailAuthenticationViewController.swift */,
+				3C169B5D2CB2C51300933AFE /* SignUpGenderViewController.swift */,
+				3C169B5F2CB2C7FD00933AFE /* SignUpDistanceViewController.swift */,
+				3C169B612CB2CA5F00933AFE /* SignUpProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */,
+				3CD83F472CA18AF50028BDC3 /* CompaniesCell.xib */,
+				3C169B652CB2CE8300933AFE /* SignUpProfileTableViewCell.swift */,
+				3C169B662CB2CE8300933AFE /* SignUpProfileTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -360,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C2C296E2C9B281200E03830 /* LaunchScreen.storyboard in Resources */,
+				3C169B682CB2CE8300933AFE /* SignUpProfileTableViewCell.xib in Resources */,
 				3CD83F492CA18AF50028BDC3 /* CompaniesCell.xib in Resources */,
 				3CD83F532CA874A10028BDC3 /* SignUp.storyboard in Resources */,
 				3C2C296B2C9B281200E03830 /* Assets.xcassets in Resources */,
@@ -400,10 +416,14 @@
 				3C5F94C32CA9A2A400E477DD /* SignUpBirthDayViewController.swift in Sources */,
 				3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */,
 				3CD83F482CA18AF50028BDC3 /* CompaniesCell.swift in Sources */,
+				3C169B5E2CB2C51300933AFE /* SignUpGenderViewController.swift in Sources */,
 				3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */,
+				3C169B632CB2CA5F00933AFE /* SignUpProfileViewController.swift in Sources */,
 				3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */,
 				3C5F94BF2CA99B1C00E477DD /* SignUpPasswordViewController.swift in Sources */,
+				3C169B602CB2C7FD00933AFE /* SignUpDistanceViewController.swift in Sources */,
 				3C5F94C12CA99CB400E477DD /* SignUpNameViewController.swift in Sources */,
+				3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */,
 				3CD83F4C2CA86A4A0028BDC3 /* ProfileCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
