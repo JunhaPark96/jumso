@@ -1,29 +1,19 @@
-//
-//  SignUpIntroductionViewController.swift
-//  jumso
-//
-//  Created by junha on 10/13/24.
-//
-
 import UIKit
 
-class SignUpIntroductionViewController: UIViewController {
+class SignUpIntroductionViewController: SignUpBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateProgress(currentSignUpStep: 6)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func SignUpIntroductionDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        
+        let signUpPreferenceViewController = storyboard.instantiateViewController(withIdentifier: "SignUpPreferenceVC") as! SignUpPreferenceViewController
+        
+        self.navigationController?.pushViewController(signUpPreferenceViewController, animated: true)
     }
-    */
-
+    
 }

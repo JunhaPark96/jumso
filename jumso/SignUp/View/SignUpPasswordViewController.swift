@@ -1,13 +1,11 @@
 import UIKit
 
-class SignUpPasswordViewController: ViewController {
-    //    var passwordInput: String?
-    //    var passwordConfirmInput: String?
+class SignUpPasswordViewController: SignUpBaseViewController {
     var passwordChecked: Bool = false;
     
     @IBOutlet weak var PasswordInputTextField: UITextField!
     @IBOutlet weak var PasswordConfirmInputTextField: UITextField!
-    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var SignUpPasswordButton: UIButton!
     
     override func viewDidLoad() {
@@ -20,15 +18,15 @@ class SignUpPasswordViewController: ViewController {
         PasswordConfirmInputTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
     }
     
-    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-        if keyboardShowing {
-            let keyboardHeight = keyboardHeight + 10
-            UIView.animate(withDuration: 0.3) {
-                self.buttonBottomConstraint.constant = keyboardHeight
-                self.view.layoutIfNeeded()
-            }
-        }
-    }
+//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+//        SignUpKeyboardManager.adjustKeyboardForView(
+//            viewController: self,
+//            isShowing: keyboardShowing,
+//            keyboardHeight: keyboardHeight,
+//            bottomConstraint: buttonBottomConstraint,
+//            originalBottomConstraint: originalBottomConstraint
+//        )
+//    }
     
     private func passwordConfirmCheck(firstPassword: String, secondPassword: String) -> Bool {
         if firstPassword == secondPassword {

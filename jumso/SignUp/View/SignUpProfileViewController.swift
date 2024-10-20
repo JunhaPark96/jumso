@@ -25,7 +25,7 @@ enum ProfileSection: String, CaseIterable {
     }
 }
 
-class SignUpProfileViewController: UIViewController {
+class SignUpProfileViewController: SignUpBaseViewController {
     
     // 섹션별로 프로필 옵션 데이터
     let profileOptions: [ProfileSection: [(label: String, options: [String])]] = [
@@ -45,6 +45,7 @@ class SignUpProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateProgress(currentSignUpStep: 4)
         
         ProfileTableView.delegate = self
         ProfileTableView.dataSource = self

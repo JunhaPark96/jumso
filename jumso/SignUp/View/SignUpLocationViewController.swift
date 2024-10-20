@@ -2,9 +2,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class SignUpLocationViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
+class SignUpLocationViewController: SignUpBaseViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
-    private var mapView: MKMapView!
+    //    private var mapView: MKMapView!
     private var locationManager: CLLocationManager!
     private var geocoder = CLGeocoder()
     
@@ -15,32 +15,53 @@ class SignUpLocationViewController: UIViewController, CLLocationManagerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateProgress(currentSignUpStep: 5)
         
         // CLLocationManager 설정
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        // 사용자에게 위치 권한 요청
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        // 위치 서비스 사용 가능 여부 확인
         
         // 텍스트 필드 델리게이트 설정
         LocationInputTextField.delegate = self
+        
+        if CLLocationManager.locationServicesEnabled() {
+            // 위치 권한 요청
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        } else {
+            print("위치 서비스가 비활성화되어 있습니다.")
+        }
+        
+        LocationMapView.showsUserLocation = true
     }
+    
+    @IBAction func SignUpLocationDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        
+        let signUpIntroductionViewController = storyboard.instantiateViewController(withIdentifier: "SignUpIntroductionVC") as! SignUpIntroductionViewController
+        
+        self.navigationController?.pushViewController(signUpIntroductionViewController, animated: true)
+    }
+    
     
     // 현재 위치를 업데이트 받는 메서드
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let userLocation = locations.first {
-            
             let latitude = userLocation.coordinate.latitude
             let longitude = userLocation.coordinate.longitude
             print("현재 위치 - 위도: \(latitude), 경도: \(longitude)")
+            
             // 지도를 현재 위치로 이동
             let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
             LocationMapView.setRegion(region, animated: true)
-            // 현재 위치 표시
-            LocationMapView.showsUserLocation = true
+            
+            // 현재 위치에 마커 추가
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = userLocation.coordinate
+            annotation.title = "현재 위치"
+            LocationMapView.addAnnotation(annotation)
             
             // 현재 위치 주소 가져오기
             geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
@@ -91,6 +112,18 @@ class SignUpLocationViewController: UIViewController, CLLocationManagerDelegate,
                 // 좌표 정보 표시
                 strongSelf.LocationLabel.text = "선택된 위치: \(placemark.locality ?? ""), \(placemark.country ?? "")"
             }
+        }
+    }
+    
+    // 위치 권한 상태 변경 시 호출
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .denied, .restricted:
+            print("위치 권한이 거부되었습니다.")
+        default:
+            break
         }
     }
 }
