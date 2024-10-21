@@ -4,9 +4,7 @@ import UIKit
 class SignUpBaseViewController: UIViewController {
     
     @IBOutlet var progressBars: [UIProgressView]?
-    @IBOutlet var buttonBottomConstraints: [NSLayoutConstraint]?
     var totalSignUpSteps: Int = 8
-    var originalBottomConstraints: [CGFloat] = []
     
     
     var shouldManageKeyboardObservers: Bool = true
@@ -16,11 +14,6 @@ class SignUpBaseViewController: UIViewController {
         super.viewDidLoad()
         setupProgressBars()
         
-        if let buttonBottomConstraints = buttonBottomConstraints {
-            for constraint in buttonBottomConstraints {
-                originalBottomConstraints.append(constraint.constant)
-            }
-        }
         
         if shouldManageKeyboardObservers {
             keyboardManager.setupKeyBoardDismissal(for: self)
@@ -55,17 +48,7 @@ class SignUpBaseViewController: UIViewController {
     func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
         // 기본적으로 아무 동작도 하지 않음.
         // 각 VC에서 오버라이드하여 필요한 동작을 수행할 수 있음
-//        guard let buttonBottomConstraints = buttonBottomConstraints else { return }
-//        
-//        for (index, constraint) in buttonBottomConstraints.enumerated() {
-//            let originalConstant = originalBottomConstraints[index]
-//            let newKeyboardHeight = keyboardShowing ? keyboardHeight + 10 : originalConstant
-//            
-//            UIView.animate(withDuration: 0.3) {
-//                constraint.constant = newKeyboardHeight
-//                self.view.layoutIfNeeded()
-//            }
-//        }
+
     }
     
     

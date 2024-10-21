@@ -1,7 +1,7 @@
 import UIKit
 
 class SignUpBirthDayViewController: SignUpBaseViewController {
-    
+    var originalBottomConstraint: CGFloat = 0
     
     @IBOutlet weak var Y1TextField: UITextField!
     @IBOutlet weak var Y2TextField: UITextField!
@@ -15,14 +15,25 @@ class SignUpBirthDayViewController: SignUpBaseViewController {
     @IBOutlet weak var D2TextField: UITextField!
     
     @IBOutlet weak var SignUpBirthDayButton: UIButton!
-//    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        originalBottomConstraint = buttonBottomConstraint.constant
         setupTextFields()
         SignUpBirthDayButton.isEnabled = false
         updateProgress(currentSignUpStep: 2)
+    }
+    
+    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+        SignUpKeyboardManager.adjustKeyboardForView(
+            viewController: self,
+            isShowing: keyboardShowing,
+            keyboardHeight: keyboardHeight,
+            bottomConstraint: buttonBottomConstraint,
+            originalBottomConstraint: originalBottomConstraint
+        )
     }
     
     func setupTextFields() {

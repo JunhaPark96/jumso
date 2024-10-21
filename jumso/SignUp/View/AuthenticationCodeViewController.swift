@@ -5,15 +5,15 @@ class AuthenticationCodeViewController: SignUpBaseViewController {
     var fullEmailAddress: String?
     var authenticationCodeInput: String?
     let tempAuthenticationCode = "q"
+    var originalBottomConstraint: CGFloat = 0
     
-    
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var FullEmailAddressLabel: UILabel!
     @IBOutlet weak var AuthenticationCodeInputTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        originalBottomConstraint = buttonBottomConstraint.constant
+        originalBottomConstraint = buttonBottomConstraint.constant
         
         // 이전 화면에서 전달 받은 completeEmail
         if let fullEmailAddress {
@@ -21,15 +21,15 @@ class AuthenticationCodeViewController: SignUpBaseViewController {
         }
     }
     
-//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-//        SignUpKeyboardManager.adjustKeyboardForView(
-//            viewController: self,
-//            isShowing: keyboardShowing,
-//            keyboardHeight: keyboardHeight,
-//            bottomConstraint: buttonBottomConstraint,
-//            originalBottomConstraint: originalBottomConstraint
-//        )
-//    }
+    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+        SignUpKeyboardManager.adjustKeyboardForView(
+            viewController: self,
+            isShowing: keyboardShowing,
+            keyboardHeight: keyboardHeight,
+            bottomConstraint: buttonBottomConstraint,
+            originalBottomConstraint: originalBottomConstraint
+        )
+    }
     
     private func emailAuthentication(authorizaitonCode: String) {
         // TODO: 이메일 인증 처리 로직

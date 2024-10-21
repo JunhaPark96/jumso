@@ -227,6 +227,7 @@
                     <connections>
                         <outlet property="AuthenticationCodeInputTextField" destination="SI9-4k-uRx" id="cPI-P1-Hre"/>
                         <outlet property="FullEmailAddressLabel" destination="MKs-u1-emd" id="0xn-dK-cIn"/>
+                        <outlet property="buttonBottomConstraint" destination="V1h-nl-E5T" id="HPB-a8-WwC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04b-70-Mf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
