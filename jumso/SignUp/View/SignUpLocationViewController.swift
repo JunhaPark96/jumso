@@ -4,18 +4,19 @@ import CoreLocation
 
 class SignUpLocationViewController: SignUpBaseViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
-    //    private var mapView: MKMapView!
     private var locationManager: CLLocationManager!
     private var geocoder = CLGeocoder()
-    
     
     @IBOutlet weak var LocationLabel: UILabel!
     @IBOutlet weak var LocationInputTextField: UITextField!
     @IBOutlet weak var LocationMapView: MKMapView!
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var MyLocationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateProgress(currentSignUpStep: 5)
+        
         
         // CLLocationManager 설정
         locationManager = CLLocationManager()
@@ -26,13 +27,12 @@ class SignUpLocationViewController: SignUpBaseViewController, CLLocationManagerD
         // 텍스트 필드 델리게이트 설정
         LocationInputTextField.delegate = self
         
-        if CLLocationManager.locationServicesEnabled() {
-            // 위치 권한 요청
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        } else {
-            print("위치 서비스가 비활성화되어 있습니다.")
-        }
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        // 위치 권한 요청
+        locationManager.requestWhenInUseAuthorization()
         
         LocationMapView.showsUserLocation = true
     }
@@ -40,9 +40,9 @@ class SignUpLocationViewController: SignUpBaseViewController, CLLocationManagerD
     @IBAction func SignUpLocationDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
         
-        let signUpIntroductionViewController = storyboard.instantiateViewController(withIdentifier: "SignUpIntroductionVC") as! SignUpIntroductionViewController
+        let signUpDistanceViewController = storyboard.instantiateViewController(withIdentifier: "SignUpDistanceVC") as! SignUpDistanceViewController
         
-        self.navigationController?.pushViewController(signUpIntroductionViewController, animated: true)
+        self.navigationController?.pushViewController(signUpDistanceViewController, animated: true)
     }
     
     
@@ -67,7 +67,7 @@ class SignUpLocationViewController: SignUpBaseViewController, CLLocationManagerD
             geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
                 if let placemark = placemarks?.first {
                     let address = "\(placemark.locality ?? ""), \(placemark.country ?? "")"
-                    self.LocationLabel.text = "현재 위치: \(address)"
+                    self.MyLocationLabel.text = "현재 위치: \(address)"
                 }
             }
         }
@@ -116,13 +116,16 @@ class SignUpLocationViewController: SignUpBaseViewController, CLLocationManagerD
     }
     
     // 위치 권한 상태 변경 시 호출
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation()
         case .denied, .restricted:
             print("위치 권한이 거부되었습니다.")
-        default:
+            // 사용자에게 위치 권한 설정 안내
+        case .notDetermined:
+            print("위치 권한 상태를 결정하지 않았습니다.")
+        @unknown default:
             break
         }
     }

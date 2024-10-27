@@ -45,8 +45,6 @@ class SignUpPreferenceViewController: SignUpBaseViewController {
     ]
     
     
-    
-    
     @IBOutlet weak var PreferenceTableView: UITableView!
     
     override func viewDidLoad() {
@@ -66,6 +64,16 @@ class SignUpPreferenceViewController: SignUpBaseViewController {
         let signUpSelectTableViewCell = UINib(nibName: "SignUpSelectTableViewCell", bundle: nil)
         PreferenceTableView.register(signUpSelectTableViewCell, forCellReuseIdentifier: "SignUpSelectTableViewCell")
     }
+    
+    
+    @IBAction func SignUpPreferenceDidTap(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+        
+        self.navigationController?.pushViewController(loginViewController, animated: true)
+    }
+    
 }
 
 extension SignUpPreferenceViewController: UITableViewDelegate, UITableViewDataSource {
@@ -194,4 +202,7 @@ extension SignUpPreferenceViewController: UITableViewDelegate, UITableViewDataSo
         
         self.present(signUpCompanySelectionViewController, animated: true, completion: nil)
     }
+    
+    
+    
 }

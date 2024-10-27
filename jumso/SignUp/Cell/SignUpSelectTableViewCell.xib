@@ -32,11 +32,11 @@
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chevron.right.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3PS-a1-3PB">
-                        <rect key="frame" x="328" y="29.333333333333329" width="50" height="46.999999999999986"/>
+                        <rect key="frame" x="345" y="32.333333333333329" width="40" height="40"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Ffb-uL-xNy"/>
-                            <constraint firstAttribute="width" constant="50" id="tOV-px-grv"/>
+                            <constraint firstAttribute="height" constant="40" id="Ffb-uL-xNy"/>
+                            <constraint firstAttribute="width" constant="40" id="tOV-px-grv"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -49,7 +49,7 @@
                     <constraint firstItem="AOA-8h-Tq5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SoT-3r-sy5"/>
                     <constraint firstItem="FbB-ef-MdG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ThO-uO-Zyh"/>
                     <constraint firstItem="3PS-a1-3PB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bRc-TQ-XZg"/>
-                    <constraint firstAttribute="trailing" secondItem="3PS-a1-3PB" secondAttribute="trailing" constant="15" id="bVT-8T-uX6"/>
+                    <constraint firstAttribute="trailing" secondItem="3PS-a1-3PB" secondAttribute="trailing" constant="8" id="jXO-9c-LWO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

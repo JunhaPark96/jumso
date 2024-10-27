@@ -60,9 +60,9 @@ class SignUpGenderViewController: SignUpBaseViewController {
     @IBAction func SignUpGenderDidTap(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
         
-        let signUpDistanceViewController = storyboard.instantiateViewController(withIdentifier: "SignUpDistanceVC") as! SignUpDistanceViewController
+        let signUpProfileViewController = storyboard.instantiateViewController(withIdentifier: "SignUpProfileVC") as! SignUpProfileViewController
         
-        self.navigationController?.pushViewController(signUpDistanceViewController, animated: true)
+        self.navigationController?.pushViewController(signUpProfileViewController, animated: true)
     }
     
 }

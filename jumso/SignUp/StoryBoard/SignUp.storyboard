@@ -802,10 +802,14 @@
                             <constraint firstItem="nlV-Dm-7Iv" firstAttribute="leading" secondItem="c6S-Xy-hK7" secondAttribute="leading" constant="40" id="w2w-IO-P0y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="DistanceNumberLabel" destination="AdN-nn-unc" id="kqY-2d-Hym"/>
+                        <outlet property="DistanceSlider" destination="3do-MI-jhr" id="v3u-2F-BKp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kf-Fu-FSJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8081" y="228"/>
+            <point key="canvasLocation" x="9546" y="-21"/>
         </scene>
         <!--Sign Up Profile View Controller-->
         <scene sceneID="vlu-co-ZmO">
@@ -868,7 +872,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5h-Tt-a7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8808.7999999999993" y="-21.428571428571431"/>
+            <point key="canvasLocation" x="8167" y="-21"/>
         </scene>
         <!--Sign Up Location View Controller-->
         <scene sceneID="uNQ-cq-k02">
@@ -881,8 +885,8 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-X1-6Jw">
                                 <rect key="frame" x="40" y="70" width="295" height="4"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치를 선택해 주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ell-72-SiO">
-                                <rect key="frame" x="30" y="124" width="165" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 회사 위치는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ell-72-SiO">
+                                <rect key="frame" x="30.000000000000007" y="124" width="112.66666666666669" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -902,48 +906,57 @@
                                     <action selector="SignUpLocationDidTap:" destination="0pg-5C-gbi" eventType="touchUpInside" id="8xI-3Y-LdQ"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9am-0Q-vfx">
-                                <rect key="frame" x="0.0" y="247" width="375" height="318"/>
-                                <standardMapConfiguration key="preferredConfiguration"/>
-                            </mapView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyB-RW-7yj">
-                                <rect key="frame" x="30" y="183" width="315" height="34"/>
+                                <rect key="frame" x="30" y="178" width="315" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="내 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2z-dy-vbG">
+                                <rect key="frame" x="30" y="247" width="173" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9am-0Q-vfx">
+                                <rect key="frame" x="0.0" y="286" width="375" height="318"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZDR-h1-fSc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9am-0Q-vfx" firstAttribute="centerY" secondItem="4je-kO-h3L" secondAttribute="centerY" id="0XA-V6-y3O"/>
                             <constraint firstItem="ZDR-h1-fSc" firstAttribute="bottom" secondItem="SbP-Pg-Z93" secondAttribute="bottom" constant="30" id="5ha-qn-ynl"/>
                             <constraint firstItem="ZDR-h1-fSc" firstAttribute="trailing" secondItem="gyB-RW-7yj" secondAttribute="trailing" constant="30" id="5zJ-Zc-0Bd"/>
+                            <constraint firstItem="x2z-dy-vbG" firstAttribute="top" secondItem="gyB-RW-7yj" secondAttribute="bottom" constant="35" id="C97-U1-X04"/>
                             <constraint firstItem="gyB-RW-7yj" firstAttribute="leading" secondItem="ZDR-h1-fSc" secondAttribute="leading" constant="30" id="D3M-YN-csA"/>
                             <constraint firstItem="ell-72-SiO" firstAttribute="leading" secondItem="ZDR-h1-fSc" secondAttribute="leading" constant="30" id="ILg-N8-50R"/>
+                            <constraint firstItem="9am-0Q-vfx" firstAttribute="top" secondItem="x2z-dy-vbG" secondAttribute="bottom" constant="15" id="NyY-59-f8j"/>
+                            <constraint firstItem="SbP-Pg-Z93" firstAttribute="top" secondItem="9am-0Q-vfx" secondAttribute="bottom" constant="94" id="Ojm-WN-Z1i"/>
                             <constraint firstItem="9am-0Q-vfx" firstAttribute="trailing" secondItem="ZDR-h1-fSc" secondAttribute="trailing" id="QwV-pn-8MU"/>
                             <constraint firstItem="ell-72-SiO" firstAttribute="top" secondItem="cx1-X1-6Jw" secondAttribute="bottom" constant="50" id="SlH-cl-fSC"/>
                             <constraint firstItem="ZDR-h1-fSc" firstAttribute="trailing" secondItem="SbP-Pg-Z93" secondAttribute="trailing" constant="30" id="Va0-Bz-Ozk"/>
+                            <constraint firstItem="x2z-dy-vbG" firstAttribute="leading" secondItem="ZDR-h1-fSc" secondAttribute="leading" constant="30" id="WL9-RM-nFg"/>
                             <constraint firstItem="cx1-X1-6Jw" firstAttribute="top" secondItem="ZDR-h1-fSc" secondAttribute="top" constant="20" id="X4e-m3-JeW"/>
                             <constraint firstItem="9am-0Q-vfx" firstAttribute="centerX" secondItem="4je-kO-h3L" secondAttribute="centerX" id="b8w-Wo-HcL"/>
-                            <constraint firstItem="gyB-RW-7yj" firstAttribute="top" secondItem="ell-72-SiO" secondAttribute="bottom" constant="35" id="eB3-0z-gk1"/>
-                            <constraint firstItem="SbP-Pg-Z93" firstAttribute="top" secondItem="9am-0Q-vfx" secondAttribute="bottom" constant="133" id="gIi-GB-bNL"/>
+                            <constraint firstItem="gyB-RW-7yj" firstAttribute="top" secondItem="ell-72-SiO" secondAttribute="bottom" constant="30" id="eB3-0z-gk1"/>
                             <constraint firstItem="SbP-Pg-Z93" firstAttribute="leading" secondItem="ZDR-h1-fSc" secondAttribute="leading" constant="30" id="khc-SJ-X79"/>
                             <constraint firstItem="9am-0Q-vfx" firstAttribute="leading" secondItem="ZDR-h1-fSc" secondAttribute="leading" id="lAA-KI-l6z"/>
                             <constraint firstItem="cx1-X1-6Jw" firstAttribute="leading" secondItem="ZDR-h1-fSc" secondAttribute="leading" constant="40" id="mJc-B1-3ER"/>
                             <constraint firstItem="cx1-X1-6Jw" firstAttribute="centerX" secondItem="4je-kO-h3L" secondAttribute="centerX" id="sdm-NE-G3V"/>
-                            <constraint firstItem="9am-0Q-vfx" firstAttribute="top" secondItem="gyB-RW-7yj" secondAttribute="bottom" constant="30" id="wwR-1x-pSO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="LocationInputTextField" destination="gyB-RW-7yj" id="I3j-Ma-fIx"/>
                         <outlet property="LocationLabel" destination="ell-72-SiO" id="eRa-j8-KND"/>
                         <outlet property="LocationMapView" destination="9am-0Q-vfx" id="dzv-Nh-2F8"/>
+                        <outlet property="MyLocationLabel" destination="x2z-dy-vbG" id="XI1-gp-47g"/>
+                        <outlet property="buttonBottomConstraint" destination="5ha-qn-ynl" id="NCX-Ue-A46"/>
                         <outletCollection property="progressBars" destination="cx1-X1-6Jw" collectionClass="NSMutableArray" id="BUC-97-0EW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDo-yO-RaD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9520.7999999999993" y="-21.428571428571431"/>
+            <point key="canvasLocation" x="8887" y="-21"/>
         </scene>
         <!--Sign Up Introduction View Controller-->
         <scene sceneID="9rO-Ol-gKu">
@@ -1103,6 +1116,9 @@
                                         <color key="backgroundColor" name="JumsoColor"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="SignUpPreferenceDidTap:" destination="zbS-XB-wmC" eventType="touchUpInside" id="LVv-bg-0aK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="28L-F0-Q9x"/>
