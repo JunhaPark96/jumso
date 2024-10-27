@@ -2,6 +2,7 @@ import UIKit
 
 class SignUpBirthDayViewController: SignUpBaseViewController {
     var originalBottomConstraint: CGFloat = 0
+    var isButtonTapped: Bool = false
     
     @IBOutlet weak var Y1TextField: UITextField!
     @IBOutlet weak var Y2TextField: UITextField!
@@ -20,21 +21,21 @@ class SignUpBirthDayViewController: SignUpBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        originalBottomConstraint = buttonBottomConstraint.constant
+        let originalConstraintValue = buttonBottomConstraint.constant
+        registerBottomConstraint(bottomConstraint: buttonBottomConstraint, originalValue: originalConstraintValue)
+        
+        keyboardManager.canAdjustForKeyboard = { [weak self] in
+            return !(self?.isButtonTapped ?? true)
+        }
+        
         setupTextFields()
         SignUpBirthDayButton.isEnabled = false
         updateProgress(currentSignUpStep: 2)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleButtonTap))
+        SignUpBirthDayButton.addGestureRecognizer(tapGesture)
     }
     
-//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-//        SignUpKeyboardManager.adjustKeyboardForView(
-//            viewController: self,
-//            isShowing: keyboardShowing,
-//            keyboardHeight: keyboardHeight,
-//            bottomConstraint: buttonBottomConstraint,
-//            originalBottomConstraint: originalBottomConstraint
-//        )
-//    }
     
     func setupTextFields() {
         let allTextFields = [Y1TextField, Y2TextField, Y3TextField, Y4TextField, M1TextField, M2TextField, D1TextField, D2TextField]
@@ -52,19 +53,21 @@ class SignUpBirthDayViewController: SignUpBaseViewController {
         validateTextFields() // 모든 텍스트 필드가 입력되었는지 확인하여 버튼 활성화
     }
     
-    func moveToNextTextField(from textField: UITextField) {
-        switch textField {
-        case Y1TextField: Y2TextField.becomeFirstResponder()
-        case Y2TextField: Y3TextField.becomeFirstResponder()
-        case Y3TextField: Y4TextField.becomeFirstResponder()
-        case Y4TextField: M1TextField.becomeFirstResponder()
-        case M1TextField: M2TextField.becomeFirstResponder()
-        case M2TextField: D1TextField.becomeFirstResponder()
-        case D1TextField: D2TextField.becomeFirstResponder()
-        case D2TextField: D2TextField.resignFirstResponder() // 마지막 필드일 경우 키보드 내림
-        default: break
-        }
-    }
+    //    func moveToNextTextField(from textField: UITextField) {
+    //        switch textField {
+    //        case Y1TextField: Y2TextField.becomeFirstResponder()
+    //        case Y2TextField: Y3TextField.becomeFirstResponder()
+    //        case Y3TextField: Y4TextField.becomeFirstResponder()
+    //        case Y4TextField: M1TextField.becomeFirstResponder()
+    //        case M1TextField: M2TextField.becomeFirstResponder()
+    //        case M2TextField: D1TextField.becomeFirstResponder()
+    //        case D1TextField: D2TextField.becomeFirstResponder()
+    //        case D2TextField: D2TextField.resignFirstResponder() // 마지막 필드일 경우 키보드 내림
+    //        default: break
+    //        }
+    //    }
+    
+    
     
     func validateTextFields() {
         let allTextFields = [Y1TextField, Y2TextField, Y3TextField, Y4TextField, M1TextField, M2TextField, D1TextField, D2TextField]
@@ -135,10 +138,18 @@ class SignUpBirthDayViewController: SignUpBaseViewController {
         return range.count
     }
     
-    @IBAction func SignUpBirthDayDidTap(_ sender: Any) {
+    
+    @objc func handleButtonTap() {
+        isButtonTapped = true
+        
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
         let signUpGenderViewController = storyboard.instantiateViewController(withIdentifier: "SignUpGenderVC") as! SignUpGenderViewController
         self.navigationController?.pushViewController(signUpGenderViewController, animated: true)
+    }
+    
+    @objc override func dismissKeyboard() {
+        isButtonTapped = false // 다른 곳을 터치하면 다시 플래그 해제
+        view.endEditing(true)
     }
     
 }
@@ -158,7 +169,44 @@ extension SignUpBirthDayViewController: UITextFieldDelegate {
         }
         
         // 글자 수 제한 (한 글자씩)
-        return prospectiveText.count <= 1
+        if prospectiveText.count <= 1 {
+            if string.isEmpty { // 백스페이스가 입력된 경우
+                moveToPreviousTextField(from: textField)
+            } else if prospectiveText.count == 1 { // 새로 입력된 숫자가 있는 경우
+                moveToNextTextField(from: textField)
+            }
+            textField.text = prospectiveText // 현재 필드에 입력을 적용
+            validateTextFields() // 버튼 활성화 상태 확인
+            return false // 직접 입력 관리
+        }
+        return false
+    }
+    
+    private func moveToNextTextField(from textField: UITextField) {
+        switch textField {
+        case Y1TextField: Y2TextField.becomeFirstResponder()
+        case Y2TextField: Y3TextField.becomeFirstResponder()
+        case Y3TextField: Y4TextField.becomeFirstResponder()
+        case Y4TextField: M1TextField.becomeFirstResponder()
+        case M1TextField: M2TextField.becomeFirstResponder()
+        case M2TextField: D1TextField.becomeFirstResponder()
+        case D1TextField: D2TextField.becomeFirstResponder()
+        case D2TextField: D2TextField.resignFirstResponder() // 마지막 필드일 경우 키보드 내림
+        default: break
+        }
+    }
+    
+    private func moveToPreviousTextField(from textField: UITextField) {
+        switch textField {
+        case Y2TextField: Y1TextField.becomeFirstResponder()
+        case Y3TextField: Y2TextField.becomeFirstResponder()
+        case Y4TextField: Y3TextField.becomeFirstResponder()
+        case M1TextField: Y4TextField.becomeFirstResponder()
+        case M2TextField: M1TextField.becomeFirstResponder()
+        case D1TextField: M2TextField.becomeFirstResponder()
+        case D2TextField: D1TextField.becomeFirstResponder()
+        default: break
+        }
     }
     
 }

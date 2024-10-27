@@ -2,8 +2,8 @@ import UIKit
 
 class EmailAuthenticationViewController: SignUpBaseViewController {
     var originalBottomConstraint: CGFloat = 0
-    var companyEmailDomains: [String]?
     var isButtonTapped: Bool = false
+    var companyEmailDomains: [String]?
     var selectedEmailDomain: String?
     
     @IBOutlet weak var InputEmailIDTextField: UITextField!
@@ -21,8 +21,8 @@ class EmailAuthenticationViewController: SignUpBaseViewController {
         registerBottomConstraint(bottomConstraint: buttonBottomConstraint, originalValue: originalConstraintValue)
         
         keyboardManager.canAdjustForKeyboard = { [weak self] in
-                    return !(self?.isButtonTapped ?? true)
-                }
+            return !(self?.isButtonTapped ?? true)
+        }
         
         EmailAuthenticationButton.isEnabled = false
         
@@ -37,18 +37,6 @@ class EmailAuthenticationViewController: SignUpBaseViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleButtonTap))
         EmailAuthenticationButton.addGestureRecognizer(tapGesture)
     }
-    
-//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-//        guard !isButtonTapped else { return }
-//        
-//        SignUpKeyboardManager.adjustKeyboardForView(
-//            viewController: self,
-//            isShowing: keyboardShowing,
-//            keyboardHeight: keyboardHeight,
-//            bottomConstraint: buttonBottomConstraint,
-//            originalBottomConstraint: originalBottomConstraint
-//        )
-//    }
     
     @objc func textFieldsDidChange() {
         // 두 패스워드 필드가 모두 채워져 있으면 버튼 활성화

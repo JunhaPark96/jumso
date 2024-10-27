@@ -1,8 +1,9 @@
 import UIKit
 
 class SignUpPasswordViewController: SignUpBaseViewController {
-    var passwordChecked: Bool = false;
+    var passwordChecked: Bool = false
     var originalBottomConstraint: CGFloat = 0
+    var isButtonTapped: Bool = false
     
     @IBOutlet weak var PasswordInputTextField: UITextField!
     @IBOutlet weak var PasswordConfirmInputTextField: UITextField!
@@ -11,23 +12,24 @@ class SignUpPasswordViewController: SignUpBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        originalBottomConstraint = buttonBottomConstraint.constant
+        
+        let originalConstraintValue = buttonBottomConstraint.constant
+        registerBottomConstraint(bottomConstraint: buttonBottomConstraint, originalValue: originalConstraintValue)
+        
+        keyboardManager.canAdjustForKeyboard = { [weak self] in
+            return !(self?.isButtonTapped ?? true)
+        }
+        
         SignUpPasswordButton.isEnabled = false
         
         // 텍스트 필드에 변경이 있을 때마다 호출
         PasswordInputTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
         PasswordConfirmInputTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleButtonTap))
+        SignUpPasswordButton.addGestureRecognizer(tapGesture)
     }
     
-//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-//        SignUpKeyboardManager.adjustKeyboardForView(
-//            viewController: self,
-//            isShowing: keyboardShowing,
-//            keyboardHeight: keyboardHeight,
-//            bottomConstraint: buttonBottomConstraint,
-//            originalBottomConstraint: originalBottomConstraint
-//        )
-//    }
     
     private func passwordConfirmCheck(firstPassword: String, secondPassword: String) -> Bool {
         if firstPassword == secondPassword {
@@ -47,7 +49,8 @@ class SignUpPasswordViewController: SignUpBaseViewController {
         SignUpPasswordButton.isEnabled = isPasswordFilled && isConfirmPasswordFilled
     }
     
-    @IBAction func SignUpPasswordDidTap(_ sender: UIButton) {
+    @objc func handleButtonTap() {
+        isButtonTapped = true
         
         guard let firstPassword = PasswordInputTextField.text, let secondPassword = PasswordConfirmInputTextField.text else {
             print("SignUpPasswordViewController - 비밀번호 입력란이 비어있습니다.")
@@ -69,6 +72,8 @@ class SignUpPasswordViewController: SignUpBaseViewController {
         
     }
     
-    
-    
+    @objc override func dismissKeyboard() {
+        isButtonTapped = false // 다른 곳을 터치하면 다시 플래그 해제
+        view.endEditing(true)
+    }
 }

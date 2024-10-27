@@ -14,7 +14,12 @@ class AuthenticationCodeViewController: SignUpBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        originalBottomConstraint = buttonBottomConstraint.constant
+        let originalConstraintValue = buttonBottomConstraint.constant
+        registerBottomConstraint(bottomConstraint: buttonBottomConstraint, originalValue: originalConstraintValue)
+        
+        keyboardManager.canAdjustForKeyboard = { [weak self] in
+                    return !(self?.isButtonTapped ?? true)
+                }
         
         AuthenticationCodeButton.isEnabled = false
         
@@ -29,15 +34,6 @@ class AuthenticationCodeViewController: SignUpBaseViewController {
         AuthenticationCodeButton.addGestureRecognizer(tapGesture)
     }
     
-//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-//        SignUpKeyboardManager.adjustKeyboardForView(
-//            viewController: self,
-//            isShowing: keyboardShowing,
-//            keyboardHeight: keyboardHeight,
-//            bottomConstraint: buttonBottomConstraint,
-//            originalBottomConstraint: originalBottomConstraint
-//        )
-//    }
     
     @objc func textFieldsDidChange() {
         // 두 패스워드 필드가 모두 채워져 있으면 버튼 활성화
