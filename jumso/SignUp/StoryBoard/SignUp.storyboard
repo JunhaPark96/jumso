@@ -133,6 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="EmailAddressLabel" destination="LAz-HL-ejM" id="lME-xM-PDH"/>
+                        <outlet property="EmailAuthenticationButton" destination="5SI-dF-uBh" id="Ced-vz-BXk"/>
                         <outlet property="EmailDomainButton" destination="S56-IN-fpY" id="LTm-id-eoL"/>
                         <outlet property="EmailDomainLabel" destination="mzN-mW-Sjz" id="Ugs-sS-gNt"/>
                         <outlet property="InputEmailIDTextField" destination="h1I-SR-dvk" id="ibY-c7-LeR"/>

@@ -725,6 +725,8 @@
 				DEVELOPMENT_TEAM = RX2DUS3488;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jumso/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자 위치 권한을 허용하시겠습니까?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱 사용 중에 현재 위치를 사용합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -736,7 +738,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumso;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumsoD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -754,6 +756,8 @@
 				DEVELOPMENT_TEAM = RX2DUS3488;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jumso/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자 위치 권한을 허용하시겠습니까?";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱 사용 중에 현재 위치를 사용합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -765,7 +769,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jumso;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumsoD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

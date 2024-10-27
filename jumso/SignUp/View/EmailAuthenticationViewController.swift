@@ -1,8 +1,10 @@
 import UIKit
 
 class EmailAuthenticationViewController: SignUpBaseViewController {
-    
+    var originalBottomConstraint: CGFloat = 0
     var companyEmailDomains: [String]?
+    var isButtonTapped: Bool = false
+    var selectedEmailDomain: String?
     
     @IBOutlet weak var InputEmailIDTextField: UITextField!
     @IBOutlet weak var EmailAddressLabel: UILabel!
@@ -11,22 +13,28 @@ class EmailAuthenticationViewController: SignUpBaseViewController {
     @IBOutlet weak var EmailAuthenticationButton: UIButton!
     @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     
-    var selectedEmailDomain: String?
-    var originalBottomConstraint: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         originalBottomConstraint = buttonBottomConstraint.constant
         
+        EmailAuthenticationButton.isEnabled = false
+        
         if let emailDomains = companyEmailDomains {
             EmailDomainLabel.text = emailDomains.joined(separator: ", ")
         }
         
-//        configureEmailDomainUI()
         SignUpAppearance.configureEmailDomainUI(controller: self, emailDomains: companyEmailDomains)
+        
+        InputEmailIDTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleButtonTap))
+        EmailAuthenticationButton.addGestureRecognizer(tapGesture)
     }
     
     override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+        guard !isButtonTapped else { return }
+        
         SignUpKeyboardManager.adjustKeyboardForView(
             viewController: self,
             isShowing: keyboardShowing,
@@ -36,8 +44,16 @@ class EmailAuthenticationViewController: SignUpBaseViewController {
         )
     }
     
-    @IBAction func emailAuthenticateDidTap(_ sender: UIButton) {
-//        SignUpKeyboardManager.removeKeyboardNotificationObservers(for: self)
+    @objc func textFieldsDidChange() {
+        // 두 패스워드 필드가 모두 채워져 있으면 버튼 활성화
+        let isNameFilled = InputEmailIDTextField.text?.isEmpty == false
+        
+        // 필드가 모두 채워지면 회원가입 버튼 활성화
+        EmailAuthenticationButton.isEnabled = isNameFilled
+    }
+    
+    @objc func handleButtonTap() {
+        isButtonTapped = true
         
         guard let email = InputEmailIDTextField.text, let domain = selectedEmailDomain else {
             print("EmailAuthentication - 이메일 또는 도메인이 선택되지 않았습니다.")
@@ -56,6 +72,10 @@ class EmailAuthenticationViewController: SignUpBaseViewController {
         authenticationCodeViewController.fullEmailAddress = completeEmail
         
         self.navigationController?.pushViewController(authenticationCodeViewController, animated: true)
+    }
+    @objc override func dismissKeyboard() {
+        isButtonTapped = false // 다른 곳을 터치하면 다시 플래그 해제
+        view.endEditing(true)
     }
 }
 
