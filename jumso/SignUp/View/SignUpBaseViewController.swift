@@ -14,11 +14,17 @@ class SignUpBaseViewController: UIViewController {
         super.viewDidLoad()
         setupProgressBars()
         
-        
         if shouldManageKeyboardObservers {
-            keyboardManager.setupKeyBoardDismissal(for: self)
+            keyboardManager.setupKeyboardObservers(for: self)
         }
     }
+    
+    // 각 뷰에서 Constraint 등록
+    func registerBottomConstraint(bottomConstraint: NSLayoutConstraint, originalValue: CGFloat) {
+            keyboardManager.registerConstraint(bottomConstraint: bottomConstraint, originalConstraintValue: originalValue)
+        }
+    
+    
     
     // 모든 ProgressBar에 대한 레이아웃 설정
     func setupProgressBars() {

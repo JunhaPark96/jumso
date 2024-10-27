@@ -19,15 +19,15 @@ class SignUpPasswordViewController: SignUpBaseViewController {
         PasswordConfirmInputTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
     }
     
-    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-        SignUpKeyboardManager.adjustKeyboardForView(
-            viewController: self,
-            isShowing: keyboardShowing,
-            keyboardHeight: keyboardHeight,
-            bottomConstraint: buttonBottomConstraint,
-            originalBottomConstraint: originalBottomConstraint
-        )
-    }
+//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+//        SignUpKeyboardManager.adjustKeyboardForView(
+//            viewController: self,
+//            isShowing: keyboardShowing,
+//            keyboardHeight: keyboardHeight,
+//            bottomConstraint: buttonBottomConstraint,
+//            originalBottomConstraint: originalBottomConstraint
+//        )
+//    }
     
     private func passwordConfirmCheck(firstPassword: String, secondPassword: String) -> Bool {
         if firstPassword == secondPassword {

@@ -226,6 +226,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AuthenticationCodeButton" destination="98X-GK-kHV" id="V3Z-Vt-9PW"/>
                         <outlet property="AuthenticationCodeInputTextField" destination="SI9-4k-uRx" id="cPI-P1-Hre"/>
                         <outlet property="FullEmailAddressLabel" destination="MKs-u1-emd" id="0xn-dK-cIn"/>
                         <outlet property="buttonBottomConstraint" destination="V1h-nl-E5T" id="HPB-a8-WwC"/>

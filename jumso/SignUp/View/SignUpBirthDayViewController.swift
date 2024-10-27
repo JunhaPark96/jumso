@@ -26,15 +26,15 @@ class SignUpBirthDayViewController: SignUpBaseViewController {
         updateProgress(currentSignUpStep: 2)
     }
     
-    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-        SignUpKeyboardManager.adjustKeyboardForView(
-            viewController: self,
-            isShowing: keyboardShowing,
-            keyboardHeight: keyboardHeight,
-            bottomConstraint: buttonBottomConstraint,
-            originalBottomConstraint: originalBottomConstraint
-        )
-    }
+//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+//        SignUpKeyboardManager.adjustKeyboardForView(
+//            viewController: self,
+//            isShowing: keyboardShowing,
+//            keyboardHeight: keyboardHeight,
+//            bottomConstraint: buttonBottomConstraint,
+//            originalBottomConstraint: originalBottomConstraint
+//        )
+//    }
     
     func setupTextFields() {
         let allTextFields = [Y1TextField, Y2TextField, Y3TextField, Y4TextField, M1TextField, M2TextField, D1TextField, D2TextField]

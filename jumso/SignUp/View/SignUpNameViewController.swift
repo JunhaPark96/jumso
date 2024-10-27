@@ -22,17 +22,17 @@ class SignUpNameViewController: SignUpBaseViewController {
         SignUpNameButton.addGestureRecognizer(tapGesture)
     }
     
-    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
-        guard !isButtonTapped else { return }
-        
-        SignUpKeyboardManager.adjustKeyboardForView(
-            viewController: self,
-            isShowing: keyboardShowing,
-            keyboardHeight: keyboardHeight,
-            bottomConstraint: buttonBottomConstraint,
-            originalBottomConstraint: originalBottomConstraint
-        )
-    }
+//    override func adjustForKeyboardAppearance(keyboardShowing: Bool, keyboardHeight: CGFloat) {
+//        guard !isButtonTapped else { return }
+//        
+//        SignUpKeyboardManager.adjustKeyboardForView(
+//            viewController: self,
+//            isShowing: keyboardShowing,
+//            keyboardHeight: keyboardHeight,
+//            bottomConstraint: buttonBottomConstraint,
+//            originalBottomConstraint: originalBottomConstraint
+//        )
+//    }
     
     @objc func textFieldsDidChange() {
         // 두 패스워드 필드가 모두 채워져 있으면 버튼 활성화
