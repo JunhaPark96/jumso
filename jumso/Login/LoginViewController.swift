@@ -1,10 +1,3 @@
-//
-//  LoginViewController.swift
-//  jumso
-//
-//  Created by junha on 9/22/24.
-//
-
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -29,6 +22,16 @@ class LoginViewController: UIViewController {
     }
     // Touch Up Inside: tap
     @IBAction func loginButtonDidTap(_ sender: UIButton) {
+        // 1. 스토리보드 생성
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        // 2. 뷰 컨트롤러 생성
+        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! MainTabBarController
+        
+        tabBarViewController.modalPresentationStyle = .fullScreen
+        self.present(tabBarViewController, animated: true, completion: nil)
+//        // container view controller
+//        self.navigationController?.pushViewController(tabBarViewController, animated: true)
     }
     
     @IBAction func registerButtonDidTap(_ sender: UIButton) {
@@ -42,16 +45,7 @@ class LoginViewController: UIViewController {
                 print("Navigation controller is nil")
             }
         // 화면 전환
-        // 1. 스토리보드 생성
-//        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-//        
-//        // 2. 뷰 컨트롤러 생성
-//        let registerViewController = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
-//        
-//        // 3. 화면전환 메소드로 화면 전환
-////        self.present(registerViewController, animated: true, completion: nil)
-//        // container view controller
-//        self.navigationController?.pushViewController(registerViewController, animated: true)
+        
     }
     
     

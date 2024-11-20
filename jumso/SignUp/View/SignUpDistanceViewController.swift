@@ -22,7 +22,7 @@ class SignUpDistanceViewController: SignUpBaseViewController {
     
     @objc func sliderValueDidChange(_ sender: UISlider) {
         // 슬라이더의 현재 값을 정수로 변환하여 라벨 업데이트
-        DistanceNumberLabel.text = "\(Int(sender.value)) km"
+        DistanceNumberLabel.text = "\(Int(sender.value))"
     }
     
     
