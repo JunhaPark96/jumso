@@ -26,6 +26,7 @@
 		3C3BE7062CEE21C100695D7C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7052CEE21C100695D7C /* ChatViewController.swift */; };
 		3C3BE7082CEE21C900695D7C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7072CEE21C900695D7C /* ProfileViewController.swift */; };
 		3C3BE70A2CEE21EC00695D7C /* LoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7092CEE21EC00695D7C /* LoungeViewController.swift */; };
+		3C3BE7112CEE2D3000695D7C /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7102CEE2D3000695D7C /* KeychainManager.swift */; };
 		3C5401F62CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5401F42CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.swift */; };
 		3C5401F72CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C5401F52CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.xib */; };
 		3C5401FB2CBBA89500C95EB8 /* SignUpLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5401FA2CBBA89500C95EB8 /* SignUpLocationViewController.swift */; };
@@ -100,6 +101,7 @@
 		3C3BE7052CEE21C100695D7C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3C3BE7072CEE21C900695D7C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C3BE7092CEE21EC00695D7C /* LoungeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeViewController.swift; sourceTree = "<group>"; };
+		3C3BE7102CEE2D3000695D7C /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		3C5401F42CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileInputTableViewCell.swift; sourceTree = "<group>"; };
 		3C5401F52CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpProfileInputTableViewCell.xib; sourceTree = "<group>"; };
 		3C5401FA2CBBA89500C95EB8 /* SignUpLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLocationViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		3C3BE6F92CE9F0AF00695D7C /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				3C3BE7102CEE2D3000695D7C /* KeychainManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				3C3BE7042CEE21AE00695D7C /* HomeViewController.swift in Sources */,
 				3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */,
 				3C3BE7082CEE21C900695D7C /* ProfileViewController.swift in Sources */,
+				3C3BE7112CEE2D3000695D7C /* KeychainManager.swift in Sources */,
 				3C5402192CC53BA300C95EB8 /* SignUpKeyboardManager.swift in Sources */,
 				3CD83F4C2CA86A4A0028BDC3 /* ProfileCell.swift in Sources */,
 			);

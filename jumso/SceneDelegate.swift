@@ -15,6 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // 사용자 로그인 여부에 따라 화면 분기
+//        let window = UIWindow(windowScene: windowScene)
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
