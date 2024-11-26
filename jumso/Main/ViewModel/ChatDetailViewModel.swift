@@ -1,8 +1,34 @@
-//
-//  ChatDetailViewModel.swift
-//  jumso
-//
-//  Created by junha on 11/25/24.
-//
+import SwiftUI
+import Combine
 
-import Foundation
+class ChatDetailViewModel: ObservableObject {
+    @Published var messages: [String] = []
+    @Published var message: String = "" // 입력된 메시지
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        loadInitialMessages()
+    }
+    
+    // 초기 메시지 로드
+    func loadInitialMessages() {
+        // Mock 초기 메시지
+        messages = ["안녕하세요!", "여자친구 있어요?"]
+    }
+    
+    // 메시지 전송
+    func sendMessage() {
+        guard !message.isEmpty else { return }
+        messages.append(message)
+        message = "" // 입력창 초기화
+        
+        // 서버로 메시지 전송 시뮬레이션
+        Just("서버로 메시지가 전송되었습니다.")
+            .delay(for: .seconds(0.5), scheduler: RunLoop.main)
+            .sink { status in
+                print(status)
+            }
+            .store(in: &cancellables)
+    }
+}
