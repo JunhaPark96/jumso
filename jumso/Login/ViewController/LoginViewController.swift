@@ -1,6 +1,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    var authViewModel: AuthViewModel?
     
     var email = String()
     var password = String()
@@ -35,16 +36,35 @@ class LoginViewController: UIViewController {
     }
     // Touch Up Inside: tap
     @IBAction func loginButtonDidTap(_ sender: UIButton) {
-        // 1. 스토리보드 생성
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //
-        //        // 2. 뷰 컨트롤러 생성
-        let tabBarViewController = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! MainTabBarController
+        guard let authViewModel = authViewModel else {
+            print("❌ authViewModel이 nil입니다. 로그인 실패.")
+            return
+        }
         
-        tabBarViewController.modalPresentationStyle = .fullScreen
-        self.present(tabBarViewController, animated: true, completion: nil)
-        //        // container view controller
-        //        self.navigationController?.pushViewController(tabBarViewController, animated: true)
+        // Mock 로그인 처리
+        let loggedInUser = MockData.loggedInUser
+        authViewModel.logIn(userID: loggedInUser.id)
+        
+        // MainTabBarController 생성
+        let tabBarController = MainTabBarController(
+            authViewModel: authViewModel,
+            chatListViewModel: ChatListViewModel()
+        )
+        
+        // 애니메이션 추가
+        guard let window = UIApplication.shared.windows.first else {
+            print("❌ UIWindow를 찾을 수 없습니다.")
+            return
+        }
+        
+        let transition = CATransition()
+        transition.type = .moveIn // 화면이 이동하는 효과
+        transition.subtype = .fromBottom // 아래에서 위로
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        window.layer.add(transition, forKey: kCATransition)
+        window.rootViewController = tabBarController
+        
     }
     
     @IBAction func registerButtonDidTap(_ sender: UIButton) {

@@ -1,9 +1,9 @@
 import SwiftUI
 
-
-
 struct MainView: View {
     @StateObject var viewModel = MainViewModel()
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var chatListViewModel: ChatListViewModel
     
     var body: some View {
         NavigationView {
@@ -26,12 +26,21 @@ struct MainView: View {
                     
                     VStack(spacing: 10) {
                         ForEach(viewModel.users) { user in
+//                            NavigationLink(
+//                                destination: DetailedProfileView(viewModel: DetailedProfileViewModel(user: user))
+//                            ) {
+//                                MainIntroductionView(introduction: user)
+//                            }
+//                            .buttonStyle(PlainButtonStyle()) // 기본 스타일 제거
                             NavigationLink(
                                 destination: DetailedProfileView(viewModel: DetailedProfileViewModel(user: user))
+                                    .environmentObject(authViewModel) // 명시적 주입
+                                    .environmentObject(chatListViewModel) // 명시적 주입
                             ) {
                                 MainIntroductionView(introduction: user)
                             }
                             .buttonStyle(PlainButtonStyle()) // 기본 스타일 제거
+
                         }
                     }
                     .padding(.horizontal)
@@ -104,7 +113,6 @@ struct MainIntroductionView: View {
                     Text("더보기")
                         .font(.callout)
                         .foregroundColor(.black)
-//                        .baselineOffset(0)
                     Image(systemName: "arrow.forward.circle")
                         .foregroundColor(.black)
                         .font(.system(size: 16, weight: .regular))

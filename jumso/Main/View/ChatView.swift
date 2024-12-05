@@ -1,7 +1,12 @@
 import SwiftUI
 
 struct ChatView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var chatListViewModel: ChatListViewModel
+    
     var body: some View {
+        let userChats = authViewModel.currentUserID != nil ? chatListViewModel.getChats(forUserID: authViewModel.currentUserID!) : []
+        
         NavigationView {
             VStack(spacing: 0) {
                 // 상단 고정 HStack
@@ -27,8 +32,8 @@ struct ChatView: View {
 }
 
 struct ChatListView: View {
-    @StateObject private var viewModel = ChatListViewModel()
-    
+    @EnvironmentObject var chatListViewModel: ChatListViewModel
+
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -39,7 +44,7 @@ struct ChatListView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white)
                 
-                ForEach(viewModel.chatData) { chat in
+                ForEach(chatListViewModel.chatData) { chat in
                     NavigationLink(destination: ChatDetailView(chatName: chat.name)) {
                         ChatRow(profileImage: chat.profileImage, name: chat.name, lastMessage: chat.lastMessage)
                             .padding(.horizontal)
@@ -51,6 +56,7 @@ struct ChatListView: View {
         }
     }
 }
+
 
 
 struct ChatRow: View {

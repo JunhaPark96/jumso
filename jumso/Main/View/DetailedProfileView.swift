@@ -3,6 +3,11 @@ import SwiftUI
 
 struct DetailedProfileView: View {
     @ObservedObject var viewModel: DetailedProfileViewModel
+    @EnvironmentObject var chatListViewModel: ChatListViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @Environment(\.presentationMode) var presentationMode // 화면 닫기용
+    
+    @State private var isDuplicate = false
     
     var body: some View {
         ScrollView {
@@ -81,8 +86,73 @@ struct DetailedProfileView: View {
             }
             .padding()
         }
+        
+        Button(action: {
+            print("메시지 보내기 버튼 클릭됨")
+            addUserToChatList(user: viewModel.user)
+        }) {
+            HStack {
+                Text(isDuplicate ? "이미 메시지를 보냈습니다" : "점심한끼 해요")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                Image(systemName: "paperplane")
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .background(isDuplicate ? Color.gray : Color.blue) // 중복이면 회색
+            .cornerRadius(10)
+            .padding()
+        }
+        .disabled(isDuplicate) // 버튼 비활성화 상태
+        .onAppear {
+            checkDuplicateStatus()
+        }
+        
         .navigationTitle("상세 정보")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func addUserToChatList(user: Introduction) {
+        guard let currentUserID = authViewModel.currentUserID else {
+            print("현재 사용자 ID를 찾을 수 없음.")
+            return
+        }
+        
+        // 중복 여부 확인
+        let isDuplicate = chatListViewModel.chatData.contains {
+            $0.participants.contains(user.id) && $0.participants.contains(currentUserID)
+        }
+        
+        if isDuplicate {
+            print("⚠️ 이미 메시지를 보낸 사용자입니다.")
+            return
+        }
+        
+        let newChat = Chat(
+            id: UUID(),
+            profileImage: user.profileImage,
+            name: user.company,
+            lastMessage: "안녕하세요!",
+            participants: [currentUserID, user.id] // 현재 사용자와 상대방의 UUID
+        )
+        chatListViewModel.addChat(newChat)
+        print("✅ 채팅 추가됨: \(newChat)")
+        print("📋 현재 채팅 리스트: \(chatListViewModel.chatData)")
+        
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    private func checkDuplicateStatus() {
+        guard let currentUserID = authViewModel.currentUserID else {
+            print("현재 사용자 ID를 찾을 수 없음.")
+            return
+        }
+        
+        // 중복 여부 확인
+        isDuplicate = chatListViewModel.chatData.contains {
+            $0.participants.contains(viewModel.user.id) && $0.participants.contains(currentUserID)
+        }
+        print("✅ 중복 여부 확인: \(isDuplicate ? "중복됨" : "중복되지 않음")")
     }
 }
 
@@ -108,9 +178,9 @@ struct DetailedProfileRow: View {
 //        // MainViewModel에서 사용자 데이터 가져오기
 //        let mainViewModel = MainViewModel()
 //        let firstUser = mainViewModel.users.first! // 첫 번째 사용자 선택
-//        
+//
 //        let viewModel = DetailedProfileViewModel(user: firstUser)
-//        
+//
 //        return NavigationView {
 //            DetailedProfileView(viewModel: viewModel)
 //        }

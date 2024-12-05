@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var showLogin = false
     @State private var howFarCanYouGo: Double = 10
     @State private var howOldDoYouWant: ClosedRange<Double> = 18...50
     
@@ -24,7 +23,7 @@ struct ProfileView: View {
             }
             .padding(.horizontal)
             .frame(height: 10)
-//            .background(Color.gray)
+            //            .background(Color.gray)
             
             // 스크롤 가능한 콘텐츠
             ScrollView {
@@ -87,7 +86,8 @@ struct ProfileView: View {
                     
                     // 6row: 로그아웃 버튼
                     Button(action: {
-                        showLogin = true
+                        //                        showLogin = true
+                        UIApplication.shared.switchToLogin()
                     }) {
                         Text("로그아웃")
                             .frame(width: 200, height: 50)
@@ -122,8 +122,8 @@ struct ProfileView: View {
         }
         .background(Color.white.ignoresSafeArea())
         .navigationTitle("프로필")
-        .fullScreenCover(isPresented: $showLogin) {
-            LoginViewControllerWrapper()
-        }
+        //        .fullScreenCover(isPresented: $showLogin) {
+        //            LoginViewControllerWrapper()
     }
 }
+

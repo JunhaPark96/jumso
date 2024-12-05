@@ -1,8 +1,11 @@
-//
-//  UIApplication+Extensions.swift
-//  jumso
-//
-//  Created by junha on 12/5/24.
-//
+import UIKit
 
-import Foundation
+extension UIApplication {
+    func switchToLogin() {
+        guard let scene = connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = scene.delegate as? SceneDelegate else {
+            return
+        }
+        sceneDelegate.switchToLogin()
+    }
+}
