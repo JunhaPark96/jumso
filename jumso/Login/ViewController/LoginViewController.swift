@@ -52,10 +52,12 @@ class LoginViewController: UIViewController {
         )
         
         // 애니메이션 추가
-        guard let window = UIApplication.shared.windows.first else {
-            print("❌ UIWindow를 찾을 수 없습니다.")
-            return
-        }
+        guard let windowScene = UIApplication.shared.connectedScenes
+                    .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+                  let window = windowScene.windows.first else {
+                print("❌ UIWindow를 찾을 수 없습니다.")
+                return
+            }
         
         let transition = CATransition()
         transition.type = .moveIn // 화면이 이동하는 효과

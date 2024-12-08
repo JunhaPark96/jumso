@@ -45,8 +45,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 debugLog("❌ LoginViewController를 생성할 수 없습니다.")
                 return
             }
+            debugLog("✅ LoginViewController가 생성되었습니다.")
             loginViewController.authViewModel = authViewModel
-            window.rootViewController = loginViewController
+            debugLog("✅ LoginViewController에 authViewModel이 주입되었습니다.")
+            
+            // UINavigationController로 래핑
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            window.rootViewController = navigationController
+            debugLog("✅ UINavigationController가 생성되고 LoginViewController를 포함했습니다.")
         }
         
         self.window = window

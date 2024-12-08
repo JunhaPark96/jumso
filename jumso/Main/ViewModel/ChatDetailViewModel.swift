@@ -1,8 +1,14 @@
 import SwiftUI
 import Combine
 
+struct ChatMessage: Identifiable, Hashable {
+    let id = UUID()
+    let content: String
+    let isMine: Bool // 내가 보낸 메시지 여부
+}
+
 class ChatDetailViewModel: ObservableObject {
-    @Published var messages: [String] = []
+    @Published var messages: [ChatMessage] = []
     @Published var message: String = "" // 입력된 메시지
     
     private var cancellables = Set<AnyCancellable>()
@@ -14,13 +20,17 @@ class ChatDetailViewModel: ObservableObject {
     // 초기 메시지 로드
     func loadInitialMessages() {
         // Mock 초기 메시지
-        messages = ["안녕하세요!", "여자친구 있어요?"]
+        messages = [
+            ChatMessage(content: "안녕하세요!", isMine: false),
+            ChatMessage(content: "여자친구 있어요?", isMine: true)
+        ]
     }
     
     // 메시지 전송
     func sendMessage() {
         guard !message.isEmpty else { return }
-        messages.append(message)
+        let newMessage = ChatMessage(content: message, isMine: true)
+        messages.append(newMessage)
         message = "" // 입력창 초기화
         
         // 서버로 메시지 전송 시뮬레이션

@@ -380,13 +380,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3C5402112CC535BB00C95EB8 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		3C5402132CC539D600C95EB8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,7 +499,6 @@
 			children = (
 				3C5402142CC539EA00C95EB8 /* Appearance */,
 				3C5402132CC539D600C95EB8 /* Utils */,
-				3C5402112CC535BB00C95EB8 /* Protocols */,
 				3C54020E2CC5359400C95EB8 /* Service */,
 				3CC4A12C2CAEC7E000E92D4E /* StoryBoard */,
 				3CC4A12B2CAEC7D000E92D4E /* Cell */,
