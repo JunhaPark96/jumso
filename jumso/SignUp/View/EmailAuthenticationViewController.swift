@@ -39,7 +39,7 @@ class EmailAuthenticationViewController: SignUpBaseViewController {
     }
     
     @objc func textFieldsDidChange() {
-        // 두 패스워드 필드가 모두 채워져 있으면 버튼 활성화
+        // 이메일 주소가 있으면 버튼 활성화
         let isNameFilled = InputEmailIDTextField.text?.isEmpty == false
         
         // 필드가 모두 채워지면 회원가입 버튼 활성화

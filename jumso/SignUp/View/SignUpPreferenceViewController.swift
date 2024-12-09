@@ -192,15 +192,15 @@ extension SignUpPreferenceViewController: UITableViewDelegate, UITableViewDataSo
     // 회사 선택 모달 띄우기
     func presentCompaniesSelection() {
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        let signUpCompanySelectionViewController = storyboard.instantiateViewController(withIdentifier: "SignUpCompanySelectionVC") as! SignUpCompanySelectionViewController
+//        let signUpCompanySelectionViewController = storyboard.instantiateViewController(withIdentifier: "SignUpCompanySelectionVC") as! SignUpCompanySelectionViewController
         
-        signUpCompanySelectionViewController.selectedCompanyIds = selectedCompanyIds // 현재 선택된 회사 전달
-        signUpCompanySelectionViewController.onSelectionDone = { [weak self] selectedIds in
-            self?.selectedCompanyIds = selectedIds
-            // 선택된 회사 처리
-        }
-        
-        self.present(signUpCompanySelectionViewController, animated: true, completion: nil)
+//        signUpCompanySelectionViewController.selectedCompanyIds = selectedCompanyIds // 현재 선택된 회사 전달
+//        signUpCompanySelectionViewController.onSelectionDone = { [weak self] selectedIds in
+//            self?.selectedCompanyIds = selectedIds
+//            // 선택된 회사 처리
+//        }
+//        
+//        self.present(signUpCompanySelectionViewController, animated: true, completion: nil)
     }
     
     

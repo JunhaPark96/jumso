@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 class LoginViewController: UIViewController {
     var authViewModel: AuthViewModel?
@@ -70,16 +71,32 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonDidTap(_ sender: UIButton) {
-        // 네비게이션 컨트롤러가 있는지 확인
+        
+        // UIKIT 코드
+//        if let navigationController = self.navigationController {
+//            print("Navigation controller exists")
+//            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+//            let registerViewController = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
+//            navigationController.pushViewController(registerViewController, animated: true)
+//        } else {
+//            print("Navigation controller is nil")
+//        }
+        
+        
+        // SwiftUI 코드
+        print("Register 버튼 클릭됨")
+        
+        // RegisterView를 UIHostingController로 래핑
+        let registerView = SignUpRegisterView()
+        let hostingController = UIHostingController(rootView: registerView)
+        
+        // 네비게이션 스택에 푸시
         if let navigationController = self.navigationController {
-            print("Navigation controller exists")
-            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-            let registerViewController = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
-            navigationController.pushViewController(registerViewController, animated: true)
+            navigationController.pushViewController(hostingController, animated: true)
         } else {
-            print("Navigation controller is nil")
+            print("❌ Navigation controller가 없습니다.")
         }
-        // 화면 전환
+        
         
     }
     

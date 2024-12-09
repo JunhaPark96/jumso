@@ -11,7 +11,7 @@ struct CompanyData: Codable {
 }
 
 // MARK: company model
-struct CompanyItem: Codable {
+struct CompanyItem: Codable, Identifiable {
     let id: Int
     let name: String
     let alias: String?
