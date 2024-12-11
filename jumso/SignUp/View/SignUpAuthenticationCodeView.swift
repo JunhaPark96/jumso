@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct SignUpAuthenticationCodeView: View {
     let fullEmailAddress: String
@@ -7,6 +8,9 @@ struct SignUpAuthenticationCodeView: View {
     @State private var keyboardHeight: CGFloat = 0
     @State private var navigateToPasswordView: Bool = false
     let tempAuthenticationCode: String = "q" // 임시 인증코드
+
+    // 버튼의 기본 위치
+    private let defaultBottomPadding: CGFloat = 170
 
     var body: some View {
         NavigationStack {
@@ -50,23 +54,24 @@ struct SignUpAuthenticationCodeView: View {
                 .background(Color.yellow)
                 
                 // 인증 버튼 영역
-                VStack {
-                    Button(action: handleButtonTap) {
-                        Text("인증 확인")
-                            .bold()
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(isButtonEnabled ? Color.blue : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                    }
-                    .disabled(!isButtonEnabled)
+                Button(action: handleButtonTap) {
+                    Text("인증 확인")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(isButtonEnabled ? Color.blue : Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 }
-                .background(Color.white) // 버튼 영역만 별도 배경
-                .offset(y: keyboardHeight > 0 ? -keyboardHeight + 10 : 0) // 키보드 위로 이동
+                .disabled(!isButtonEnabled)
+                .background(Color.white)
+//                .padding(.top, max(50, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : UIScreen.main.bounds.height / 6)))
+                
+                .padding(.top, max(100, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : 100)))
+                .padding(.bottom, keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 6)
+
                 .animation(.easeOut(duration: 0.3), value: keyboardHeight)
-                .padding(.bottom, 170) // 화면 하단과 버튼 간 기본 간격
             }
             .onTapGesture {
                 // 화면 다른 곳을 터치하면 키보드 숨김
@@ -75,16 +80,14 @@ struct SignUpAuthenticationCodeView: View {
             .navigationTitle("이메일 인증")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .background(Color.gray)
             .onAppear {
                 // 키보드 관찰자 시작
-                SwiftUIKeyboardObserver.shared.startListening { height in
-                    print("키보드 높이 업데이트: \(height)")
-                    keyboardHeight = height
-                }
+                observeKeyboard()
             }
             .onDisappear {
                 // 키보드 관찰자 해제
-                SwiftUIKeyboardObserver.shared.stopListening()
+                removeKeyboardObserver()
             }
             .navigationDestination(isPresented: $navigateToPasswordView) {
                 // SignUpPasswordView()
@@ -102,35 +105,30 @@ struct SignUpAuthenticationCodeView: View {
             print("인증번호가 일치하지 않습니다.")
         }
     }
+    
+    // MARK: - 키보드 관찰자
+    private func observeKeyboard() {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                keyboardHeight = keyboardFrame.height
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+            keyboardHeight = 0
+        }
+    }
+
+    private func removeKeyboardObserver() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }
 
 
 //struct SignUpAuthenticationCodeView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Group {
-//            // 기본 상태
-//            SignUpAuthenticationCodeView(
-//                fullEmailAddress: "example@example.com"
-//            )
-//            
-//            // 키보드가 올라온 상태
-//            SignUpAuthenticationCodeView(
-//                fullEmailAddress: "example@example.com"
-//            )
-//            .previewDisplayName("Keyboard Visible")
-//            .environment(\.keyboardHeight, 291) // 키보드 높이를 강제로 설정
-//        }
-//    }
-//}
-//
-//// 키보드 높이를 SwiftUI 환경 변수로 확장
-//private struct KeyboardHeightKey: EnvironmentKey {
-//    static let defaultValue: CGFloat = 0
-//}
-//
-//extension EnvironmentValues {
-//    var keyboardHeight: CGFloat {
-//        get { self[KeyboardHeightKey.self] }
-//        set { self[KeyboardHeightKey.self] = newValue }
+//        SignUpAuthenticationCodeView(fullEmailAddress: "example@example.com")
+//            .previewDevice("iPhone 14 Pro")
 //    }
 //}
