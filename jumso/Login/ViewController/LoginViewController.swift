@@ -87,7 +87,7 @@ class LoginViewController: UIViewController {
         print("Register 버튼 클릭됨")
         
         // RegisterView를 UIHostingController로 래핑
-        let registerView = SignUpRegisterView()
+        let registerView = SignUpPasswordView()
         let hostingController = UIHostingController(rootView: registerView)
         
         // 네비게이션 스택에 푸시

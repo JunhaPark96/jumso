@@ -67,6 +67,13 @@
 		3C87AE6E2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE6D2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift */; };
 		3C87AE702D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE6F2D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift */; };
 		3C87AE722D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE712D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift */; };
+		3C87AE772D117441006AAA74 /* SignUpReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE762D117441006AAA74 /* SignUpReusableButton.swift */; };
+		3C87AE792D117488006AAA74 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE782D117488006AAA74 /* KeyboardManager.swift */; };
+		3C87AE7B2D118796006AAA74 /* SignUpPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE7A2D118796006AAA74 /* SignUpPasswordView.swift */; };
+		3C87AE7D2D119F7C006AAA74 /* RelativeButtonPositionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE7C2D119F7C006AAA74 /* RelativeButtonPositionModifier.swift */; };
+		3C87AE7F2D11A7F2006AAA74 /* SignUpNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE7E2D11A7F2006AAA74 /* SignUpNameView.swift */; };
+		3C87AE812D11AC3D006AAA74 /* SignUpBirthDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE802D11AC3D006AAA74 /* SignUpBirthDayView.swift */; };
+		3C87AE832D11B3D9006AAA74 /* SignUpDebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE822D11B3D9006AAA74 /* SignUpDebugLog.swift */; };
 		3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */; };
 		3CC4A1222CAEAD0A00E92D4E /* companyMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CC4A1212CAEAD0A00E92D4E /* companyMock.json */; };
 		3CC4A12E2CAEC88A00E92D4E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A12D2CAEC88A00E92D4E /* RegisterViewModel.swift */; };
@@ -163,6 +170,13 @@
 		3C87AE6D2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompanySelectionView.swift; sourceTree = "<group>"; };
 		3C87AE6F2D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailAuthenticationView.swift; sourceTree = "<group>"; };
 		3C87AE712D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAuthenticationCodeView.swift; sourceTree = "<group>"; };
+		3C87AE762D117441006AAA74 /* SignUpReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReusableButton.swift; sourceTree = "<group>"; };
+		3C87AE782D117488006AAA74 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		3C87AE7A2D118796006AAA74 /* SignUpPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordView.swift; sourceTree = "<group>"; };
+		3C87AE7C2D119F7C006AAA74 /* RelativeButtonPositionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeButtonPositionModifier.swift; sourceTree = "<group>"; };
+		3C87AE7E2D11A7F2006AAA74 /* SignUpNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameView.swift; sourceTree = "<group>"; };
+		3C87AE802D11AC3D006AAA74 /* SignUpBirthDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBirthDayView.swift; sourceTree = "<group>"; };
+		3C87AE822D11B3D9006AAA74 /* SignUpDebugLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDebugLog.swift; sourceTree = "<group>"; };
 		3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		3CC4A1212CAEAD0A00E92D4E /* companyMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = companyMock.json; sourceTree = "<group>"; };
 		3CC4A12D2CAEC88A00E92D4E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -409,6 +423,8 @@
 			isa = PBXGroup;
 			children = (
 				3C5402182CC53BA300C95EB8 /* SignUpKeyboardManager.swift */,
+				3C87AE782D117488006AAA74 /* KeyboardManager.swift */,
+				3C87AE822D11B3D9006AAA74 /* SignUpDebugLog.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -462,6 +478,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		3C87AE752D11742B006AAA74 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3C87AE762D117441006AAA74 /* SignUpReusableButton.swift */,
+				3C87AE7C2D119F7C006AAA74 /* RelativeButtonPositionModifier.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		3CC4A11C2CAEA87300E92D4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,22 +502,25 @@
 				3C5F94BC2CA9953300E477DD /* AuthenticationCodeViewController.swift */,
 				3CD83F502CA871F20028BDC3 /* EmailAuthenticationViewController.swift */,
 				3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */,
+				3C87AE712D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift */,
 				3C54020C2CC5246400C95EB8 /* SignUpBaseViewController.swift */,
+				3C87AE802D11AC3D006AAA74 /* SignUpBirthDayView.swift */,
 				3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */,
 				3C87AE6D2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift */,
 				3C54020A2CBBF15D00C95EB8 /* SignUpCompanySelectionViewController.swift */,
 				3C169B5F2CB2C7FD00933AFE /* SignUpDistanceViewController.swift */,
+				3C87AE6F2D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift */,
 				3C169B5D2CB2C51300933AFE /* SignUpGenderViewController.swift */,
 				3C5401FC2CBBDB6E00C95EB8 /* SignUpIntroductionViewController.swift */,
 				3C5401FA2CBBA89500C95EB8 /* SignUpLocationViewController.swift */,
+				3C87AE7E2D11A7F2006AAA74 /* SignUpNameView.swift */,
 				3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */,
+				3C87AE7A2D118796006AAA74 /* SignUpPasswordView.swift */,
 				3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */,
 				3C5402022CBBE26D00C95EB8 /* SignUpPreferenceViewController.swift */,
 				3C169B612CB2CA5F00933AFE /* SignUpProfileViewController.swift */,
 				3C5402082CBBF0AE00C95EB8 /* SignUpPropertyselectionViewController.swift */,
 				3C87AE6B2D05E02C006AAA74 /* SignUpRegisterView.swift */,
-				3C87AE6F2D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift */,
-				3C87AE712D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,6 +537,7 @@
 		3CC4A1262CAEC71200E92D4E /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				3C87AE752D11742B006AAA74 /* Resources */,
 				3C5402142CC539EA00C95EB8 /* Appearance */,
 				3C5402132CC539D600C95EB8 /* Utils */,
 				3C54020E2CC5359400C95EB8 /* Service */,
@@ -712,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0AE79C2CF4A598004074DB /* MainViewModel.swift in Sources */,
+				3C87AE832D11B3D9006AAA74 /* SignUpDebugLog.swift in Sources */,
 				3C3BE7022CEE1B8300695D7C /* MainTabBarController.swift in Sources */,
 				3C87AE6E2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift in Sources */,
 				3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */,
@@ -741,8 +771,10 @@
 				3C0AE79A2CF49C7D004074DB /* MainView.swift in Sources */,
 				3C0AE78A2CF37A43004074DB /* ProfileView.swift in Sources */,
 				3C87AE642D01BD18006AAA74 /* JumsoApp.swift in Sources */,
+				3C87AE7D2D119F7C006AAA74 /* RelativeButtonPositionModifier.swift in Sources */,
 				3C5402032CBBE26D00C95EB8 /* SignUpPreferenceViewController.swift in Sources */,
 				3C5401FD2CBBDB6E00C95EB8 /* SignUpIntroductionViewController.swift in Sources */,
+				3C87AE792D117488006AAA74 /* KeyboardManager.swift in Sources */,
 				3C5402162CC53A0C00C95EB8 /* SignUpAppearance.swift in Sources */,
 				3C0AE78E2CF37B00004074DB /* ProfileRow.swift in Sources */,
 				3C5402062CBBED3300C95EB8 /* SignUpSelectTableViewCell.swift in Sources */,
@@ -756,15 +788,19 @@
 				3C169B632CB2CA5F00933AFE /* SignUpProfileViewController.swift in Sources */,
 				3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */,
 				3C5F94BF2CA99B1C00E477DD /* SignUpPasswordViewController.swift in Sources */,
+				3C87AE7F2D11A7F2006AAA74 /* SignUpNameView.swift in Sources */,
 				3C3BE70A2CEE21EC00695D7C /* LoungeViewController.swift in Sources */,
 				3C5401FB2CBBA89500C95EB8 /* SignUpLocationViewController.swift in Sources */,
+				3C87AE772D117441006AAA74 /* SignUpReusableButton.swift in Sources */,
 				3C169B602CB2C7FD00933AFE /* SignUpDistanceViewController.swift in Sources */,
 				3C87AE6C2D05E02C006AAA74 /* SignUpRegisterView.swift in Sources */,
 				3C3BE7062CEE21C100695D7C /* ChatViewController.swift in Sources */,
 				3C0AE78C2CF37A78004074DB /* RangeSlider.swift in Sources */,
 				3C5F94C12CA99CB400E477DD /* SignUpNameViewController.swift in Sources */,
+				3C87AE7B2D118796006AAA74 /* SignUpPasswordView.swift in Sources */,
 				3C3BE7042CEE21AE00695D7C /* HomeViewController.swift in Sources */,
 				3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */,
+				3C87AE812D11AC3D006AAA74 /* SignUpBirthDayView.swift in Sources */,
 				3C3BE7082CEE21C900695D7C /* ProfileViewController.swift in Sources */,
 				3C3BE7112CEE2D3000695D7C /* KeychainManager.swift in Sources */,
 				3C5402192CC53BA300C95EB8 /* SignUpKeyboardManager.swift in Sources */,

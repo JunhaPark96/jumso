@@ -7,6 +7,7 @@ struct SignUpAuthenticationCodeView: View {
     @State private var isButtonEnabled: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     @State private var navigateToPasswordView: Bool = false
+    @StateObject private var keyboardManager = KeyboardManager.shared
     let tempAuthenticationCode: String = "q" // 임시 인증코드
 
     // 버튼의 기본 위치
@@ -51,21 +52,24 @@ struct SignUpAuthenticationCodeView: View {
                     
                     Spacer() // 콘텐츠와 버튼 간격 확보
                 }
-                .background(Color.yellow)
+
                 
                 // 인증 버튼 영역
-                Button(action: handleButtonTap) {
-                    Text("인증 확인")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(isButtonEnabled ? Color.blue : Color.gray)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding(.horizontal)
+//                Button(action: handleButtonTap) {
+//                    Text("인증 확인")
+//                        .bold()
+//                        .frame(maxWidth: .infinity)
+//                        .padding()
+//                        .background(isButtonEnabled ? Color.blue : Color.gray)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(10)
+//                        .padding(.horizontal)
+//                }
+                SignUpReusableButton(title: "인증 확인", isEnabled: isButtonEnabled) {
+                    handleButtonTap()
                 }
-                .disabled(!isButtonEnabled)
-                .background(Color.white)
+//                .relativeButtonPosition(relativeHeight: 0.7, keyboardHeight: keyboardManager.keyboardHeight)
+//                .background(Color.white)
 //                .padding(.top, max(50, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : UIScreen.main.bounds.height / 6)))
                 
                 .padding(.top, max(100, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : 100)))
@@ -79,8 +83,8 @@ struct SignUpAuthenticationCodeView: View {
             }
             .navigationTitle("이메일 인증")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .background(Color.gray)
+            
+//            .background(Color.gray)
             .onAppear {
                 // 키보드 관찰자 시작
                 observeKeyboard()
@@ -90,9 +94,10 @@ struct SignUpAuthenticationCodeView: View {
                 removeKeyboardObserver()
             }
             .navigationDestination(isPresented: $navigateToPasswordView) {
-                // SignUpPasswordView()
+                 SignUpPasswordView()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 
     private func handleButtonTap() {

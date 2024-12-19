@@ -99,7 +99,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         debugLog("SceneDelegate sceneDidEnterBackground 호출됨")
     }
     
-    private func debugLog(_ message: String) {
+    func debugLog(_ message: String) {
         print("[DEBUG] \(message)")
     }
 }

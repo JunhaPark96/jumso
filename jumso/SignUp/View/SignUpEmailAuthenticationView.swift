@@ -8,6 +8,7 @@ struct EmailAuthenticationView: View {
     @State private var showDomainPicker: Bool = false
     @State private var navigateToNextView: Bool = false
     @State private var keyboardHeight: CGFloat = 0
+    @StateObject private var keyboardManager = KeyboardManager.shared
     
     init(company: CompanyItem) {
         self.company = company
@@ -66,19 +67,17 @@ struct EmailAuthenticationView: View {
                 // 인증 버튼 영역
                 VStack {
                     Spacer()
-                    Button(action: handleButtonTap) {
-                        Text("인증 메일 보내기")
-                            .bold()
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(isButtonEnabled ? Color.blue : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                        //                                .background(Color.green.opacity(0.3)) // 디버깅용 배경색
+                    SignUpReusableButton(title: "인증 메일 보내기", isEnabled: isButtonEnabled) {
+                        handleButtonTap()
+                    }
+                    .background(GeometryReader { proxy in
+                        Color.clear
+                            .preference(key: ViewPositionKey.self, value: proxy.frame(in: .global).minY)
+                    })
+                    .onPreferenceChange(ViewPositionKey.self) { value in
+                        print("인증 버튼 Y 좌표: \(value)")
                     }
                     .padding(.bottom, keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4)
-                    
                     .disabled(!isButtonEnabled)
                 }
             }
@@ -91,11 +90,11 @@ struct EmailAuthenticationView: View {
             )
             .navigationTitle("회사 이메일 인증")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden()
 
             .onAppear {
                 // 키보드 관찰자 시작
-                SwiftUIKeyboardObserver.shared.startListening { height in
+                KeyboardObserver.shared.startListening { height in
                     print("키보드 높이 업데이트: \(height)")
                     withAnimation(.easeOut(duration: 0.3)){
                         keyboardHeight = height
@@ -105,7 +104,7 @@ struct EmailAuthenticationView: View {
             
             .onDisappear {
                 // 키보드 관찰자 해제
-                SwiftUIKeyboardObserver.shared.stopListening()
+                KeyboardObserver.shared.stopListening()
             }
             .navigationDestination(isPresented: $navigateToNextView) {
                 SignUpAuthenticationCodeView(fullEmailAddress: "\(emailID)@\(selectedEmailDomain)")
@@ -158,34 +157,9 @@ struct DomainPickerView: View {
     }
 }
 
-// 키보드 관찰자
-final class SwiftUIKeyboardObserver: ObservableObject {
-    static let shared = SwiftUIKeyboardObserver()
-    private var cancellables: [AnyCancellable] = []
-    
-    @Published var keyboardHeight: CGFloat = 0
-    
-    private init() {}
-    
-    func startListening(onChange: @escaping (CGFloat) -> Void) {
-        let willShowPublisher = NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
-            .compactMap { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height }
-        
-        let willHidePublisher = NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
-            .map { _ in CGFloat(0) }
-        
-        Publishers.Merge(willShowPublisher, willHidePublisher)
-            .sink { height in
-                DispatchQueue.main.async {
-                    self.keyboardHeight = height
-                    onChange(height)
-                }
-            }
-            .store(in: &cancellables)
-    }
-    
-    func stopListening() {
-        cancellables.forEach { $0.cancel() }
-        cancellables.removeAll()
+struct ViewPositionKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
