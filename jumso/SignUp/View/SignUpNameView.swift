@@ -69,19 +69,16 @@ struct SignUpNameView: View {
                     }
                     
                 }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .navigationDestination(isPresented: $navigateToNextView) {
+                    SignUpBirthDayView()
+                }
                 
-            }
-            
-            
+            } // 가장 바깥쪽 Vstack
             .onTapGesture {
                 keyboardManager.hideKeyboard()
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .navigationDestination(isPresented: $navigateToNextView) {
-                SignUpBirthDayView()
-            }
-            
             
             .onAppear {
                 // 키보드 관찰자 시작
@@ -98,8 +95,6 @@ struct SignUpNameView: View {
                 // 키보드 관찰자 해제
                 KeyboardObserver.shared.stopListening()
             }
-            
-    
         }
     }
     
