@@ -7,6 +7,7 @@ struct SignUpBirthDayView: View {
     @State private var day: [String] = Array(repeating: "", count: 2) // DD
     @State private var isButtonEnabled: Bool = false
     @FocusState private var focusedField: BirthDayField?
+    
     @State private var navigateToNextView: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     @StateObject private var keyboardManager = KeyboardManager.shared
@@ -33,26 +34,34 @@ struct SignUpBirthDayView: View {
                                     .fontWeight(.bold)
                                 
                                 
-                                HStack(spacing: 8) {
+                                HStack(alignment: .firstTextBaseline, spacing: 5) {
                                     ForEach(0..<4, id: \.self) { index in
                                         SingleDigitField(text: $year[index])
                                             .focused($focusedField, equals: .year(index))
                                             .onChange(of: year[index]) { _ in handleInput(for: .year(index)) }
                                     }
+                                    
                                     Text("/")
+                                        .font(.body)
+                                        .baselineOffset(-2) // 정렬 조정
+                                    
                                     ForEach(0..<2, id: \.self) { index in
                                         SingleDigitField(text: $month[index])
                                             .focused($focusedField, equals: .month(index))
                                             .onChange(of: month[index]) { _ in handleInput(for: .month(index)) }
                                     }
                                     Text("/")
+                                        .font(.body)
+                                        .baselineOffset(-2) // 정렬 조정
                                     ForEach(0..<2, id: \.self) { index in
                                         SingleDigitField(text: $day[index])
                                             .focused($focusedField, equals: .day(index))
                                             .onChange(of: day[index]) { _ in handleInput(for: .day(index)) }
                                     }
                                 }
+//                                .frame(maxWidth: .infinity)
                             }
+                            
                             .padding(.horizontal)
                             .padding(.top, 50)
                             
@@ -149,7 +158,11 @@ struct SignUpBirthDayView: View {
         guard year >= 1900, year <= currentYear else { return false }
         guard month >= 1, month <= 12 else { return false }
         
-        let daysInMonth = Calendar.current.range(of: .day, in: .month, for: DateComponents(year: year, month: month).date!)?.count ?? 0
+        let components = DateComponents(year: year, month: month)
+                guard let date = Calendar.current.date(from: components),
+                      let daysInMonth = Calendar.current.range(of: .day, in: .month, for: date)?.count else {
+                    return false
+                }
         return day >= 1 && day <= daysInMonth
     }
     
@@ -187,12 +200,19 @@ struct SingleDigitField: View {
     @Binding var text: String
     
     var body: some View {
-        TextField("", text: $text)
-            .frame(width: 40, height: 40)
-            .multilineTextAlignment(.center)
-            .keyboardType(.numberPad)
-            .background(Color(.systemGray6))
-            .cornerRadius(5)
+        GeometryReader { geometry in
+            TextField("", text: $text)
+                .frame(width: geometry.size.width / 1, height: 40)
+                .multilineTextAlignment(.center)
+                .keyboardType(.numberPad)
+                .background(Color(.systemGray6))
+                .cornerRadius(5)
+        }
     }
 }
 
+struct SignUpBirthDayView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpBirthDayView()
+    }
+}
