@@ -30,31 +30,36 @@ struct SignUpBirthDayView: View {
                         VStack(alignment: .leading, spacing: 20) {
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("생일은 언제인가요?")
-                                    .font(.headline)
+                                    .font(.title)
                                     .fontWeight(.bold)
                                 
                                 
-                                HStack(alignment: .firstTextBaseline, spacing: 5) {
-                                    ForEach(0..<4, id: \.self) { index in
-                                        SingleDigitField(text: $year[index])
-                                            .focused($focusedField, equals: .year(index))
-                                            .onChange(of: year[index]) { _ in handleInput(for: .year(index)) }
-                                    }
+                                HStack(alignment: .top, spacing: 5) {
                                     
-                                    Text("/")
-                                        .font(.body)
-                                        .baselineOffset(-2) // 정렬 조정
+                                    ForEach(0..<4, id: \.self) { index in
+                                        SingleDigitField(
+                                            text: $year[index],
+                                            placeholder: "Y"
+                                        )
+                                        .focused($focusedField, equals: .year(index))
+                                        .onChange(of: year[index]) { _ in handleInput(for: .year(index)) }
+                                    }
+                                    SingleDigitField(text: .constant(""), isStatic: true, staticText: "/")
+                                    
                                     
                                     ForEach(0..<2, id: \.self) { index in
-                                        SingleDigitField(text: $month[index])
+                                        SingleDigitField(
+                                            text: $month[index],
+                                            placeholder: "M"
+                                        )
                                             .focused($focusedField, equals: .month(index))
                                             .onChange(of: month[index]) { _ in handleInput(for: .month(index)) }
                                     }
-                                    Text("/")
-                                        .font(.body)
-                                        .baselineOffset(-2) // 정렬 조정
+                                    SingleDigitField(text: .constant(""), isStatic: true, staticText: "/")
+                                    
                                     ForEach(0..<2, id: \.self) { index in
-                                        SingleDigitField(text: $day[index])
+                                        SingleDigitField(text: $day[index],
+                                        placeholder: "D")
                                             .focused($focusedField, equals: .day(index))
                                             .onChange(of: day[index]) { _ in handleInput(for: .day(index)) }
                                     }
@@ -198,15 +203,40 @@ enum BirthDayField: Hashable {
 // MARK: - Single Digit Field
 struct SingleDigitField: View {
     @Binding var text: String
+    var isStatic: Bool = false
+    var staticText: String = ""
+    var placeholder: String = ""
     
     var body: some View {
-        GeometryReader { geometry in
-            TextField("", text: $text)
-                .frame(width: geometry.size.width / 1, height: 40)
+        if isStatic {
+            Text(staticText)
+                .frame(width: 15, height: 60)
+                .font(.system(size: 25))
                 .multilineTextAlignment(.center)
-                .keyboardType(.numberPad)
-                .background(Color(.systemGray6))
-                .cornerRadius(5)
+                .background(Color.clear)
+                .foregroundColor(.primary)
+        } else {
+            GeometryReader { geometry in
+                VStack {
+                    ZStack(alignment: .bottom){
+                        if text.isEmpty {
+                            Text(placeholder)
+                                .foregroundColor(.gray)
+                                .font(.system(size: 22))
+                        }
+                        
+                        TextField("", text: $text)
+                            .frame(width: geometry.size.width / 1, height: 22)
+                            .multilineTextAlignment(.center)
+                            .keyboardType(.numberPad)
+                            .cornerRadius(5)
+                    }
+                    Rectangle()
+                        .frame(width: geometry.size.width / 1.3, height: 1)
+                        .foregroundColor(.black)
+                }
+                .padding(.vertical, 15)
+            }
         }
     }
 }
