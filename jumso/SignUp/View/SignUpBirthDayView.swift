@@ -208,38 +208,48 @@ struct SingleDigitField: View {
     var placeholder: String = ""
     
     var body: some View {
-        if isStatic {
-            Text(staticText)
-                .frame(width: 15, height: 60)
-                .font(.system(size: 25))
-                .multilineTextAlignment(.center)
-                .background(Color.clear)
-                .foregroundColor(.primary)
-        } else {
-            GeometryReader { geometry in
-                VStack {
-                    ZStack(alignment: .bottom){
+        GeometryReader { geometry in
+            let width = geometry.size.width * 1
+            let height = geometry.size.height * 0.05
+            
+            VStack(spacing: 0) {
+                if isStatic {
+                    Text(staticText)
+                        .font(.system(size: height * 0.8))
+                        .multilineTextAlignment(.center)
+                        .frame(width: width, height: height * 2) // 높이 맞춤
+                        .background(Color.clear)
+
+                } else {
+                    ZStack {
+                        // Placeholder
                         if text.isEmpty {
                             Text(placeholder)
                                 .foregroundColor(.gray)
-                                .font(.system(size: 22))
+                                .font(.system(size: height * 1))
                         }
                         
+                        // TextField
                         TextField("", text: $text)
-                            .frame(width: geometry.size.width / 1, height: 22)
+                            .font(.system(size: height * 1))
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
-                            .cornerRadius(5)
+                            .frame(width: width, height: height * 1.5)
+                            .background(Color.clear)
                     }
+                    // 밑줄
                     Rectangle()
-                        .frame(width: geometry.size.width / 1.3, height: 1)
+                        .frame(width: width, height: 1)
                         .foregroundColor(.black)
                 }
-                .padding(.vertical, 15)
+                
             }
+            .frame(width: width, height: height * 3) // 전체 높이 고정
         }
     }
 }
+
+
 
 struct SignUpBirthDayView_Previews: PreviewProvider {
     static var previews: some View {
