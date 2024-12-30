@@ -64,6 +64,7 @@ struct SignUpBirthDayView: View {
                                             .onChange(of: day[index]) { _ in handleInput(for: .day(index)) }
                                     }
                                 }
+                                .padding(.top, 20)
 //                                .frame(maxWidth: .infinity)
                             }
                             
@@ -91,7 +92,7 @@ struct SignUpBirthDayView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
                 .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpBirthDayView()
+                    SignUpGenderView()
                 }
                 
             } // 가장 바깥쪽 Vstack
@@ -114,6 +115,7 @@ struct SignUpBirthDayView: View {
                 // 키보드 관찰자 해제
                 KeyboardObserver.shared.stopListening()
             }
+            
         }
     }
     
@@ -244,15 +246,15 @@ struct SingleDigitField: View {
                 }
                 
             }
-            .frame(width: width, height: height * 3) // 전체 높이 고정
+//            .frame(width: width, height: height * 3) // 전체 높이 고정
         }
     }
 }
 
 
 
-struct SignUpBirthDayView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpBirthDayView()
-    }
-}
+//struct SignUpBirthDayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpBirthDayView()
+//    }
+//}

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SignUpIntroductionView: View {
+struct SignUpPreferenceView: View {
     // MARK: - 상태 변수
     @State private var isButtonEnabled: Bool = false
     @State private var navigateToNextView: Bool = false
@@ -31,7 +31,7 @@ struct SignUpIntroductionView: View {
                     GeometryReader { geometry in
                         VStack(alignment: .leading, spacing: 20){
                             // ✅ Header
-                            SignUpHeaderView(title: "자기소개를 해주세요.")
+                            SignUpHeaderView(title: "어떤 사람을 만나고 싶으세요?")
                             
                             // ✅ 섹션 리스트
                             List {
@@ -164,9 +164,9 @@ struct SignUpIntroductionView: View {
 
 
 
-struct SignUpIntroductionView_Previews: PreviewProvider {
+struct SignUpPreferenceView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpIntroductionView()
+        SignUpPreferenceView()
     }
 }
 
