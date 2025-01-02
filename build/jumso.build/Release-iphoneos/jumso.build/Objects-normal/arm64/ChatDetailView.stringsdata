@@ -1,0 +1,16 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/Main/View/ChatDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "메시지를 입력하세요"
+      },
+      {
+        "comment": "",
+        "key": "보내기"
+      }
+    ]
+  },
+  "version": 1
+}

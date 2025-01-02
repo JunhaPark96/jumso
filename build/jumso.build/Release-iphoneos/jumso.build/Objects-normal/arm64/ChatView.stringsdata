@@ -1,0 +1,20 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/Main/View/ChatView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": ""
+      },
+      {
+        "comment": "",
+        "key": "Jumso"
+      },
+      {
+        "comment": "",
+        "key": "메세지"
+      }
+    ]
+  },
+  "version": 1
+}

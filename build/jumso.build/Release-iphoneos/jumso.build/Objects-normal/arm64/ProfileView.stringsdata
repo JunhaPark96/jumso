@@ -1,0 +1,48 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/Main/View/ProfileView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "프로필"
+      },
+      {
+        "comment": "",
+        "key": "jumso"
+      },
+      {
+        "comment": "",
+        "key": "사용자 이름"
+      },
+      {
+        "comment": "",
+        "key": "위치 설정"
+      },
+      {
+        "comment": "",
+        "key": ""
+      },
+      {
+        "comment": "",
+        "key": "상대와의 거리 설정: %lld km"
+      },
+      {
+        "comment": "",
+        "key": "상대 연령대 설정: %lld - %lld세"
+      },
+      {
+        "comment": "",
+        "key": "로그아웃"
+      },
+      {
+        "comment": "",
+        "key": "앱 버전 1.0.0"
+      },
+      {
+        "comment": "",
+        "key": "계정 삭제"
+      }
+    ]
+  },
+  "version": 1
+}

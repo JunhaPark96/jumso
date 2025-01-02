@@ -1,0 +1,24 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpLocationView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "📍 내 위치: %@"
+      },
+      {
+        "comment": "",
+        "key": "🏢 선택된 위치: %@"
+      },
+      {
+        "comment": "",
+        "key": "회사 위치를 입력하세요"
+      },
+      {
+        "comment": "",
+        "key": "검색"
+      }
+    ]
+  },
+  "version": 1
+}

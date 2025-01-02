@@ -1,0 +1,16 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpBirthDayView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "생일은 언제인가요?"
+      },
+      {
+        "comment": "",
+        "key": ""
+      }
+    ]
+  },
+  "version": 1
+}

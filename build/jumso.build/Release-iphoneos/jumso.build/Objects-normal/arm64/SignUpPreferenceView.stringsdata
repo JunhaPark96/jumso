@@ -1,0 +1,36 @@
+{
+  "source": "/Users/junha/jumso/jumso/SignUpPreferenceView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "기본 정보"
+      },
+      {
+        "comment": "",
+        "key": "추가 정보"
+      },
+      {
+        "comment": "",
+        "key": "특성 선택"
+      },
+      {
+        "comment": "",
+        "key": "만나기 싫은 회사 선택"
+      },
+      {
+        "comment": "",
+        "key": "특성 선택하기"
+      },
+      {
+        "comment": "",
+        "key": "회사 선택하기"
+      },
+      {
+        "comment": "",
+        "key": "%@: %lld %@"
+      }
+    ]
+  },
+  "version": 1
+}

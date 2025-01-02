@@ -1,0 +1,20 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpNameView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "이름 또는 닉네임을 입력해주세요"
+      },
+      {
+        "comment": "",
+        "key": "프로필에 보이는 이름입니다."
+      },
+      {
+        "comment": "",
+        "key": "이름"
+      }
+    ]
+  },
+  "version": 1
+}

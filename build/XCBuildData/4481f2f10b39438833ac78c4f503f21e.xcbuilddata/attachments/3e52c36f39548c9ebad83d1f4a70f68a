@@ -1,0 +1,390 @@
+{
+  "" : {
+    "const-values" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.swiftconstvalues",
+    "dependencies" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.d",
+    "diagnostics" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.dia",
+    "emit-module-dependencies" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master-emit-module.dia",
+    "swift-dependencies" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.swiftdeps"
+  },
+  "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/AppDelegate.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/JumsoApp.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/JumsoApp.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/JumsoApp.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/JumsoApp.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Login/ViewController/LoginViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoginViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoginViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoginViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/Coordinator/ChatViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/Coordinator/HomeViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/HomeViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/HomeViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/HomeViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/Coordinator/LoungeViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoungeViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoungeViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoungeViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/Coordinator/MainTabBarController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainTabBarController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainTabBarController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainTabBarController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/Coordinator/ProfileViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/Service/KeychainManager.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/KeychainManager.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/KeychainManager.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/KeychainManager.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/ChatDetailView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatDetailView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatDetailView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatDetailView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/ChatView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/DetailedProfileView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/DetailedProfileView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/DetailedProfileView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/DetailedProfileView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/LoungeView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoungeView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoungeView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LoungeView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/MainView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/ProfileRow.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileRow.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileRow.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileRow.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/ProfileView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/RangeSlider.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RangeSlider.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RangeSlider.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RangeSlider.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/View/SectionView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SectionView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SectionView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SectionView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/ViewModel/ChatDetailViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatDetailViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatDetailViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatDetailViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/ViewModel/ChatListViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatListViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatListViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ChatListViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/ViewModel/DetailedProfileViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/DetailedProfileViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/DetailedProfileViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/DetailedProfileViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Main/ViewModel/MainViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MainViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/MockData.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MockData.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MockData.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/MockData.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SceneDelegate.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SceneDelegate.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Shared/AuthViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AuthViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AuthViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AuthViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/Shared/Extensions/UIApplication+Extensions.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/UIApplication+Extensions.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/UIApplication+Extensions.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/UIApplication+Extensions.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Appearance/SignUpAppearance.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpAppearance.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpAppearance.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpAppearance.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Appearance/SignUpHeaderView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpHeaderView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpHeaderView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpHeaderView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Cell/CompaniesCell.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/CompaniesCell.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/CompaniesCell.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/CompaniesCell.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Cell/ProfileCell.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileCell.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileCell.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileCell.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Cell/SignUpProfileInputTableViewCell.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileInputTableViewCell.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileInputTableViewCell.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileInputTableViewCell.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Cell/SignUpProfileTableViewCell.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileTableViewCell.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileTableViewCell.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileTableViewCell.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Cell/SignUpSelectTableViewCell.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpSelectTableViewCell.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpSelectTableViewCell.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpSelectTableViewCell.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Cell/SignUpSliderTableViewCell.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpSliderTableViewCell.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpSliderTableViewCell.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpSliderTableViewCell.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Model/CompanyModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/CompanyModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/CompanyModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/CompanyModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Model/ProfileSection.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileSection.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileSection.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ProfileSection.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Resources/RelativeButtonPositionModifier.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RelativeButtonPositionModifier.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RelativeButtonPositionModifier.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RelativeButtonPositionModifier.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Resources/SignUpReusableButton.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpReusableButton.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpReusableButton.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpReusableButton.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Utils/Extensions/UIViewController+KeyboardHandling.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/UIViewController+KeyboardHandling.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/UIViewController+KeyboardHandling.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/UIViewController+KeyboardHandling.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Utils/Utility/KeyboardManager.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/KeyboardManager.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/KeyboardManager.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/KeyboardManager.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Utils/Utility/LocationManager.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LocationManager.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LocationManager.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/LocationManager.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Utils/Utility/RoundedCorner.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RoundedCorner.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RoundedCorner.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RoundedCorner.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Utils/Utility/SignUpDebugLog.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDebugLog.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDebugLog.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDebugLog.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/Utils/Utility/SignUpKeyboardManager.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpKeyboardManager.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpKeyboardManager.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpKeyboardManager.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/AuthenticationCodeViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AuthenticationCodeViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AuthenticationCodeViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/AuthenticationCodeViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/EmailAuthenticationViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/EmailAuthenticationViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/EmailAuthenticationViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/EmailAuthenticationViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/RegisterViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RegisterViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RegisterViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RegisterViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpAuthenticationCodeView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpAuthenticationCodeView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpAuthenticationCodeView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpAuthenticationCodeView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpBaseViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBaseViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBaseViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBaseViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpBirthDayView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBirthDayView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBirthDayView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBirthDayView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpBirthDayViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBirthDayViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBirthDayViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpBirthDayViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpCompanySelectionView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpCompanySelectionView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpCompanySelectionView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpCompanySelectionView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpCompanySelectionViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpCompanySelectionViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpCompanySelectionViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpCompanySelectionViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpDistanceView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDistanceView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDistanceView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDistanceView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpDistanceViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDistanceViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDistanceViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpDistanceViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpEmailAuthenticationView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpEmailAuthenticationView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpEmailAuthenticationView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpEmailAuthenticationView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpGenderView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpGenderView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpGenderView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpGenderView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpGenderViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpGenderViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpGenderViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpGenderViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpIntroductionView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpIntroductionView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpIntroductionView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpIntroductionView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpIntroductionViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpIntroductionViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpIntroductionViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpIntroductionViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpLocationView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpLocationView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpLocationView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpLocationView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpLocationViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpLocationViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpLocationViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpLocationViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpNameView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpNameView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpNameView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpNameView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpNameViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpNameViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpNameViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpNameViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpPasswordView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPasswordView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPasswordView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPasswordView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpPasswordViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPasswordViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPasswordViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPasswordViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpPreferenceViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPreferenceViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPreferenceViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPreferenceViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpProfileView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpProfileViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpProfileViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpPropertyselectionViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPropertyselectionViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPropertyselectionViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPropertyselectionViewController.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpRegisterView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpRegisterView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpRegisterView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpRegisterView.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/ViewModel/FindCompanyViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/FindCompanyViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/FindCompanyViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/FindCompanyViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/SignUp/ViewModel/RegisterViewModel.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RegisterViewModel.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RegisterViewModel.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/RegisterViewModel.o"
+  },
+  "/Users/junha/jumso/jumso/jumso/ViewController.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ViewController.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ViewController.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/ViewController.o"
+  },
+  "/Users/junha/jumso/jumso/SignUpPreferenceView.swift" : {
+    "index-unit-output-path" : "/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPreferenceView.o",
+    "llvm-bc" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPreferenceView.bc",
+    "object" : "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/SignUpPreferenceView.o"
+  }
+}

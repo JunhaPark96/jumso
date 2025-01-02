@@ -1,0 +1,9 @@
+"/Users/junha/jumso/jumso/jumso/Main/ViewModel/MainViewModel.swift":
+  objc-header: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-Swift.h"
+  swiftsourceinfo: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso.swiftsourceinfo"
+  dependencies: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.d"
+  swiftdoc: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso.swiftdoc"
+  abi-baseline-json: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso.abi.json"
+  diagnostics: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.dia"
+  swiftmodule: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso.swiftmodule"
+  const-values: "/Users/junha/jumso/jumso/build/jumso.build/Release-iphoneos/jumso.build/Objects-normal/arm64/jumso-master.swiftconstvalues"

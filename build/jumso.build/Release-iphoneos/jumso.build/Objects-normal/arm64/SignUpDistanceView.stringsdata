@@ -1,0 +1,20 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpDistanceView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "슬라이더를 움직여 상대와의 최대 거리를 원하는 대로 설정해보세요."
+      },
+      {
+        "comment": "",
+        "key": "상대와의 거리"
+      },
+      {
+        "comment": "",
+        "key": "%lld km"
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,36 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/Main/View/DetailedProfileView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "상세 정보"
+      },
+      {
+        "comment": "",
+        "key": "자기 소개"
+      },
+      {
+        "comment": "",
+        "key": "선호 조건"
+      },
+      {
+        "comment": "",
+        "key": "회원 정보"
+      },
+      {
+        "comment": "",
+        "key": "추가 정보"
+      },
+      {
+        "comment": "",
+        "key": "이미 메시지를 보냈습니다"
+      },
+      {
+        "comment": "",
+        "key": "점심한끼 해요"
+      }
+    ]
+  },
+  "version": 1
+}

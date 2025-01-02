@@ -1,0 +1,20 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpCompanySelectionView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "회사 선택"
+      },
+      {
+        "comment": "",
+        "key": "회사 이름을 입력하세요"
+      },
+      {
+        "comment": "",
+        "key": "완료"
+      }
+    ]
+  },
+  "version": 1
+}

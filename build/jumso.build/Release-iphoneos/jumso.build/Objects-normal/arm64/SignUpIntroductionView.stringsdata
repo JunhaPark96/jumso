@@ -1,0 +1,44 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpIntroductionView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "당신의 매력을 자유롭게 표현해보세요! 다른 사람에게 보여질 프로필에 포함됩니다."
+      },
+      {
+        "comment": "",
+        "key": "나를 한마디로 표현한다면?"
+      },
+      {
+        "comment": "",
+        "key": "제목을 입력해주세요."
+      },
+      {
+        "comment": "",
+        "key": "자기소개"
+      },
+      {
+        "comment": "",
+        "key": "%lld/200"
+      },
+      {
+        "comment": "",
+        "key": "최대 200자까지만 입력 가능합니다."
+      },
+      {
+        "comment": "",
+        "key": "자기소개는 최소 30자 이상 작성해주세요."
+      },
+      {
+        "comment": "",
+        "key": "멋진 자기소개예요!"
+      },
+      {
+        "comment": "",
+        "key": ""
+      }
+    ]
+  },
+  "version": 1
+}

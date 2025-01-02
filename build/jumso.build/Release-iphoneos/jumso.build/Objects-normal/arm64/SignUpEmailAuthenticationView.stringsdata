@@ -1,0 +1,28 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpEmailAuthenticationView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "회사 이메일 인증"
+      },
+      {
+        "comment": "",
+        "key": "이메일 아이디를 입력하세요"
+      },
+      {
+        "comment": "",
+        "key": "@%@"
+      },
+      {
+        "comment": "",
+        "key": "도메인 선택"
+      },
+      {
+        "comment": "",
+        "key": "선택"
+      }
+    ]
+  },
+  "version": 1
+}

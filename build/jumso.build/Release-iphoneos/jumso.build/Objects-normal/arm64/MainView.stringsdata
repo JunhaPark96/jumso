@@ -1,0 +1,20 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/Main/View/MainView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "점소"
+      },
+      {
+        "comment": "",
+        "key": "소개"
+      },
+      {
+        "comment": "",
+        "key": "더보기"
+      }
+    ]
+  },
+  "version": 1
+}

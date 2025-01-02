@@ -8,7 +8,7 @@ struct SignUpHeaderView: View {
             .font(.title)
             .fontWeight(.bold)
             .padding(.horizontal, 16)
-            .padding(.top, 30)
+//            .padding(.top, 30)
     }
         
 }

@@ -24,12 +24,12 @@ struct SignUpIntroductionView: View {
                         .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                         .padding(.top, 30)
                         .padding(.horizontal, 16)
+                        .padding(.bottom, 30)
                     
                     GeometryReader { geometry in
                         VStack(alignment: .leading, spacing: 20){
                             // ✅ Header
                             SignUpHeaderView(title: "자기소개를 해주세요.")
-                            Spacer(minLength: 30)
                                 
                             // ✅ 테이블뷰 유사 구조
                             VStack(alignment: .leading, spacing: 16) {

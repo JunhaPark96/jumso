@@ -96,6 +96,9 @@
 		3CD83F4D2CA86A4A0028BDC3 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD83F4B2CA86A4A0028BDC3 /* ProfileCell.xib */; };
 		3CD83F512CA871F20028BDC3 /* EmailAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F502CA871F20028BDC3 /* EmailAuthenticationViewController.swift */; };
 		3CD83F532CA874A10028BDC3 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD83F522CA874A10028BDC3 /* SignUp.storyboard */; };
+		98B3CD58337DAEE63CE62220 /* Pods_jumsoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87EC11961E63F613004D3AF2 /* Pods_jumsoUITests.framework */; };
+		9DF60B422414B341BF150864 /* Pods_jumsoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C8672A27E85C5380922274 /* Pods_jumsoTests.framework */; };
+		B6F3B30039866EDAF65A2E1C /* Pods_jumso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC58898D82F96984F4D249B8 /* Pods_jumso.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23C8672A27E85C5380922274 /* Pods_jumsoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jumsoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0AE7892CF37A43004074DB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3C0AE78B2CF37A78004074DB /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		3C0AE78D2CF37B00004074DB /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
@@ -209,6 +213,14 @@
 		3CD83F4B2CA86A4A0028BDC3 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		3CD83F502CA871F20028BDC3 /* EmailAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthenticationViewController.swift; sourceTree = "<group>"; };
 		3CD83F522CA874A10028BDC3 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		43393196F6772C7A51D5C6D4 /* Pods-jumso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jumso.debug.xcconfig"; path = "Target Support Files/Pods-jumso/Pods-jumso.debug.xcconfig"; sourceTree = "<group>"; };
+		67BDFBC566D133BA53050CCE /* Pods-jumsoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jumsoUITests.debug.xcconfig"; path = "Target Support Files/Pods-jumsoUITests/Pods-jumsoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		87EC11961E63F613004D3AF2 /* Pods_jumsoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jumsoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B7C0BBC48B302172F11DEB7 /* Pods-jumso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jumso.release.xcconfig"; path = "Target Support Files/Pods-jumso/Pods-jumso.release.xcconfig"; sourceTree = "<group>"; };
+		BE5A10679EB4ECBE7B26B48A /* Pods-jumsoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jumsoTests.debug.xcconfig"; path = "Target Support Files/Pods-jumsoTests/Pods-jumsoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC58898D82F96984F4D249B8 /* Pods_jumso.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jumso.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD7ABB34A2FE21FAF84D5AF /* Pods-jumsoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jumsoUITests.release.xcconfig"; path = "Target Support Files/Pods-jumsoUITests/Pods-jumsoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF015CF4ABB8DF8F252BBFC0 /* Pods-jumsoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jumsoTests.release.xcconfig"; path = "Target Support Files/Pods-jumsoTests/Pods-jumsoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F3B30039866EDAF65A2E1C /* Pods_jumso.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF60B422414B341BF150864 /* Pods_jumsoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B3CD58337DAEE63CE62220 /* Pods_jumsoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +258,8 @@
 				3C2C29772C9B281200E03830 /* jumsoTests */,
 				3C2C29812C9B281200E03830 /* jumsoUITests */,
 				3C2C295F2C9B281000E03830 /* Products */,
+				BECE9F6D69C883AE828ABE4E /* Pods */,
+				446AA1597FE724AC0312DEF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -631,6 +648,29 @@
 			path = StoryBoard;
 			sourceTree = "<group>";
 		};
+		446AA1597FE724AC0312DEF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC58898D82F96984F4D249B8 /* Pods_jumso.framework */,
+				23C8672A27E85C5380922274 /* Pods_jumsoTests.framework */,
+				87EC11961E63F613004D3AF2 /* Pods_jumsoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BECE9F6D69C883AE828ABE4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43393196F6772C7A51D5C6D4 /* Pods-jumso.debug.xcconfig */,
+				9B7C0BBC48B302172F11DEB7 /* Pods-jumso.release.xcconfig */,
+				BE5A10679EB4ECBE7B26B48A /* Pods-jumsoTests.debug.xcconfig */,
+				EF015CF4ABB8DF8F252BBFC0 /* Pods-jumsoTests.release.xcconfig */,
+				67BDFBC566D133BA53050CCE /* Pods-jumsoUITests.debug.xcconfig */,
+				CCD7ABB34A2FE21FAF84D5AF /* Pods-jumsoUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -638,9 +678,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2C29882C9B281200E03830 /* Build configuration list for PBXNativeTarget "jumso" */;
 			buildPhases = (
+				5E6DAAB204D1C181F0AC888C /* [CP] Check Pods Manifest.lock */,
 				3C2C295A2C9B281000E03830 /* Sources */,
 				3C2C295B2C9B281000E03830 /* Frameworks */,
 				3C2C295C2C9B281000E03830 /* Resources */,
+				24EF77E0134F974B84A81098 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -655,6 +697,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2C298B2C9B281200E03830 /* Build configuration list for PBXNativeTarget "jumsoTests" */;
 			buildPhases = (
+				6E43E0BB27F80672882745EC /* [CP] Check Pods Manifest.lock */,
 				3C2C29702C9B281200E03830 /* Sources */,
 				3C2C29712C9B281200E03830 /* Frameworks */,
 				3C2C29722C9B281200E03830 /* Resources */,
@@ -673,6 +716,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C2C298E2C9B281200E03830 /* Build configuration list for PBXNativeTarget "jumsoUITests" */;
 			buildPhases = (
+				9E305B963CEBABB84AF7711F /* [CP] Check Pods Manifest.lock */,
 				3C2C297A2C9B281200E03830 /* Sources */,
 				3C2C297B2C9B281200E03830 /* Frameworks */,
 				3C2C297C2C9B281200E03830 /* Resources */,
@@ -764,6 +808,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24EF77E0134F974B84A81098 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jumso/Pods-jumso-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jumso/Pods-jumso-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jumso/Pods-jumso-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E6DAAB204D1C181F0AC888C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jumso-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E43E0BB27F80672882745EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jumsoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E305B963CEBABB84AF7711F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jumsoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C2C295A2C9B281000E03830 /* Sources */ = {
@@ -1021,12 +1151,18 @@
 		};
 		3C2C29892C9B281200E03830 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43393196F6772C7A51D5C6D4 /* Pods-jumso.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RX2DUS3488;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(PODS_CONFIGURATION_BUILD_DIR)/Alamofire/**",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jumso/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자 위치 권한을 허용하시겠습니까?";
@@ -1042,6 +1178,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-objC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumsoD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1052,12 +1197,18 @@
 		};
 		3C2C298A2C9B281200E03830 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B7C0BBC48B302172F11DEB7 /* Pods-jumso.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RX2DUS3488;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(PODS_CONFIGURATION_BUILD_DIR)/Alamofire/**",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = jumso/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자 위치 권한을 허용하시겠습니까?";
@@ -1073,6 +1224,16 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-objC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jumsoD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1083,6 +1244,7 @@
 		};
 		3C2C298C2C9B281200E03830 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE5A10679EB4ECBE7B26B48A /* Pods-jumsoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1102,6 +1264,7 @@
 		};
 		3C2C298D2C9B281200E03830 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF015CF4ABB8DF8F252BBFC0 /* Pods-jumsoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1121,6 +1284,7 @@
 		};
 		3C2C298F2C9B281200E03830 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67BDFBC566D133BA53050CCE /* Pods-jumsoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1138,6 +1302,7 @@
 		};
 		3C2C29902C9B281200E03830 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCD7ABB34A2FE21FAF84D5AF /* Pods-jumsoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

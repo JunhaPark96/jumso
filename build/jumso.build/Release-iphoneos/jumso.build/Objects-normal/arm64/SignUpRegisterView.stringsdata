@@ -1,0 +1,16 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpRegisterView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "내 회사 찾기"
+      },
+      {
+        "comment": "",
+        "key": "회사 검색"
+      }
+    ]
+  },
+  "version": 1
+}

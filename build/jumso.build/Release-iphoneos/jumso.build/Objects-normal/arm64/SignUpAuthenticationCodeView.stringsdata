@@ -1,0 +1,20 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpAuthenticationCodeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "이메일 인증"
+      },
+      {
+        "comment": "",
+        "key": "이메일은 인증에만 사용되며, 그 외의 용도로는 사용되지 않습니다."
+      },
+      {
+        "comment": "",
+        "key": "인증코드를 입력하세요"
+      }
+    ]
+  },
+  "version": 1
+}

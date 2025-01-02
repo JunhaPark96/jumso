@@ -1,0 +1,12 @@
+{
+  "source": "/Users/junha/jumso/jumso/jumso/SignUp/View/SignUpGenderView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "성별은 무엇인가요?"
+      }
+    ]
+  },
+  "version": 1
+}
