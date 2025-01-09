@@ -32,6 +32,9 @@
 		3C2C29792C9B281200E03830 /* jumsoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29782C9B281200E03830 /* jumsoTests.swift */; };
 		3C2C29832C9B281200E03830 /* jumsoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29822C9B281200E03830 /* jumsoUITests.swift */; };
 		3C2C29852C9B281200E03830 /* jumsoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29842C9B281200E03830 /* jumsoUITestsLaunchTests.swift */; };
+		3C2C938F2D2BC14900E0F2EB /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C938E2D2BC14900E0F2EB /* LoginResponse.swift */; };
+		3C2C93912D2BC26F00E0F2EB /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C93902D2BC26F00E0F2EB /* LoginRequest.swift */; };
+		3C2C93932D2BC7C000E0F2EB /* AFEventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C93922D2BC7C000E0F2EB /* AFEventLogger.swift */; };
 		3C3BE7022CEE1B8300695D7C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7012CEE1B8300695D7C /* MainTabBarController.swift */; };
 		3C3BE7042CEE21AE00695D7C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7032CEE21AE00695D7C /* HomeViewController.swift */; };
 		3C3BE7062CEE21C100695D7C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3BE7052CEE21C100695D7C /* ChatViewController.swift */; };
@@ -149,6 +152,9 @@
 		3C2C297E2C9B281200E03830 /* jumsoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jumsoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2C29822C9B281200E03830 /* jumsoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jumsoUITests.swift; sourceTree = "<group>"; };
 		3C2C29842C9B281200E03830 /* jumsoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jumsoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3C2C938E2D2BC14900E0F2EB /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		3C2C93902D2BC26F00E0F2EB /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		3C2C93922D2BC7C000E0F2EB /* AFEventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFEventLogger.swift; sourceTree = "<group>"; };
 		3C3BE7012CEE1B8300695D7C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3C3BE7032CEE21AE00695D7C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3C3BE7052CEE21C100695D7C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -610,6 +616,8 @@
 		3CC4A1282CAEC77100E92D4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C2C938E2D2BC14900E0F2EB /* LoginResponse.swift */,
+				3C2C93902D2BC26F00E0F2EB /* LoginRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,6 +625,7 @@
 		3CC4A12A2CAEC77600E92D4E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3C2C93922D2BC7C000E0F2EB /* AFEventLogger.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -906,6 +915,7 @@
 				3C87AE932D1C4EAD006AAA74 /* SignUpDistanceView.swift in Sources */,
 				3C87AE832D11B3D9006AAA74 /* SignUpDebugLog.swift in Sources */,
 				3C3BE7022CEE1B8300695D7C /* MainTabBarController.swift in Sources */,
+				3C2C938F2D2BC14900E0F2EB /* LoginResponse.swift in Sources */,
 				3C87AE6E2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift in Sources */,
 				3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */,
 				3C87AE602CFDE3AC006AAA74 /* DetailedProfileViewModel.swift in Sources */,
@@ -953,6 +963,7 @@
 				3C169B5E2CB2C51300933AFE /* SignUpGenderViewController.swift in Sources */,
 				3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */,
 				3C169B632CB2CA5F00933AFE /* SignUpProfileViewController.swift in Sources */,
+				3C2C93912D2BC26F00E0F2EB /* LoginRequest.swift in Sources */,
 				3C87AE8B2D1C3FF3006AAA74 /* SignUpHeaderView.swift in Sources */,
 				3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */,
 				3C87AE872D181CBC006AAA74 /* SignUpProfileView.swift in Sources */,
@@ -967,6 +978,7 @@
 				3C3BE7062CEE21C100695D7C /* ChatViewController.swift in Sources */,
 				3C0AE78C2CF37A78004074DB /* RangeSlider.swift in Sources */,
 				3C5F94C12CA99CB400E477DD /* SignUpNameViewController.swift in Sources */,
+				3C2C93932D2BC7C000E0F2EB /* AFEventLogger.swift in Sources */,
 				3C87AE7B2D118796006AAA74 /* SignUpPasswordView.swift in Sources */,
 				3C3BE7042CEE21AE00695D7C /* HomeViewController.swift in Sources */,
 				3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */,

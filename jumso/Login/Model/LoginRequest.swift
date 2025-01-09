@@ -1,8 +1,6 @@
-//
-//  LoginRequest.swift
-//  jumso
-//
-//  Created by junha on 1/6/25.
-//
-
 import Foundation
+
+struct LoginRequest: Codable {
+    let email: String
+    let password: String
+}

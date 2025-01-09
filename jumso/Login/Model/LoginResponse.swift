@@ -1,8 +1,7 @@
-//
-//  LoginResponse.swift
-//  jumso
-//
-//  Created by junha on 1/6/25.
-//
-
 import Foundation
+
+struct LoginResponse: Codable {
+    let email: String
+    let name: String
+    let nickname: String
+}
