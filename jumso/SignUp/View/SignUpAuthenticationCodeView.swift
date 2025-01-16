@@ -115,7 +115,7 @@ struct SignUpAuthenticationCodeView: View {
             switch result {
             case .success:
                 print("✅ 인증 성공")
-                registerViewModel.navigationPath.append("NextStep")
+                registerViewModel.navigationPath.append("PasswordStep")
             case .failure(let error):
                 print("❌ 인증 실패: \(error.localizedDescription)")
             }

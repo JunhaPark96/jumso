@@ -91,6 +91,10 @@ struct SignUpRegisterView: View {
 //                    SignUpAuthenticationCodeView(navigationPath: $registerViewModel.navigationPath)
                     SignUpAuthenticationCodeView()
                         .environmentObject(registerViewModel)
+                    
+                case "PasswordStep":
+                    SignUpPasswordView()
+                        .environmentObject(registerViewModel)
                 default:
                     EmptyView()
                 }
