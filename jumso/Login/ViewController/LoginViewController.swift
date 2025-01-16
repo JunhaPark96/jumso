@@ -86,13 +86,6 @@ class LoginViewController: UIViewController {
                     print("🔄 Refresh Token: \(refreshToken)")
                 }
                 
-                //                if let json = data as? [String: Any],
-                //                   let email = json["email"] as? String,
-                //                   let name = json["name"] as? String,
-                //                   let nickname = json["nickname"] as? String {
-                //                    print("📧 Email: \(email)")
-                //                    print("👤 Name: \(name)")
-                //                    print("🏷️ Nickname: \(nickname)")
                 
                 // 성공 후 메인 화면 이동
                 self.navigateToMainTabBar()
@@ -156,6 +149,7 @@ class LoginViewController: UIViewController {
         
         // RegisterView를 UIHostingController로 래핑
         let registerView = SignUpRegisterView()
+            .environmentObject(RegisterViewModel()) // RegisterViewModel 전달
         let hostingController = UIHostingController(rootView: registerView)
         
         // 네비게이션 스택에 푸시

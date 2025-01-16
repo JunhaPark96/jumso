@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var authViewModel = AuthViewModel()
     var chatListViewModel = ChatListViewModel()
+    var registerViewModel = RegisterViewModel()
     
     func scene(
         _ scene: UIScene,
@@ -27,8 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // ViewModel 초기화 상태 확인
-        debugLog("✅ authViewModel 초기화 상태: \(authViewModel != nil)")
-        debugLog("✅ chatListViewModel 초기화 상태: \(chatListViewModel != nil)")
+//        debugLog("✅ authViewModel 초기화 상태: \(authViewModel != nil)")
+//        debugLog("✅ chatListViewModel 초기화 상태: \(chatListViewModel != nil)")
+//        debugLog("✅ registerViewModel 초기화 상태: \(registerViewModel != nil)")
         
         // 로그인 여부에 따른 화면 분기
         if authViewModel.isLoggedIn {

@@ -2,24 +2,25 @@ import SwiftUI
 import Combine
 
 struct SignUpAuthenticationCodeView: View {
-    let fullEmailAddress: String
+//    @Binding var navigationPath: NavigationPath // 외부 NavigationPath와 바인딩
+    @EnvironmentObject var registerViewModel: RegisterViewModel // 중앙 데이터 관리
     @State private var authenticationCodeInput: String = ""
+    
     @State private var isButtonEnabled: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     @State private var navigateToPasswordView: Bool = false
     @StateObject private var keyboardManager = KeyboardManager.shared
-    let tempAuthenticationCode: String = "q" // 임시 인증코드
+    let tempAuthenticationCode: String = "123456" // 임시 인증코드
 
     // 버튼의 기본 위치
     private let defaultBottomPadding: CGFloat = 170
 
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 // 메인 콘텐츠 영역
                 VStack(alignment: .leading, spacing: 25) {
                     // 이메일 주소 라벨
-                    Text(fullEmailAddress)
+                    Text(registerViewModel.fullEmailAddress)
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading) // 좌측 정렬
                         .padding(.horizontal)
@@ -52,21 +53,17 @@ struct SignUpAuthenticationCodeView: View {
                     
                     Spacer() // 콘텐츠와 버튼 간격 확보
                 }
+                .onAppear {
+                    print("📍 [DEBUG] SignUpAuthenticationCodeView appeared")
+                }
 
                 
                 // 인증 버튼 영역
-//                Button(action: handleButtonTap) {
-//                    Text("인증 확인")
-//                        .bold()
-//                        .frame(maxWidth: .infinity)
-//                        .padding()
-//                        .background(isButtonEnabled ? Color.blue : Color.gray)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(10)
-//                        .padding(.horizontal)
+//                SignUpReusableButton(title: "인증 확인", isEnabled: isButtonEnabled) {
+//                    handleButtonTap()
 //                }
-                SignUpReusableButton(title: "인증 확인", isEnabled: isButtonEnabled) {
-                    handleButtonTap()
+                SignUpReusableButton(title: registerViewModel.isVerifying ? "인증 중..." : "인증 확인", isEnabled: isButtonEnabled && !registerViewModel.isVerifying) {
+                    handleVerifyCode()
                 }
 //                .relativeButtonPosition(relativeHeight: 0.7, keyboardHeight: keyboardManager.keyboardHeight)
 //                .background(Color.white)
@@ -96,20 +93,36 @@ struct SignUpAuthenticationCodeView: View {
             .navigationDestination(isPresented: $navigateToPasswordView) {
                  SignUpPasswordView()
             }
-        }
+        
         .navigationBarBackButtonHidden(true)
     }
 
-    private func handleButtonTap() {
-        print("입력된 인증번호: \(authenticationCodeInput)")
-        
-        // TODO: 서버에서 받은 인증코드와 비교
-        if authenticationCodeInput == tempAuthenticationCode {
-            navigateToPasswordView = true
-        } else {
-            print("인증번호가 일치하지 않습니다.")
+//    private func handleButtonTap() {
+//        print("입력된 인증번호: \(authenticationCodeInput)")
+//        
+//        // TODO: 서버에서 받은 인증코드와 비교
+//        if authenticationCodeInput == tempAuthenticationCode {
+//            navigateToPasswordView = true
+//        } else {
+//            print("인증번호가 일치하지 않습니다.")
+//        }
+//    }
+
+    
+    private func handleVerifyCode() {
+        registerViewModel.verifyCode(inputCode: authenticationCodeInput) { result in
+
+            switch result {
+            case .success:
+                print("✅ 인증 성공")
+                registerViewModel.navigationPath.append("NextStep")
+            case .failure(let error):
+                print("❌ 인증 실패: \(error.localizedDescription)")
+            }
         }
-    }
+
+        }
+
     
     // MARK: - 키보드 관찰자
     private func observeKeyboard() {

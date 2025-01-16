@@ -1,114 +1,101 @@
 import SwiftUI
 import Combine
 
-struct EmailAuthenticationView: View {
-    let company: CompanyItem
-    @State private var selectedEmailDomain: String
+struct SignUpEmailAuthenticationView: View {
+//    @Binding var navigationPath: NavigationPath // 외부 NavigationPath와 바인딩
+    @EnvironmentObject var registerViewModel: RegisterViewModel // 중앙 데이터 관리
+
+//    @State private var selectedEmailDomain: String
     @State private var emailID: String = ""
     @State private var showDomainPicker: Bool = false
-    @State private var navigateToNextView: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     @StateObject private var keyboardManager = KeyboardManager.shared
     
-    init(company: CompanyItem) {
-        self.company = company
-        _selectedEmailDomain = State(initialValue: company.emails.first ?? "")
-    }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                // 메인 컨텐츠
-                VStack {
-                    // 상단 고정 입력 영역
-                    VStack(spacing: 10) {
-                        TextField("이메일 아이디를 입력하세요", text: $emailID)
-                            .padding()
-                            .background(Color(.systemGray6))
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                        //                        .background(Color.yellow.opacity(0.3)) // 디버깅용 배경색
-                        
-                        if company.emails.count > 1 {
-                            Button(action: {
-                                showDomainPicker = true
-                            }) {
-                                HStack {
-                                    Text("@\(selectedEmailDomain)")
-                                    Spacer()
-                                    Image(systemName: "chevron.down")
-                                }
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(10)
-                                .padding(.horizontal)
-                            }
-                            .sheet(isPresented: $showDomainPicker) {
-                                DomainPickerView(domains: company.emails, selectedDomain: $selectedEmailDomain)
-                            }
-                            //                        .background(Color.orange.opacity(0.3)) // 디버깅용 배경색
-                        } else {
-                            HStack {
-                                Text("@\(selectedEmailDomain)")
-                                Spacer()
-                            }
-                            .padding()
-                            .background(Color(.systemGray6))
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                            //                        .background(Color.orange.opacity(0.3)) // 디버깅용 배경색
+        ZStack {
+            // 메인 컨텐츠
+            VStack {
+                // 상단 고정 입력 영역
+                VStack(spacing: 10) {
+                    TextField("이메일 아이디를 입력하세요", text: $emailID)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                        .onChange(of: emailID) { newValue in
+                            print("✏️ 이메일 아이디 입력: \(newValue)")
                         }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .top)
-                    .padding(.top, UIScreen.main.bounds.height / 6)
                     
-                    Spacer()
-                }
-                // 인증 버튼 영역
-                VStack {
-                    Spacer()
-                    SignUpReusableButton(title: "인증 메일 보내기", isEnabled: isButtonEnabled) {
-                        handleButtonTap()
+                    if let company = registerViewModel.selectedCompany, company.emails.count > 1 {
+                        Button(action: {
+                            showDomainPicker = true
+                        }) {
+                            HStack {
+                                Text("@\(registerViewModel.selectedEmailDomain)")
+                                Spacer()
+                                Image(systemName: "chevron.down")
+                            }
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                        }
+                        .sheet(isPresented: $showDomainPicker) {
+                            DomainPickerView(domains: company.emails, selectedDomain: $registerViewModel.selectedEmailDomain)
+                        }
+                    } else {
+                        HStack {
+                            Text("@\(registerViewModel.selectedEmailDomain)")
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                     }
-                    .background(GeometryReader { proxy in
-                        Color.clear
-                            .preference(key: ViewPositionKey.self, value: proxy.frame(in: .global).minY)
-                    })
-                    .onPreferenceChange(ViewPositionKey.self) { value in
-                        print("인증 버튼 Y 좌표: \(value)")
-                    }
-                    .padding(.bottom, keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4)
-                    .disabled(!isButtonEnabled)
                 }
+                .frame(maxWidth: .infinity, alignment: .top)
+                .padding(.top, UIScreen.main.bounds.height / 6)
+                
+                Spacer()
             }
-            .background(
-                Color.white
-                    .onTapGesture {
-                        // 화면 다른 곳을 터치하면 키보드 숨김
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    }
-            )
-            .navigationTitle("회사 이메일 인증")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden()
-
             .onAppear {
-                // 키보드 관찰자 시작
-                KeyboardObserver.shared.startListening { height in
-                    print("키보드 높이 업데이트: \(height)")
-                    withAnimation(.easeOut(duration: 0.3)){
-                        keyboardHeight = height
-                    }
+                print("📱 [DEBUG] SignUpEmailAuthenticationView appeared")
+                debugRegisterViewModel()
+            }
+            // 인증 버튼 영역
+            VStack {
+                Spacer()
+                SignUpReusableButton(title: "인증 메일 보내기", isEnabled: isButtonEnabled) {
+                    handleButtonTap()
+                }
+                .padding(.bottom, keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4)
+                .disabled(!isButtonEnabled)
+            }
+        }
+        .background(
+            Color.white
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+        )
+        .navigationTitle("회사 이메일 인증")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        
+
+        .onAppear {
+            // 키보드 관찰자 시작
+            KeyboardObserver.shared.startListening { height in
+                withAnimation(.easeOut(duration: 0.3)) {
+                    keyboardHeight = height
                 }
             }
-            
-            .onDisappear {
-                // 키보드 관찰자 해제
-                KeyboardObserver.shared.stopListening()
-            }
-            .navigationDestination(isPresented: $navigateToNextView) {
-                SignUpAuthenticationCodeView(fullEmailAddress: "\(emailID)@\(selectedEmailDomain)")
-            }
+        }
+        .onDisappear {
+            // 키보드 관찰자 해제
+            KeyboardObserver.shared.stopListening()
         }
     }
     
@@ -119,12 +106,45 @@ struct EmailAuthenticationView: View {
     
     // 버튼 클릭 처리
     private func handleButtonTap() {
-        let completeEmail = "\(emailID)@\(selectedEmailDomain)"
-        print("EmailAuthentication - 이메일 인증할 주소: \(completeEmail)")
-        // 다음 화면으로 이동
-        navigateToNextView = true
+        // 이메일 주소 구성
+        registerViewModel.fullEmailAddress = "\(emailID)@\(registerViewModel.selectedEmailDomain)"
+        print("📧 [DEBUG] 이메일 인증할 주소: \(registerViewModel.fullEmailAddress)")
+        
+        registerViewModel.requestEmailVerification { result in
+            switch result {
+            case .success:
+                print("✅ 인증 메일 전송 성공")
+                registerViewModel.navigationPath.append("VerificationStep")
+            case .failure(let error):
+                print("❌ 인증 메일 전송 실패: \(error.localizedDescription)")
+            }
+        }
+
     }
+//    private func handleButtonTap() {
+//            registerViewModel.fullEmailAddress = "\(emailID)@\(registerViewModel.selectedEmailDomain)"
+//            print("EmailAuthentication - 이메일 인증할 주소: \(registerViewModel.fullEmailAddress)")
+//
+//            // 인증 성공 가정
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                print("✅ [DEBUG] 인증 메일 전송 성공")
+//                registerViewModel.navigationPath.append("VerificationStep") // 인증 코드 입력 화면으로 이동
+//            }
+//        }
+    
+    private func debugRegisterViewModel() {
+            if let company = registerViewModel.selectedCompany {
+                print("🔍 [DEBUG] RegisterViewModel 상태:")
+                print("    - 선택된 회사: \(company.name)")
+                print("    - 도메인 개수: \(company.emails.count)")
+                print("    - 도메인 목록: \(company.emails)")
+                print("    - 선택된 도메인: \(registerViewModel.selectedEmailDomain)")
+            } else {
+                print("⚠️ [DEBUG] 선택된 회사가 없습니다.")
+            }
+        }
 }
+
 
 // 도메인 선택을 위한 Picker View
 struct DomainPickerView: View {
@@ -152,6 +172,7 @@ struct DomainPickerView: View {
             .navigationTitle("도메인 선택")
             .navigationBarItems(trailing: Button("선택") {
                 presentationMode.wrappedValue.dismiss()
+                print("📧 [DEBUG] 도메인 선택 완료: \(selectedDomain)")
             })
         }
     }
