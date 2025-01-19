@@ -61,25 +61,13 @@ struct SignUpRegisterView: View {
             }
             .onChange(of: registerViewModel.navigationPath) { newValue in
                 print("📍 [DEBUG] navigationPath 변경: \(newValue)")
+                registerViewModel.logCurrentSignUpData()
             }
 
-//            .navigationDestination(for: String.self) { step in
-//                if step == "EmailAuthenticationStep" {
-//                    if registerViewModel.selectedCompany != nil {
-//                        SignUpEmailAuthenticationView(navigationPath: $navigationPath)
-//                            .environmentObject(registerViewModel)
-//                    } else {
-//                        Text("회사 선택이 필요합니다.")
-//                            .font(.title2)
-//                            .foregroundColor(.red)
-//                    }
-//                }
-//            }
             .navigationDestination(for: String.self) { step in
                 switch step {
                 case "EmailAuthenticationStep":
                     if registerViewModel.selectedCompany != nil {
-//                        SignUpEmailAuthenticationView(navigationPath: registerViewModel.navigationPath)
                         SignUpEmailAuthenticationView()
                             .environmentObject(registerViewModel)
                     } else {
@@ -88,12 +76,20 @@ struct SignUpRegisterView: View {
                             .foregroundColor(.red)
                     }
                 case "VerificationStep":
-//                    SignUpAuthenticationCodeView(navigationPath: $registerViewModel.navigationPath)
                     SignUpAuthenticationCodeView()
                         .environmentObject(registerViewModel)
                     
                 case "PasswordStep":
                     SignUpPasswordView()
+                        .environmentObject(registerViewModel)
+                case "NameStep":
+                    SignUpNameView()
+                        .environmentObject(registerViewModel)
+                case "BirthDayStep":
+                    SignUpBirthDayView()
+                        .environmentObject(registerViewModel)
+                case "GenderStep":
+                    SignUpProfileView()
                         .environmentObject(registerViewModel)
                 default:
                     EmptyView()

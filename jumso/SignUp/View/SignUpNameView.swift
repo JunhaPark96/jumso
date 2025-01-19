@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SignUpNameView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     // 상태 변수
     @State private var name: String = ""
     @State private var isButtonEnabled: Bool = false
@@ -13,7 +14,6 @@ struct SignUpNameView: View {
     let currentSignUpStep = 1
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
@@ -58,8 +58,12 @@ struct SignUpNameView: View {
                         
                         VStack {
                             Spacer()
+//                            SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
+//                                handleNextButtonTap()
+//                            }
                             SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                                handleNextButtonTap()
+                                registerViewModel.name = name
+                                registerViewModel.navigationPath.append("BirthDayStep") // 다음 뷰 전환
                             }
                             .disabled(!isButtonEnabled)
                             .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4) // 키보드 위 10pt
@@ -96,8 +100,6 @@ struct SignUpNameView: View {
                 KeyboardObserver.shared.stopListening()
             }
         }
-    }
-    
     
     // 필드 검증
     private func validateFields() {

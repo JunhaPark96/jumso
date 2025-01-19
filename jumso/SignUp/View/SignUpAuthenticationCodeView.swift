@@ -2,7 +2,6 @@ import SwiftUI
 import Combine
 
 struct SignUpAuthenticationCodeView: View {
-//    @Binding var navigationPath: NavigationPath // 외부 NavigationPath와 바인딩
     @EnvironmentObject var registerViewModel: RegisterViewModel // 중앙 데이터 관리
     @State private var authenticationCodeInput: String = ""
     

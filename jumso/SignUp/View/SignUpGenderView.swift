@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SignUpGenderView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     // MARK: - 상태 변수
     @State private var selectedGender: Gender? = nil
     @State private var isButtonEnabled: Bool = false
@@ -14,7 +15,6 @@ struct SignUpGenderView: View {
     private let currentSignUpStep = 3
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
@@ -99,8 +99,6 @@ struct SignUpGenderView: View {
                 // 키보드 관찰자 해제
                 KeyboardObserver.shared.stopListening()
             }
-            
-        }
     }
     
     // MARK: - 유효성 검사

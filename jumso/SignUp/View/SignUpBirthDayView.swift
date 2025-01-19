@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SignUpBirthDayView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     // MARK: - 상태 변수
     @State private var year: [String] = Array(repeating: "", count: 4) // YYYY
     @State private var month: [String] = Array(repeating: "", count: 2) // MM
@@ -17,7 +18,6 @@ struct SignUpBirthDayView: View {
     private let currentSignUpStep = 2
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
@@ -79,8 +79,7 @@ struct SignUpBirthDayView: View {
                         VStack {
                             Spacer()
                             SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                                handleNextButtonTap()
-                            }
+                                registerViewModel.navigationPath.append("NextStep")                            }
                             .disabled(!isButtonEnabled)
                             .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4) // 키보드 위 10pt
                             .animation(.easeOut(duration: 0.3), value: keyboardManager.keyboardHeight)
@@ -116,7 +115,7 @@ struct SignUpBirthDayView: View {
                 KeyboardObserver.shared.stopListening()
             }
             
-        }
+        
     }
     
     // MARK: - 입력 처리
@@ -156,7 +155,8 @@ struct SignUpBirthDayView: View {
             isButtonEnabled = false
             return
         }
-        
+//        registerViewModel.birthday = "\(yearString)-\(monthString)-\(dayString)" // 생일 저장
+        registerViewModel.birthday = "\(yearString)\(monthString)\(dayString)" // 생일 저장
         isButtonEnabled = true
     }
     

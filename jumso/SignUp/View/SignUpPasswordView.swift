@@ -8,7 +8,6 @@ struct SignUpPasswordView: View {
     @State private var confirmPassword: String = ""
     @State private var isPasswordMatched: Bool = true
     @State private var isButtonEnabled: Bool = false
-    //    @State private var navigateToNextView: Bool = false
     
     @StateObject private var keyboardManager = KeyboardManager.shared
     
@@ -60,7 +59,8 @@ struct SignUpPasswordView: View {
                 
                 // 다음 버튼 영역
                 SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                    registerViewModel.navigationPath.append("NextStep") // 다음 뷰 전환
+                    registerViewModel.password = password // 비밀번호 저장
+                    registerViewModel.navigationPath.append("NameStep") // 다음 뷰 전환
                 }
                 .disabled(!isButtonEnabled)
                 //                    .padding(.bottom, calculateButtonPadding(geometry: geometry))
