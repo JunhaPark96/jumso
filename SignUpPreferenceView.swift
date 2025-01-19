@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SignUpPreferenceView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     // MARK: - 상태 변수
     @State private var isButtonEnabled: Bool = false
     @State private var navigateToNextView: Bool = false

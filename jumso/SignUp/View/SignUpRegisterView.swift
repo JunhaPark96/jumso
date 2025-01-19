@@ -101,6 +101,9 @@ struct SignUpRegisterView: View {
                 case "IntroductionStep":
                     SignUpIntroductionView()
                         .environmentObject(registerViewModel)
+                case "PreferenceStep":
+                    SignUpPreferenceView()
+                        .environmentObject(registerViewModel)
                 
                 default:
                     EmptyView()
