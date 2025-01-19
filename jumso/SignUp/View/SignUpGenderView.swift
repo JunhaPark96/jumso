@@ -34,17 +34,19 @@ struct SignUpGenderView: View {
                                 HStack(spacing: 20) {
                                     GenderButton(
                                         title: "남성",
-                                        isSelected: selectedGender == .male
+                                        isSelected: selectedGender == .MALE
                                     ) {
-                                        selectedGender = .male
+                                        selectedGender = .MALE
+                                        registerViewModel.gender = .MALE
                                         validateGender()
                                     }
                                     
                                     GenderButton(
                                         title: "여성",
-                                        isSelected: selectedGender == .female
+                                        isSelected: selectedGender == .FEMALE
                                     ) {
-                                        selectedGender = .female
+                                        selectedGender = .FEMALE
+                                        registerViewModel.gender = .FEMALE
                                         validateGender()
                                     }
                                 }
@@ -63,7 +65,7 @@ struct SignUpGenderView: View {
                         VStack {
                             Spacer()
                             SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                                handleNextButtonTap()
+                                registerViewModel.navigationPath.append("ProfileStep")
                             }
                             .disabled(!isButtonEnabled)
                             .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4) // 키보드 위 10pt
@@ -75,9 +77,7 @@ struct SignUpGenderView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpGenderView()
-                }
+
                 
             } // 가장 바깥쪽 Vstack
             .onTapGesture {
@@ -106,14 +106,14 @@ struct SignUpGenderView: View {
         isButtonEnabled = selectedGender != nil
     }
     // MARK: - 버튼 동작
-    private func handleNextButtonTap() {
-        navigateToNextView = true
-    }
+//    private func handleNextButtonTap() {
+//        navigateToNextView = true
+//    }
 }
 
 // MARK: - Gender Enum
 enum Gender {
-    case male, female
+    case MALE, FEMALE
 }
 
 // MARK: - GenderButton Component

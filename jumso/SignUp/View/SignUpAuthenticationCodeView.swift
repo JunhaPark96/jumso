@@ -50,27 +50,34 @@ struct SignUpAuthenticationCodeView: View {
                     }
                     .padding(.horizontal)
                     
+                    if !registerViewModel.isCodeMatched {
+                        Text("인증 번호가 일치하지 않습니다.")
+                            .foregroundColor(.red)
+                            .font(.footnote)
+                            .padding(.horizontal)
+                    }
+                    
                     Spacer() // 콘텐츠와 버튼 간격 확보
                 }
                 .onAppear {
                     print("📍 [DEBUG] SignUpAuthenticationCodeView appeared")
                 }
-
+                
                 
                 // 인증 버튼 영역
-//                SignUpReusableButton(title: "인증 확인", isEnabled: isButtonEnabled) {
-//                    handleButtonTap()
-//                }
+                //                SignUpReusableButton(title: "인증 확인", isEnabled: isButtonEnabled) {
+                //                    handleButtonTap()
+                //                }
                 SignUpReusableButton(title: registerViewModel.isVerifying ? "인증 중..." : "인증 확인", isEnabled: isButtonEnabled && !registerViewModel.isVerifying) {
                     handleVerifyCode()
                 }
-//                .relativeButtonPosition(relativeHeight: 0.7, keyboardHeight: keyboardManager.keyboardHeight)
-//                .background(Color.white)
-//                .padding(.top, max(50, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : UIScreen.main.bounds.height / 6)))
+                //                .relativeButtonPosition(relativeHeight: 0.7, keyboardHeight: keyboardManager.keyboardHeight)
+                //                .background(Color.white)
+                //                .padding(.top, max(50, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : UIScreen.main.bounds.height / 6)))
                 
                 .padding(.top, max(100, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : 100)))
                 .padding(.bottom, keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 6)
-
+                
                 .animation(.easeOut(duration: 0.3), value: keyboardHeight)
             }
             .onTapGesture {
@@ -79,8 +86,8 @@ struct SignUpAuthenticationCodeView: View {
             }
             .navigationTitle("이메일 인증")
             .navigationBarTitleDisplayMode(.inline)
-            
-//            .background(Color.gray)
+        
+        //            .background(Color.gray)
             .onAppear {
                 // 키보드 관찰자 시작
                 observeKeyboard()
@@ -90,37 +97,39 @@ struct SignUpAuthenticationCodeView: View {
                 removeKeyboardObserver()
             }
             .navigationDestination(isPresented: $navigateToPasswordView) {
-                 SignUpPasswordView()
+                SignUpPasswordView()
             }
         
-        .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(true)
     }
-
-//    private func handleButtonTap() {
-//        print("입력된 인증번호: \(authenticationCodeInput)")
-//        
-//        // TODO: 서버에서 받은 인증코드와 비교
-//        if authenticationCodeInput == tempAuthenticationCode {
-//            navigateToPasswordView = true
-//        } else {
-//            print("인증번호가 일치하지 않습니다.")
-//        }
-//    }
-
+    
+    //    private func handleButtonTap() {
+    //        print("입력된 인증번호: \(authenticationCodeInput)")
+    //
+    //        // TODO: 서버에서 받은 인증코드와 비교
+    //        if authenticationCodeInput == tempAuthenticationCode {
+    //            navigateToPasswordView = true
+    //        } else {
+    //            print("인증번호가 일치하지 않습니다.")
+    //        }
+    //    }
+    
     
     private func handleVerifyCode() {
         registerViewModel.verifyCode(inputCode: authenticationCodeInput) { result in
-
+            
             switch result {
             case .success:
                 print("✅ 인증 성공")
+                registerViewModel.isCodeMatched = true // 인증 성공 시 상태 업데이트
                 registerViewModel.navigationPath.append("PasswordStep")
             case .failure(let error):
                 print("❌ 인증 실패: \(error.localizedDescription)")
+                registerViewModel.isCodeMatched = false // 인증 실패 시 상태 업데이트
             }
         }
-
-        }
+        
+    }
 
     
     // MARK: - 키보드 관찰자

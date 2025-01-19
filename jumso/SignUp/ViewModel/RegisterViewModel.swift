@@ -3,15 +3,23 @@ import SwiftUI
 
 class RegisterViewModel: ObservableObject {
     @Published var navigationPath: [String] = [] // String 배열로 경로 관리
+    
     @Published var email: String = ""
     @Published var selectedCompany: CompanyItem?
     @Published var selectedEmailDomain: String = ""
     @Published var fullEmailAddress: String = ""
+    
     @Published var verificationCode: String = "" // 인증코드저장
     @Published var isVerifying: Bool = false // 인증 결과
+    @Published var isCodeMatched: Bool = true // 인증 코드 일치 여부
+    
     @Published var password: String = "" // 비밀번호 저장
+    
     @Published var name: String = "" // 이름 저장
+    
     @Published var birthday: String = "" // 생일 저장
+    
+    @Published var gender: Gender? = nil // 성별 저장
     
     // 디버깅 메시지 출력
     private func logVerificationState(inputCode: String) {
@@ -78,6 +86,7 @@ class RegisterViewModel: ObservableObject {
                     - Password: \(password)
                     - Name: \(name)
                     - BirthDay: \(birthday)
+                    - Gender: \(gender == .MALE ? "Male" : gender == .FEMALE ? "Female" : "None")
                 """)
     }
     

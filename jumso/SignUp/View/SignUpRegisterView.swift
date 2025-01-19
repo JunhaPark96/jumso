@@ -89,8 +89,9 @@ struct SignUpRegisterView: View {
                     SignUpBirthDayView()
                         .environmentObject(registerViewModel)
                 case "GenderStep":
-                    SignUpProfileView()
+                    SignUpGenderView()
                         .environmentObject(registerViewModel)
+                
                 default:
                     EmptyView()
                 }

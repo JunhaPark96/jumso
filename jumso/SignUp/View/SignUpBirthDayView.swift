@@ -79,7 +79,8 @@ struct SignUpBirthDayView: View {
                         VStack {
                             Spacer()
                             SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                                registerViewModel.navigationPath.append("NextStep")                            }
+                                registerViewModel.navigationPath.append("GenderStep")
+                            }
                             .disabled(!isButtonEnabled)
                             .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4) // 키보드 위 10pt
                             .animation(.easeOut(duration: 0.3), value: keyboardManager.keyboardHeight)
@@ -90,9 +91,7 @@ struct SignUpBirthDayView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpGenderView()
-                }
+
                 
             } // 가장 바깥쪽 Vstack
             .onTapGesture {
