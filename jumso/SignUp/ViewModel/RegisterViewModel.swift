@@ -1,25 +1,38 @@
 import Foundation
 import SwiftUI
+import MapKit
 
 class RegisterViewModel: ObservableObject {
-    @Published var navigationPath: [String] = [] // String 배열로 경로 관리
+    @Published var navigationPath: [String] = [] { didSet { logStateChange("Navigation Path 변경") } }
+        
+        @Published var email: String = "" { didSet { logStateChange("Email 변경") } }
+        @Published var selectedCompany: CompanyItem? { didSet { logStateChange("Selected Company 변경") } }
+        @Published var selectedEmailDomain: String = "" { didSet { logStateChange("Selected Email Domain 변경") } }
+        @Published var fullEmailAddress: String = "" { didSet { logStateChange("Full Email Address 변경") } }
+        
+        @Published var verificationCode: String = "" { didSet { logStateChange("Verification Code 변경") } }
+        @Published var isVerifying: Bool = false { didSet { logStateChange("Is Verifying 변경") } }
+        @Published var isCodeMatched: Bool = true { didSet { logStateChange("Is Code Matched 변경") } }
+        
+        @Published var password: String = "" { didSet { logStateChange("Password 변경") } }
+        
+        @Published var name: String = "" { didSet { logStateChange("Name 변경") } }
+        
+        @Published var birthday: String = "" { didSet { logStateChange("Birthday 변경") } }
+        
+        @Published var gender: Gender? = nil { didSet { logStateChange("Gender 변경") } }
+        
+        @Published var profileData: [String: String] = [:] { didSet { logStateChange("Profile Data 변경") } }
+        
+        @Published var currentAddress: String = "" { didSet { logStateChange("Current Address 변경") } }
+        @Published var currentCoordinates: CLLocationCoordinate2D? { didSet { logStateChange("Current Coordinates 변경") } }
+
     
-    @Published var email: String = ""
-    @Published var selectedCompany: CompanyItem?
-    @Published var selectedEmailDomain: String = ""
-    @Published var fullEmailAddress: String = ""
-    
-    @Published var verificationCode: String = "" // 인증코드저장
-    @Published var isVerifying: Bool = false // 인증 결과
-    @Published var isCodeMatched: Bool = true // 인증 코드 일치 여부
-    
-    @Published var password: String = "" // 비밀번호 저장
-    
-    @Published var name: String = "" // 이름 저장
-    
-    @Published var birthday: String = "" // 생일 저장
-    
-    @Published var gender: Gender? = nil // 성별 저장
+    // MARK: - 디버깅 로그 출력
+        private func logStateChange(_ message: String) {
+            print("🔄 [DEBUG] \(message): 현재 상태:")
+            logCurrentSignUpData()
+        }
     
     // 디버깅 메시지 출력
     private func logVerificationState(inputCode: String) {
@@ -87,6 +100,9 @@ class RegisterViewModel: ObservableObject {
                     - Name: \(name)
                     - BirthDay: \(birthday)
                     - Gender: \(gender == .MALE ? "Male" : gender == .FEMALE ? "Female" : "None")
+                    - Profile Data: \(profileData)
+                    - Current Address: \(currentAddress)
+                    - Current Coordinates: \(currentCoordinates.map { "(\($0.latitude), \($0.longitude))" } ?? "None")
                 """)
     }
     

@@ -3,6 +3,7 @@ import MapKit
 import CoreLocation
 
 struct SignUpLocationView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     // MARK: - 상태 변수
     @State private var isButtonEnabled: Bool = true
     @State private var navigateToNextView: Bool = false
@@ -10,8 +11,8 @@ struct SignUpLocationView: View {
     @StateObject private var keyboardManager = KeyboardManager.shared
     
     @State private var searchAddress: String = ""
-    @State private var selectedLocation: String = "선택된 위치 없음"
-    @State private var currentLocation: String = "현재 위치 없음"
+    @State private var selectedLocation: String = "검색한 위치가 여기에 표시됩니다."
+    @State private var currentLocation: String = "현재 위치위치를 가져오는중.."
     @State private var region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780), // 기본 서울 좌표
             latitudinalMeters: 1000,
@@ -19,13 +20,13 @@ struct SignUpLocationView: View {
         )
     
     @StateObject private var locationManager = LocationManager()
+    private let defaultSelectedLocation = "검색한 위치가 여기에 표시됩니다."
     
     // ProgressBar 상태
     private let totalSignUpSteps = 8
     private let currentSignUpStep = 5
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
@@ -49,6 +50,12 @@ struct SignUpLocationView: View {
                                         if let location = location {
                                             region.center = location.coordinate
                                             selectedLocation = address
+                                            registerViewModel.currentAddress = address
+                                            registerViewModel.currentCoordinates = location.coordinate
+                                            registerViewModel.logCurrentSignUpData() // 로그 출력
+                                        } else {
+                                            selectedLocation = "주소를 찾을 수 없습니다."
+                                            print("❌ 검색 실패")
                                         }
                                     }
                                 }) {
@@ -64,7 +71,7 @@ struct SignUpLocationView: View {
                             
                             // 지도 뷰
                             Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: locationManager.annotations) { item in
-                                MapPin(coordinate: item.coordinate, tint: .red)
+                                MapMarker(coordinate: item.coordinate, tint: .red)
                             }
                             .frame(height: 300)
                             .cornerRadius(12)
@@ -77,13 +84,14 @@ struct SignUpLocationView: View {
                                 .font(.caption)
                                 .padding(.horizontal, 16)
                             
-                            Text("🏢 선택된 위치: \(selectedLocation)")
+                            Text("🏢 선택된 위치: \(selectedLocation.isEmpty ? defaultSelectedLocation : selectedLocation)")
                                 .foregroundColor(.gray)
                                 .font(.caption)
                                 .padding(.horizontal, 16)
                             
                             Spacer()
                         } // VStack end
+                        .padding(.top, 30)
                         
                     } // GeometryReader end
                     
@@ -92,7 +100,7 @@ struct SignUpLocationView: View {
                 VStack {
                     Spacer()
                     SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                        handleNextButtonTap()
+                        registerViewModel.navigationPath.append("IntroductionStep")
                     }
                     .disabled(!isButtonEnabled)
                     .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)
@@ -101,9 +109,6 @@ struct SignUpLocationView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpIntroductionView()
-                }
                 
             } // 가장 바깥쪽 Vstack
             .onTapGesture {
@@ -120,27 +125,43 @@ struct SignUpLocationView: View {
                     }
                 }
             }
-            
+            .onAppear {
+                if CLLocationManager.locationServicesEnabled() {
+                    if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+                        locationManager.requestLocation { location, address in
+                            if let location = location, let address = address {
+                                region.center = location.coordinate
+                                currentLocation = address
+                                registerViewModel.currentAddress = address
+                                registerViewModel.currentCoordinates = location.coordinate
+                                registerViewModel.logCurrentSignUpData()
+                            } else {
+                                print("❌ 위치 정보를 가져올 수 없습니다.")
+                            }
+                        }
+                    } else if locationManager.authorizationStatus == .notDetermined {
+                        locationManager.requestLocationPermission()
+                    } else {
+                        print("❌ 위치 서비스가 비활성화되었습니다.")
+                    }
+                } else {
+                    print("❌ 위치 서비스가 비활성화되었습니다.")
+                }
+            }
+
+
+
             .onDisappear {
                 // 키보드 관찰자 해제
                 KeyboardObserver.shared.stopListening()
             }
-            
-        }
-    }
-    
-    
-    // MARK: - 버튼 동작
-    private func handleNextButtonTap() {
-        navigateToNextView = true
-    }
-    
-}
-
-
-
-struct SignUpLocationView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpLocationView()
     }
 }
+
+
+
+//struct SignUpLocationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpLocationView()
+//    }
+//}

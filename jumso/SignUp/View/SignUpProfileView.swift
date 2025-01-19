@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SignUpProfileView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     // MARK: - 상태 변수
     @State private var selectedOptions: [String: String] = [:]
     @State private var jobTitle: String = ""
@@ -15,7 +16,6 @@ struct SignUpProfileView: View {
     private let currentSignUpStep = 4
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
@@ -58,7 +58,7 @@ struct SignUpProfileView: View {
                 VStack {
                     Spacer()
                     SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                        handleNextButtonTap()
+                        registerViewModel.navigationPath.append("LocationStep")
                     }
                     .disabled(!isButtonEnabled)
                     .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)
@@ -67,9 +67,6 @@ struct SignUpProfileView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpLocationView()
-                }
                 
             } // 가장 바깥쪽 Vstack
             .onTapGesture {
@@ -92,13 +89,14 @@ struct SignUpProfileView: View {
                 KeyboardObserver.shared.stopListening()
             }
             
-            .onChange(of: selectedOptions) { _ in
+            .onChange(of: selectedOptions) { newValue in
+                registerViewModel.profileData.merge(newValue) { _, new in new} // 기존 데이터와 병합s
                 isButtonEnabled = isFormValid()
             }
-            .onChange(of: jobTitle) { _ in
+            .onChange(of: jobTitle) { newValue in
+                registerViewModel.profileData["Job Title"] = newValue // 직업 정보 저장
                 isButtonEnabled = isFormValid()
             }
-        }
     }
     
 //    private func isFormValid() -> Bool {

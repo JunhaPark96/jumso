@@ -66,6 +66,7 @@ struct SignUpRegisterView: View {
 
             .navigationDestination(for: String.self) { step in
                 switch step {
+//                case "EmailAuthenticationStep":
                 case "EmailAuthenticationStep":
                     if registerViewModel.selectedCompany != nil {
                         SignUpEmailAuthenticationView()
@@ -90,6 +91,15 @@ struct SignUpRegisterView: View {
                         .environmentObject(registerViewModel)
                 case "GenderStep":
                     SignUpGenderView()
+                        .environmentObject(registerViewModel)
+                case "ProfileStep":
+                    SignUpProfileView()
+                        .environmentObject(registerViewModel)
+                case "LocationStep":
+                    SignUpLocationView()
+                        .environmentObject(registerViewModel)
+                case "IntroductionStep":
+                    SignUpIntroductionView()
                         .environmentObject(registerViewModel)
                 
                 default:
