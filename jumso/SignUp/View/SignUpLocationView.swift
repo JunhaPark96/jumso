@@ -127,29 +127,44 @@ struct SignUpLocationView: View {
             }
             .onAppear {
                 if CLLocationManager.locationServicesEnabled() {
-                    if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
-                        locationManager.requestLocation { location, address in
-                            if let location = location, let address = address {
-                                region.center = location.coordinate
-                                currentLocation = address
-                                registerViewModel.currentAddress = address
-                                registerViewModel.currentCoordinates = location.coordinate
-                                registerViewModel.logCurrentSignUpData()
-                            } else {
-                                print("❌ 위치 정보를 가져올 수 없습니다.")
-                            }
+                    locationManager.requestLocation { location, address in
+                        if let location = location, let address = address {
+                            region.center = location.coordinate
+                            currentLocation = address
+                            registerViewModel.currentAddress = address
+                            registerViewModel.currentCoordinates = location.coordinate
+                            registerViewModel.logCurrentSignUpData()
+                        } else {
+                            print("❌ 위치 정보를 가져올 수 없습니다.")
                         }
-                    } else if locationManager.authorizationStatus == .notDetermined {
-                        locationManager.requestLocationPermission()
-                    } else {
-                        print("❌ 위치 서비스가 비활성화되었습니다.")
                     }
                 } else {
                     print("❌ 위치 서비스가 비활성화되었습니다.")
                 }
             }
-
-
+//            .onAppear {
+//                if CLLocationManager.locationServicesEnabled() {
+//                    if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+//                        locationManager.requestLocation { location, address in
+//                            if let location = location, let address = address {
+//                                region.center = location.coordinate
+//                                currentLocation = address
+//                                registerViewModel.currentAddress = address
+//                                registerViewModel.currentCoordinates = location.coordinate
+//                                registerViewModel.logCurrentSignUpData()
+//                            } else {
+//                                print("❌ 위치 정보를 가져올 수 없습니다.")
+//                            }
+//                        }
+//                    } else if locationManager.authorizationStatus == .notDetermined {
+//                        locationManager.requestLocationPermission()
+//                    } else {
+//                        print("❌ 위치 서비스가 비활성화되었습니다.")
+//                    }
+//                } else {
+//                    print("❌ 위치 서비스가 비활성화되었습니다.")
+//                }
+//            }
 
             .onDisappear {
                 // 키보드 관찰자 해제

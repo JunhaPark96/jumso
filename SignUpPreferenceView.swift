@@ -20,7 +20,6 @@ struct SignUpPreferenceView: View {
     private let currentSignUpStep = 7
     
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // ✅ Progress Bar
@@ -108,13 +107,23 @@ struct SignUpPreferenceView: View {
                         
                     } // GeometryReader end
                     .padding(.bottom, 100)
+                    .padding(.top, 30)
                     .background(Color.white)
                     
                 }
                 VStack {
                     Spacer()
                     SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                        handleNextButtonTap()
+                        // 데이터를 RegisterViewModel에 저장
+                        registerViewModel.profileData["원하는 성별"] = selectedOptions["원하는 성별"]
+                        registerViewModel.profileData["원하는 체형"] = selectedOptions["원하는 체형"]
+                        registerViewModel.profileData["원하는 교제 상태"] = selectedOptions["원하는 교제 상태"]
+                        registerViewModel.profileData["원하는 종교"] = selectedOptions["원하는 종교"]
+                        registerViewModel.profileData["최소 나이"] = "\(Int(ageMin))"
+                        registerViewModel.profileData["최대 나이"] = "\(Int(ageMax))"
+                        registerViewModel.profileData["최대 거리"] = "\(Int(maxDistance)) km"
+                        
+                        registerViewModel.navigationPath.append("NextStep")
                     }
                     .disabled(!isButtonEnabled)
                     .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)
@@ -123,9 +132,6 @@ struct SignUpPreferenceView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpLocationView()
-                }
                 
             } // 가장 바깥쪽 Vstack
             .onTapGesture {
@@ -147,23 +153,13 @@ struct SignUpPreferenceView: View {
                 // 키보드 관찰자 해제
                 KeyboardObserver.shared.stopListening()
             }
-            
-        }
     }
     
     // MARK: - 검증 함수
         private func isFormValid() -> Bool {
             return !selectedOptions.isEmpty
         }
-    
-    // MARK: - 버튼 동작
-    private func handleNextButtonTap() {
-        navigateToNextView = true
-    }
-    
 }
-
-
 
 struct SignUpPreferenceView_Previews: PreviewProvider {
     static var previews: some View {
