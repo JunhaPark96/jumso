@@ -3,6 +3,7 @@ import SwiftUI
 struct SignUpRegisterView: View {
     @ObservedObject var viewModel = SelectCompanyViewModel()
     @EnvironmentObject var registerViewModel: RegisterViewModel // 중앙 데이터 관리
+    @StateObject var coordinator = FeatureCoordinator()
     @State private var searchText: String = ""
 //    @State private var navigationPath = NavigationPath() // Navigation Path 관리
 
@@ -104,12 +105,25 @@ struct SignUpRegisterView: View {
                 case "PreferenceStep":
                     SignUpPreferenceView()
                         .environmentObject(registerViewModel)
+                        .environmentObject(coordinator)
+                case "PropertySelection":
+                    PreferencePropertySelectionView()
+//                        allProperties: coordinator.allProperties,
+//                        selectedProperties: $coordinator.selectedProperties
+                        .environmentObject(coordinator)
+                    
+                case "CompanySelection":
+                    PreferenceCompanySelectionView()
+//                        viewModel: coordinator.companyViewModel,
+//                        selectedCompanies: $coordinator.selectedCompanies
+                        .environmentObject(coordinator)
+                    
                 
                 default:
                     EmptyView()
                 }
             }
-
+            .environmentObject(coordinator)
             
         }
     }

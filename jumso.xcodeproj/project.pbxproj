@@ -61,6 +61,9 @@
 		3C5F94BF2CA99B1C00E477DD /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */; };
 		3C5F94C12CA99CB400E477DD /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */; };
 		3C5F94C32CA9A2A400E477DD /* SignUpBirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */; };
+		3C7C2FB92D3E79EE00186787 /* FeatureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */; };
+		3C7C2FBB2D3E7A2100186787 /* PreferenceCompanySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */; };
+		3C7C2FBD2D3E7A6200186787 /* PreferencePropertySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */; };
 		3C87AE5C2CF603A6006AAA74 /* DetailedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE5B2CF603A6006AAA74 /* DetailedProfileView.swift */; };
 		3C87AE602CFDE3AC006AAA74 /* DetailedProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE5F2CFDE3AC006AAA74 /* DetailedProfileViewModel.swift */; };
 		3C87AE622D01BCAF006AAA74 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE612D01BCAF006AAA74 /* AuthViewModel.swift */; };
@@ -182,6 +185,9 @@
 		3C5F94BE2CA99B1C00E477DD /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		3C5F94C02CA99CB400E477DD /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
 		3C5F94C22CA9A2A400E477DD /* SignUpBirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBirthDayViewController.swift; sourceTree = "<group>"; };
+		3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCoordinator.swift; sourceTree = "<group>"; };
+		3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCompanySelectionView.swift; sourceTree = "<group>"; };
+		3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePropertySelectionView.swift; sourceTree = "<group>"; };
 		3C87AE5B2CF603A6006AAA74 /* DetailedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedProfileView.swift; sourceTree = "<group>"; };
 		3C87AE5F2CFDE3AC006AAA74 /* DetailedProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedProfileViewModel.swift; sourceTree = "<group>"; };
 		3C87AE612D01BCAF006AAA74 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -499,6 +505,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		3C7C2FB72D3E79D100186787 /* FeatureCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */,
+			);
+			path = FeatureCoordinator;
+			sourceTree = "<group>";
+		};
 		3C87AE552CF5FE96006AAA74 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +598,8 @@
 				3C87AE862D181CBC006AAA74 /* SignUpProfileView.swift */,
 				3C87AE6B2D05E02C006AAA74 /* SignUpRegisterView.swift */,
 				3C0FECE82D22D3CA003166C0 /* SignUpIntroductionView.swift */,
+				3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */,
+				3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -601,6 +617,7 @@
 		3CC4A1262CAEC71200E92D4E /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				3C7C2FB72D3E79D100186787 /* FeatureCoordinator */,
 				3C87AE752D11742B006AAA74 /* Resources */,
 				3C5402142CC539EA00C95EB8 /* Appearance */,
 				3C5402132CC539D600C95EB8 /* Utils */,
@@ -955,6 +972,7 @@
 				3C87AE8F2D1C404A006AAA74 /* RoundedCorner.swift in Sources */,
 				3C87AE622D01BCAF006AAA74 /* AuthViewModel.swift in Sources */,
 				3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */,
+				3C7C2FBB2D3E7A2100186787 /* PreferenceCompanySelectionView.swift in Sources */,
 				3C0AE79A2CF49C7D004074DB /* MainView.swift in Sources */,
 				3C0AE78A2CF37A43004074DB /* ProfileView.swift in Sources */,
 				3C87AE642D01BD18006AAA74 /* JumsoApp.swift in Sources */,
@@ -971,6 +989,7 @@
 				3C87AE912D1C474E006AAA74 /* LocationManager.swift in Sources */,
 				3C0AE7962CF380B6004074DB /* ChatListViewModel.swift in Sources */,
 				3C0AE7982CF380DA004074DB /* ChatDetailViewModel.swift in Sources */,
+				3C7C2FB92D3E79EE00186787 /* FeatureCoordinator.swift in Sources */,
 				3C87AE8D2D1C402C006AAA74 /* ProfileSection.swift in Sources */,
 				3C169B5E2CB2C51300933AFE /* SignUpGenderViewController.swift in Sources */,
 				3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */,
@@ -979,6 +998,7 @@
 				3C87AE8B2D1C3FF3006AAA74 /* SignUpHeaderView.swift in Sources */,
 				3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */,
 				3C87AE872D181CBC006AAA74 /* SignUpProfileView.swift in Sources */,
+				3C7C2FBD2D3E7A6200186787 /* PreferencePropertySelectionView.swift in Sources */,
 				3C5F94BF2CA99B1C00E477DD /* SignUpPasswordViewController.swift in Sources */,
 				3C87AE7F2D11A7F2006AAA74 /* SignUpNameView.swift in Sources */,
 				3C3BE70A2CEE21EC00695D7C /* LoungeViewController.swift in Sources */,

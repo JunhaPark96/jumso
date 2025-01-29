@@ -2,24 +2,25 @@ import SwiftUI
 import Foundation
 
 struct PreferenceCompanySelectionView: View {
-    @ObservedObject var viewModel: SelectCompanyViewModel
-    @Binding var selectedCompanies: Set<CompanyItem>
+//    @ObservedObject var viewModel: SelectCompanyViewModel
+//    @Binding var selectedCompanies: Set<CompanyItem>
+    @EnvironmentObject var coordinator: FeatureCoordinator
     
     var body: some View {
-        List(viewModel.filteredCompanies) { company in
+        List(coordinator.companyViewModel.filteredCompanies) { company in
             MultipleSelectionRow(
                 title: company.name,
-                isSelected: selectedCompanies.contains(company)
+                isSelected: coordinator.selectedCompanies.contains(company)
             ) {
-                if selectedCompanies.contains(company) {
-                    selectedCompanies.remove(company)
+                if coordinator.selectedCompanies.contains(company) {
+                    coordinator.selectedCompanies.remove(company)
                 } else {
-                    selectedCompanies.insert(company)
+                    coordinator.selectedCompanies.insert(company)
                 }
             }
         }
         .onAppear {
-            viewModel.searchCompanies(with: "")
+            coordinator.companyViewModel.searchCompanies(with: "")
         }
     }
 }

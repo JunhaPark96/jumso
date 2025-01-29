@@ -30,6 +30,8 @@ struct SignUpIntroductionView: View {
                         // ✅ Header
                         SignUpHeaderView(title: "자기소개를 해주세요.")
                         
+                        // TODO: 키보드 올라오면 progressBar와 겹치는 문제 해결 필요
+                        
                         // ✅ 테이블뷰 유사 구조
                         VStack(alignment: .leading, spacing: 16) {
                             if introduction.isEmpty{
@@ -166,9 +168,9 @@ struct SignUpIntroductionView: View {
 
 
 
-struct SignUpIntroductionView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpIntroductionView()
-    }
-}
+//struct SignUpIntroductionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpIntroductionView()
+//    }
+//}
 

@@ -4,35 +4,35 @@ import MapKit
 
 class RegisterViewModel: ObservableObject {
     @Published var navigationPath: [String] = [] { didSet { logStateChange("Navigation Path 변경") } }
-        
-        @Published var email: String = "" { didSet { logStateChange("Email 변경") } }
-        @Published var selectedCompany: CompanyItem? { didSet { logStateChange("Selected Company 변경") } }
-        @Published var selectedEmailDomain: String = "" { didSet { logStateChange("Selected Email Domain 변경") } }
-        @Published var fullEmailAddress: String = "" { didSet { logStateChange("Full Email Address 변경") } }
-        
-        @Published var verificationCode: String = "" { didSet { logStateChange("Verification Code 변경") } }
-        @Published var isVerifying: Bool = false { didSet { logStateChange("Is Verifying 변경") } }
-        @Published var isCodeMatched: Bool = true { didSet { logStateChange("Is Code Matched 변경") } }
-        
-        @Published var password: String = "" { didSet { logStateChange("Password 변경") } }
-        
-        @Published var name: String = "" { didSet { logStateChange("Name 변경") } }
-        
-        @Published var birthday: String = "" { didSet { logStateChange("Birthday 변경") } }
-        
-        @Published var gender: Gender? = nil { didSet { logStateChange("Gender 변경") } }
-        
-        @Published var profileData: [String: String] = [:] { didSet { logStateChange("Profile Data 변경") } }
-        
-        @Published var currentAddress: String = "" { didSet { logStateChange("Current Address 변경") } }
-        @Published var currentCoordinates: CLLocationCoordinate2D? { didSet { logStateChange("Current Coordinates 변경") } }
-
+    
+    @Published var email: String = "" { didSet { logStateChange("Email 변경") } }
+    @Published var selectedCompany: CompanyItem? { didSet { logStateChange("Selected Company 변경") } }
+    @Published var selectedEmailDomain: String = "" { didSet { logStateChange("Selected Email Domain 변경") } }
+    @Published var fullEmailAddress: String = "" { didSet { logStateChange("Full Email Address 변경") } }
+    
+    @Published var verificationCode: String = "" { didSet { logStateChange("Verification Code 변경") } }
+    @Published var isVerifying: Bool = false { didSet { logStateChange("Is Verifying 변경") } }
+    @Published var isCodeMatched: Bool = true { didSet { logStateChange("Is Code Matched 변경") } }
+    
+    @Published var password: String = "" { didSet { logStateChange("Password 변경") } }
+    
+    @Published var name: String = "" { didSet { logStateChange("Name 변경") } }
+    
+    @Published var birthday: String = "" { didSet { logStateChange("Birthday 변경") } }
+    
+    @Published var gender: Gender? = nil { didSet { logStateChange("Gender 변경") } }
+    
+    @Published var profileData: [String: String] = [:] { didSet { logStateChange("Profile Data 변경") } }
+    
+    @Published var currentAddress: String = "" { didSet { logStateChange("Current Address 변경") } }
+    @Published var currentCoordinates: CLLocationCoordinate2D? { didSet { logStateChange("Current Coordinates 변경") } }
+    
     
     // MARK: - 디버깅 로그 출력
-        private func logStateChange(_ message: String) {
-            print("🔄 [DEBUG] \(message): 현재 상태:")
-            logCurrentSignUpData()
-        }
+    private func logStateChange(_ message: String) {
+        print("🔄 [DEBUG] \(message): 현재 상태:")
+        logCurrentSignUpData()
+    }
     
     // 디버깅 메시지 출력
     private func logVerificationState(inputCode: String) {
@@ -46,7 +46,7 @@ class RegisterViewModel: ObservableObject {
     func requestEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
         guard !fullEmailAddress.isEmpty else {
             print("❌ 이메일 주소가 없습니다.")
-//            completion(false)
+            //            completion(false)
             completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "이메일 주소가 없습니다."])))
             return
         }
@@ -57,7 +57,7 @@ class RegisterViewModel: ObservableObject {
             // 서버 응답 시뮬레이션: 성공
             DispatchQueue.main.async {
                 self.verificationCode = "123456"
-//                completion(true)
+                //                completion(true)
                 completion(.success(()))
                 print("✅ [DEBUG] 인증 코드가 이메일로 전송되었습니다.")
             }
@@ -86,7 +86,7 @@ class RegisterViewModel: ObservableObject {
             }
         }
     }
-
+    
     
     func logCurrentSignUpData() {
         print("""
