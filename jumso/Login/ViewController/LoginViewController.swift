@@ -2,6 +2,17 @@ import UIKit
 import SwiftUI
 import Alamofire
 
+// ✅ 전역적으로 세션을 유지하는 Singleton 클래스
+class APIManager {
+    static let shared = APIManager()
+    
+    let session: Session
+    
+    private init() {
+        session = Session(eventMonitors: [AFEventLogger()])
+    }
+}
+
 class LoginViewController: UIViewController {
     var authViewModel: AuthViewModel?
     
@@ -38,12 +49,6 @@ class LoginViewController: UIViewController {
     }
     // Touch Up Inside: tap
     @IBAction func loginButtonDidTap(_ sender: UIButton) {
-        //        guard let authViewModel = authViewModel else {
-        //            print("❌ authViewModel이 nil입니다. 로그인 실패.")
-        //            showAlert(message: "이메일과 비밀번호를 모두 입력해주세요.")
-        //            return
-        //        }
-        
         guard !email.isEmpty, !password.isEmpty else {
             showAlert(message: "이메일과 비밀번호를 모두 입력해주세요.")
             return
@@ -54,49 +59,57 @@ class LoginViewController: UIViewController {
     
     private func loginAPI(email: String, password: String) {
         let url = "https://api.jumso.life/api/auth/signin"
-//        let parameters: [String: String] = [
-//            "email": email,
-//            "password": password
-//        ]
         let loginRequest = LoginRequest(email: email, password: password)
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
         
-        let session = Session(eventMonitors: [AFEventLogger()])
-        
-        session.request(url,
-                   method: .post,
-                   parameters: loginRequest,
-                   encoder: JSONParameterEncoder.default,
-                   headers: headers)
-        .validate(statusCode: 200..<300)
-        .responseDecodable(of: LoginResponse.self) { response in
-            switch response.result {
-            case .success(let loginResponse):
-                print("✅ 로그인 성공")
-                print("📧 Email: \(loginResponse.email)")
-                print("👤 Name: \(loginResponse.name)")
-                print("🏷️ Nickname: \(loginResponse.nickname)")
-                
-                if let httpResponse = response.response,
-                   let accessToken = httpResponse.headers.value(for: "Authorization"),
-                   let refreshToken = httpResponse.headers.value(for: "AuthorizationRefresh") {
-                    print("🔑 Access Token: \(accessToken)")
-                    print("🔄 Refresh Token: \(refreshToken)")
+        // ✅ 기존 session 생성 코드 대신 APIManager에서 전역 세션 사용
+        APIManager.shared.session.request(url,
+                                          method: .post,
+                                          parameters: loginRequest,
+                                          encoder: JSONParameterEncoder.default,
+                                          headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: LoginResponse.self) { response in
+                switch response.result {
+                case .success(let loginResponse):
+                    print("✅ 로그인 성공")
+                    print("📧 Email: \(loginResponse.email)")
+                    print("👤 Name: \(loginResponse.name)")
+                    print("🏷️ Nickname: \(loginResponse.nickname)")
+                    
+                    if let httpResponse = response.response,
+                       let accessToken = httpResponse.headers.value(for: "Authorization"),
+                       let refreshToken = httpResponse.headers.value(for: "AuthorizationRefresh") {
+                        
+                        // ✅ Access Token 및 Refresh Token 저장
+                        UserDefaults.standard.set(accessToken, forKey: "AccessToken")
+                        UserDefaults.standard.set(refreshToken, forKey: "RefreshToken")
+                        print("🔑 Access Token: \(accessToken)")
+                        print("🔄 Refresh Token: \(refreshToken)")
+                        
+                        DispatchQueue.main.async {
+                            self.authViewModel?.isLoggedIn = true
+                        }
+                    }
+                    
+                    // ✅ 성공 후 메인 화면 이동
+                    self.navigateToMainTabBar()
+                    
+                case .failure(let error):
+                    if let httpResponse = response.response, httpResponse.statusCode == 401 {
+                        print("❌ 로그인 실패: 이메일 또는 비밀번호가 잘못되었습니다.")
+                        self.showAlert(message: "이메일 또는 비밀번호가 잘못되었습니다.")
+                    } 
+//                    else {
+//                        print("❌ 로그인 실패: \(error.localizedDescription)")
+//                        self.showAlert(message: "로그인 실패: \(error.localizedDescription)")
+//                    }
                 }
-                
-                
-                // 성공 후 메인 화면 이동
-                self.navigateToMainTabBar()
-                
-                
-            case .failure(let error):
-                print("❌ 로그인 실패: \(error.localizedDescription)")
-                self.showAlert(message: "로그인 실패: \(error.localizedDescription)")
             }
-        }
     }
+
     
     // MARK: 로그인 처리
     private func navigateToMainTabBar() {
@@ -132,17 +145,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonDidTap(_ sender: UIButton) {
-        
-        // UIKIT 코드
-        //        if let navigationController = self.navigationController {
-        //            print("Navigation controller exists")
-        //            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        //            let registerViewController = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
-        //            navigationController.pushViewController(registerViewController, animated: true)
-        //        } else {
-        //            print("Navigation controller is nil")
-        //        }
-        
+
         
         // SwiftUI 코드
         print("Register 버튼 클릭됨")

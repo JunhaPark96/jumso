@@ -5,8 +5,8 @@ struct SignUpRegisterView: View {
     @EnvironmentObject var registerViewModel: RegisterViewModel // 중앙 데이터 관리
     @StateObject var coordinator = FeatureCoordinator()
     @State private var searchText: String = ""
-//    @State private var navigationPath = NavigationPath() // Navigation Path 관리
-
+    //    @State private var navigationPath = NavigationPath() // Navigation Path 관리
+    
     var body: some View {
         NavigationStack(path: $registerViewModel.navigationPath) { // Navigation Path와 연결
             VStack(spacing: 0) {
@@ -29,6 +29,7 @@ struct SignUpRegisterView: View {
                         .padding(8)
                         .background(Color(.systemGray6))
                         .cornerRadius(12)
+                        .autocapitalization(.none)
                     
                     Button(action: {
                         searchText = ""
@@ -49,7 +50,7 @@ struct SignUpRegisterView: View {
                         print("✅ [DEBUG] 선택된 회사: \(company.name)")
                         print("✅ [DEBUG] 선택된 이메일 도메인: \(registerViewModel.selectedEmailDomain)")
                         
-                        registerViewModel.navigationPath.append("EmailAuthenticationStep")
+                        registerViewModel.navigationPath.append(NavigationStep.emailAuthentication.rawValue)
                     }) {
                         Text(company.name)
                     }
@@ -64,71 +65,86 @@ struct SignUpRegisterView: View {
                 print("📍 [DEBUG] navigationPath 변경: \(newValue)")
                 registerViewModel.logCurrentSignUpData()
             }
-
-            .navigationDestination(for: String.self) { step in
-                switch step {
-//                case "EmailAuthenticationStep":
-                case "EmailAuthenticationStep":
-                    if registerViewModel.selectedCompany != nil {
-                        SignUpEmailAuthenticationView()
-                            .environmentObject(registerViewModel)
-                    } else {
-                        Text("회사 선택이 필요합니다.")
-                            .font(.title2)
-                            .foregroundColor(.red)
-                    }
-                case "VerificationStep":
-                    SignUpAuthenticationCodeView()
-                        .environmentObject(registerViewModel)
-                    
-                case "PasswordStep":
-                    SignUpPasswordView()
-                        .environmentObject(registerViewModel)
-                case "NameStep":
-                    SignUpNameView()
-                        .environmentObject(registerViewModel)
-                case "BirthDayStep":
-                    SignUpBirthDayView()
-                        .environmentObject(registerViewModel)
-                case "GenderStep":
-                    SignUpGenderView()
-                        .environmentObject(registerViewModel)
-                case "ProfileStep":
-                    SignUpProfileView()
-                        .environmentObject(registerViewModel)
-                case "LocationStep":
-                    SignUpLocationView()
-                        .environmentObject(registerViewModel)
-                case "IntroductionStep":
-                    SignUpIntroductionView()
-                        .environmentObject(registerViewModel)
-                case "PreferenceStep":
-                    SignUpPreferenceView()
-                        .environmentObject(registerViewModel)
-                        .environmentObject(coordinator)
-                case "PropertySelection":
-                    PreferencePropertySelectionView()
-//                        allProperties: coordinator.allProperties,
-//                        selectedProperties: $coordinator.selectedProperties
-                        .environmentObject(coordinator)
-                    
-                case "CompanySelection":
-                    PreferenceCompanySelectionView()
-//                        viewModel: coordinator.companyViewModel,
-//                        selectedCompanies: $coordinator.selectedCompanies
-                        .environmentObject(coordinator)
-                    
-                
-                default:
-                    EmptyView()
-                }
-            }
-            .environmentObject(coordinator)
             
+            .navigationDestination(for: String.self) { step in
+                if let stepEnum = NavigationStep(rawValue: step) {
+                    switch stepEnum {
+                    case .emailAuthentication:
+                        if registerViewModel.selectedCompany != nil {
+                            SignUpEmailAuthenticationView()
+                                .environmentObject(registerViewModel)
+                        } else {
+                            Text(NSLocalizedString("company_selection_required", comment: "회사 선택이 필요합니다."))
+                                .font(.title2)
+                                .foregroundColor(.red)
+                        }
+                    case .authenticationCode:
+                        SignUpAuthenticationCodeView()
+                            .environmentObject(registerViewModel)
+                        
+                    case .password:
+                        SignUpPasswordView()
+                            .environmentObject(registerViewModel)
+                    case .name:
+                        SignUpNameView()
+                            .environmentObject(registerViewModel)
+                    case .birthDay:
+                        SignUpBirthDayView()
+                            .environmentObject(registerViewModel)
+                    case .gender:
+                        SignUpGenderView()
+                            .environmentObject(registerViewModel)
+                    case .profile:
+                        SignUpProfileView()
+                            .environmentObject(registerViewModel)
+                    case .location:
+                        SignUpLocationView()
+                            .environmentObject(registerViewModel)
+                    case .introduction:
+                        SignUpIntroductionView()
+                            .environmentObject(registerViewModel)
+                    case .preference:
+                        SignUpPreferenceView()
+                            .environmentObject(registerViewModel)
+                            .environmentObject(coordinator)
+                    case .propertySelection:
+                        PreferencePropertySelectionView()
+                        //                        allProperties: coordinator.allProperties,
+                        //                        selectedProperties: $coordinator.selectedProperties
+                            .environmentObject(coordinator)
+                        
+                    case .companySelection:
+                        PreferenceCompanySelectionView()
+                        //                        viewModel: coordinator.companyViewModel,
+                        //                        selectedCompanies: $coordinator.selectedCompanies
+                            .environmentObject(coordinator)
+                    case .complete:
+                        SignUpCompleteView()
+                            .environmentObject(registerViewModel)
+                    }
+                } 
+                
+            }
         }
     }
 }
 
+
+enum NavigationStep: String {
+    case emailAuthentication = "EmailAuthenticationStep"
+    case authenticationCode = "AuthenticationCodeStep"
+    case password = "PasswordStep"
+    case name = "NameStep"
+    case birthDay = "BirthDayStep"
+    case gender = "GenderStep"
+    case profile = "ProfileStep"
+    case location = "LocationStep"
+    case introduction = "IntroductionStep"
+    case preference = "PreferenceStep"
+    case propertySelection = "PropertySelection"
+    case companySelection = "CompanySelection"
+    case complete = "CompleteStep"
+}
 
 //struct SignUpRegisterView_Previews: PreviewProvider {
 //    static var previews: some View {

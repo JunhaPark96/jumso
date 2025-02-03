@@ -122,7 +122,7 @@ struct SignUpAuthenticationCodeView: View {
             case .success:
                 print("✅ 인증 성공")
                 registerViewModel.isCodeMatched = true // 인증 성공 시 상태 업데이트
-                registerViewModel.navigationPath.append("PasswordStep")
+                registerViewModel.navigationPath.append(NavigationStep.password.rawValue)
             case .failure(let error):
                 print("❌ 인증 실패: \(error.localizedDescription)")
                 registerViewModel.isCodeMatched = false // 인증 실패 시 상태 업데이트

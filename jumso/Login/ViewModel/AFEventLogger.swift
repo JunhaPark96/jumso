@@ -1,6 +1,6 @@
 import Alamofire
 
-class AFEventLogger: EventMonitor {
+final class AFEventLogger: EventMonitor {
     let queue = DispatchQueue(label: "AFEventLogger")
     
     func requestDidResume(_ request: Request) {

@@ -60,7 +60,7 @@ struct SignUpPasswordView: View {
                 // 다음 버튼 영역
                 SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
                     registerViewModel.password = password // 비밀번호 저장
-                    registerViewModel.navigationPath.append("NameStep") // 다음 뷰 전환
+                    registerViewModel.navigationPath.append(NavigationStep.name.rawValue) // 다음 뷰 전환
                 }
                 .disabled(!isButtonEnabled)
                 //                    .padding(.bottom, calculateButtonPadding(geometry: geometry))

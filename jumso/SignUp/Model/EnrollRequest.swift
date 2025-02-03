@@ -1,34 +1,5 @@
 import Foundation
 
-enum Sex: String, Codable {
-    case MALE, FEMALE
-}
-
-enum BodyType: String, Codable {
-    case NONE, SKINNY, SLIM, NORMAL, FAT, MUSCLE
-}
-
-enum RelationshipStatus: String, Codable {
-    case SINGLE, DOLSING
-}
-
-enum Religion: String, Codable {
-    case NONE, CHRISTIAN, CATHOLIC, ORTHODOX, JUDAISM, BUDDHISM, ISLAM, HINDUISM, OTHER
-}
-
-enum Smoke: String, Codable {
-    case NONE, NO, SOMETIMES, OFTEN
-}
-
-enum Drink: String, Codable {
-    case NONE, NO, SOMETIMES, OFTEN
-}
-
-struct MemberResponse: Codable {
-    let email: String
-    let nickname: String
-}
-
 struct EnrollRequest: Codable {
     let bornAt: String  // "YYYY-MM-DD" 형식
     let sex: Sex
@@ -53,4 +24,9 @@ struct EnrollRequest: Codable {
     let whatKindOfDrinkDoYouWant: Drink
     let propertyIds: [Int]
     let notTheseCompanyIds: [Int]
+}
+
+struct MemberResponse: Codable {
+    let email: String
+    let nickname: String
 }

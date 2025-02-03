@@ -23,6 +23,10 @@
 		3C169B632CB2CA5F00933AFE /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C169B612CB2CA5F00933AFE /* SignUpProfileViewController.swift */; };
 		3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C169B652CB2CE8300933AFE /* SignUpProfileTableViewCell.swift */; };
 		3C169B682CB2CE8300933AFE /* SignUpProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C169B662CB2CE8300933AFE /* SignUpProfileTableViewCell.xib */; };
+		3C295CE32D4F8D000043116D /* SignUpAPIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE22D4F8D000043116D /* SignUpAPIMapper.swift */; };
+		3C295CE52D4F8E330043116D /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE42D4F8E330043116D /* DateFormatterUtil.swift */; };
+		3C295CE72D4F993D0043116D /* SignUpCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE62D4F993D0043116D /* SignUpCompleteView.swift */; };
+		3C295CE92D4FA6C20043116D /* TempSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE82D4FA6C20043116D /* TempSignUpRequest.swift */; };
 		3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29612C9B281000E03830 /* AppDelegate.swift */; };
 		3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29632C9B281000E03830 /* SceneDelegate.swift */; };
 		3C2C29662C9B281000E03830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29652C9B281000E03830 /* ViewController.swift */; };
@@ -64,6 +68,9 @@
 		3C7C2FB92D3E79EE00186787 /* FeatureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */; };
 		3C7C2FBB2D3E7A2100186787 /* PreferenceCompanySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */; };
 		3C7C2FBD2D3E7A6200186787 /* PreferencePropertySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */; };
+		3C7C2FBF2D4A2C6A00186787 /* SignUpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FBE2D4A2C6A00186787 /* SignUpConstants.swift */; };
+		3C7C2FC12D4A2E4000186787 /* SignUpEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FC02D4A2E4000186787 /* SignUpEnum.swift */; };
+		3C7C2FC32D4A38FB00186787 /* EnrollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C2FC22D4A38FB00186787 /* EnrollRequest.swift */; };
 		3C87AE5C2CF603A6006AAA74 /* DetailedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE5B2CF603A6006AAA74 /* DetailedProfileView.swift */; };
 		3C87AE602CFDE3AC006AAA74 /* DetailedProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE5F2CFDE3AC006AAA74 /* DetailedProfileViewModel.swift */; };
 		3C87AE622D01BCAF006AAA74 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87AE612D01BCAF006AAA74 /* AuthViewModel.swift */; };
@@ -94,7 +101,6 @@
 		3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */; };
 		3CC4A1222CAEAD0A00E92D4E /* companyMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CC4A1212CAEAD0A00E92D4E /* companyMock.json */; };
 		3CC4A12E2CAEC88A00E92D4E /* SelectCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A12D2CAEC88A00E92D4E /* SelectCompanyViewModel.swift */; };
-		3CC4A1302CAECB2200E92D4E /* FindCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC4A12F2CAECB2200E92D4E /* FindCompanyViewModel.swift */; };
 		3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F422CA03A010028BDC3 /* LoginViewController.swift */; };
 		3CD83F452CA03EFB0028BDC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */; };
 		3CD83F482CA18AF50028BDC3 /* CompaniesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */; };
@@ -143,6 +149,10 @@
 		3C169B612CB2CA5F00933AFE /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
 		3C169B652CB2CE8300933AFE /* SignUpProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileTableViewCell.swift; sourceTree = "<group>"; };
 		3C169B662CB2CE8300933AFE /* SignUpProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpProfileTableViewCell.xib; sourceTree = "<group>"; };
+		3C295CE22D4F8D000043116D /* SignUpAPIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPIMapper.swift; sourceTree = "<group>"; };
+		3C295CE42D4F8E330043116D /* DateFormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtil.swift; sourceTree = "<group>"; };
+		3C295CE62D4F993D0043116D /* SignUpCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompleteView.swift; sourceTree = "<group>"; };
+		3C295CE82D4FA6C20043116D /* TempSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSignUpRequest.swift; sourceTree = "<group>"; };
 		3C2C295E2C9B281000E03830 /* jumso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jumso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2C29612C9B281000E03830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2C29632C9B281000E03830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +198,9 @@
 		3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCoordinator.swift; sourceTree = "<group>"; };
 		3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCompanySelectionView.swift; sourceTree = "<group>"; };
 		3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePropertySelectionView.swift; sourceTree = "<group>"; };
+		3C7C2FBE2D4A2C6A00186787 /* SignUpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConstants.swift; sourceTree = "<group>"; };
+		3C7C2FC02D4A2E4000186787 /* SignUpEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEnum.swift; sourceTree = "<group>"; };
+		3C7C2FC22D4A38FB00186787 /* EnrollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollRequest.swift; sourceTree = "<group>"; };
 		3C87AE5B2CF603A6006AAA74 /* DetailedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedProfileView.swift; sourceTree = "<group>"; };
 		3C87AE5F2CFDE3AC006AAA74 /* DetailedProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedProfileViewModel.swift; sourceTree = "<group>"; };
 		3C87AE612D01BCAF006AAA74 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -218,7 +231,6 @@
 		3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		3CC4A1212CAEAD0A00E92D4E /* companyMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = companyMock.json; sourceTree = "<group>"; };
 		3CC4A12D2CAEC88A00E92D4E /* SelectCompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCompanyViewModel.swift; sourceTree = "<group>"; };
-		3CC4A12F2CAECB2200E92D4E /* FindCompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCompanyViewModel.swift; sourceTree = "<group>"; };
 		3CD83F422CA03A010028BDC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CD83F442CA03EFB0028BDC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3CD83F462CA18AF50028BDC3 /* CompaniesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesCell.swift; sourceTree = "<group>"; };
@@ -501,6 +513,8 @@
 				3C87AE822D11B3D9006AAA74 /* SignUpDebugLog.swift */,
 				3C87AE8E2D1C404A006AAA74 /* RoundedCorner.swift */,
 				3C87AE902D1C474E006AAA74 /* LocationManager.swift */,
+				3C295CE22D4F8D000043116D /* SignUpAPIMapper.swift */,
+				3C295CE42D4F8E330043116D /* DateFormatterUtil.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -508,7 +522,6 @@
 		3C7C2FB72D3E79D100186787 /* FeatureCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */,
 			);
 			path = FeatureCoordinator;
 			sourceTree = "<group>";
@@ -574,9 +587,13 @@
 		3CC4A11C2CAEA87300E92D4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C7C2FC22D4A38FB00186787 /* EnrollRequest.swift */,
+				3C7C2FBE2D4A2C6A00186787 /* SignUpConstants.swift */,
+				3C7C2FC02D4A2E4000186787 /* SignUpEnum.swift */,
 				3CC4A11F2CAEABD100E92D4E /* CompanyModel.swift */,
 				3CC4A1212CAEAD0A00E92D4E /* companyMock.json */,
 				3C87AE8C2D1C402C006AAA74 /* ProfileSection.swift */,
+				3C295CE82D4FA6C20043116D /* TempSignUpRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -585,21 +602,22 @@
 			isa = PBXGroup;
 			children = (
 				3C2C93962D35550E00E0F2EB /* moved */,
-				3C87AE942D1C520C006AAA74 /* SignUpPreferenceView.swift */,
+				3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */,
+				3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */,
 				3C87AE712D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift */,
 				3C87AE802D11AC3D006AAA74 /* SignUpBirthDayView.swift */,
 				3C87AE6D2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift */,
 				3C87AE922D1C4EAD006AAA74 /* SignUpDistanceView.swift */,
 				3C87AE6F2D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift */,
 				3C87AE842D181486006AAA74 /* SignUpGenderView.swift */,
+				3C0FECE82D22D3CA003166C0 /* SignUpIntroductionView.swift */,
 				3C87AE882D1C3EA7006AAA74 /* SignUpLocationView.swift */,
 				3C87AE7E2D11A7F2006AAA74 /* SignUpNameView.swift */,
 				3C87AE7A2D118796006AAA74 /* SignUpPasswordView.swift */,
+				3C87AE942D1C520C006AAA74 /* SignUpPreferenceView.swift */,
 				3C87AE862D181CBC006AAA74 /* SignUpProfileView.swift */,
 				3C87AE6B2D05E02C006AAA74 /* SignUpRegisterView.swift */,
-				3C0FECE82D22D3CA003166C0 /* SignUpIntroductionView.swift */,
-				3C7C2FBA2D3E7A2100186787 /* PreferenceCompanySelectionView.swift */,
-				3C7C2FBC2D3E7A6200186787 /* PreferencePropertySelectionView.swift */,
+				3C295CE62D4F993D0043116D /* SignUpCompleteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -607,8 +625,8 @@
 		3CC4A11E2CAEA8B100E92D4E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3C7C2FB82D3E79EE00186787 /* FeatureCoordinator.swift */,
 				3CC4A12D2CAEC88A00E92D4E /* SelectCompanyViewModel.swift */,
-				3CC4A12F2CAECB2200E92D4E /* FindCompanyViewModel.swift */,
 				3C2C93942D3002DF00E0F2EB /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
@@ -938,22 +956,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0AE79C2CF4A598004074DB /* MainViewModel.swift in Sources */,
+				3C295CE72D4F993D0043116D /* SignUpCompleteView.swift in Sources */,
 				3C87AE892D1C3EA7006AAA74 /* SignUpLocationView.swift in Sources */,
 				3C87AE952D1C520C006AAA74 /* SignUpPreferenceView.swift in Sources */,
 				3C87AE932D1C4EAD006AAA74 /* SignUpDistanceView.swift in Sources */,
 				3C87AE832D11B3D9006AAA74 /* SignUpDebugLog.swift in Sources */,
 				3C3BE7022CEE1B8300695D7C /* MainTabBarController.swift in Sources */,
+				3C7C2FC12D4A2E4000186787 /* SignUpEnum.swift in Sources */,
 				3C2C938F2D2BC14900E0F2EB /* LoginResponse.swift in Sources */,
 				3C87AE6E2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift in Sources */,
 				3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */,
 				3C87AE602CFDE3AC006AAA74 /* DetailedProfileViewModel.swift in Sources */,
+				3C295CE32D4F8D000043116D /* SignUpAPIMapper.swift in Sources */,
 				3CC4A12E2CAEC88A00E92D4E /* SelectCompanyViewModel.swift in Sources */,
 				3C0AE7942CF37E2F004074DB /* ChatDetailView.swift in Sources */,
 				3C5401F62CBB9D2500C95EB8 /* SignUpProfileInputTableViewCell.swift in Sources */,
 				3C0AE7922CF37CAE004074DB /* ChatView.swift in Sources */,
 				3C87AE722D0719DA006AAA74 /* SignUpAuthenticationCodeView.swift in Sources */,
 				3C54020B2CBBF15D00C95EB8 /* SignUpCompanySelectionViewController.swift in Sources */,
-				3CC4A1302CAECB2200E92D4E /* FindCompanyViewModel.swift in Sources */,
 				3C87AE852D181486006AAA74 /* SignUpGenderView.swift in Sources */,
 				3C54021B2CC53E6C00C95EB8 /* UIViewController+KeyboardHandling.swift in Sources */,
 				3C87AE682D01C9EE006AAA74 /* MockData.swift in Sources */,
@@ -966,9 +986,11 @@
 				3C54020D2CC5246400C95EB8 /* SignUpBaseViewController.swift in Sources */,
 				3C0AE7902CF37B2A004074DB /* SectionView.swift in Sources */,
 				3C5402002CBBDF4200C95EB8 /* SignUpSliderTableViewCell.swift in Sources */,
+				3C295CE92D4FA6C20043116D /* TempSignUpRequest.swift in Sources */,
 				3C87AE702D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift in Sources */,
 				3C5F94C32CA9A2A400E477DD /* SignUpBirthDayViewController.swift in Sources */,
 				3C5402092CBBF0AE00C95EB8 /* SignUpPropertyselectionViewController.swift in Sources */,
+				3C295CE52D4F8E330043116D /* DateFormatterUtil.swift in Sources */,
 				3C87AE8F2D1C404A006AAA74 /* RoundedCorner.swift in Sources */,
 				3C87AE622D01BCAF006AAA74 /* AuthViewModel.swift in Sources */,
 				3CC4A1202CAEABD100E92D4E /* CompanyModel.swift in Sources */,
@@ -979,6 +1001,7 @@
 				3C87AE7D2D119F7C006AAA74 /* RelativeButtonPositionModifier.swift in Sources */,
 				3C5402032CBBE26D00C95EB8 /* SignUpPreferenceViewController.swift in Sources */,
 				3C5401FD2CBBDB6E00C95EB8 /* SignUpIntroductionViewController.swift in Sources */,
+				3C7C2FC32D4A38FB00186787 /* EnrollRequest.swift in Sources */,
 				3C87AE792D117488006AAA74 /* KeyboardManager.swift in Sources */,
 				3C5402162CC53A0C00C95EB8 /* SignUpAppearance.swift in Sources */,
 				3C0AE78E2CF37B00004074DB /* ProfileRow.swift in Sources */,
@@ -992,6 +1015,7 @@
 				3C7C2FB92D3E79EE00186787 /* FeatureCoordinator.swift in Sources */,
 				3C87AE8D2D1C402C006AAA74 /* ProfileSection.swift in Sources */,
 				3C169B5E2CB2C51300933AFE /* SignUpGenderViewController.swift in Sources */,
+				3C7C2FBF2D4A2C6A00186787 /* SignUpConstants.swift in Sources */,
 				3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */,
 				3C169B632CB2CA5F00933AFE /* SignUpProfileViewController.swift in Sources */,
 				3C2C93912D2BC26F00E0F2EB /* LoginRequest.swift in Sources */,

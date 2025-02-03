@@ -23,14 +23,13 @@ struct SignUpLocationView: View {
     private let defaultSelectedLocation = "검색한 위치가 여기에 표시됩니다."
     
     // ProgressBar 상태
-    private let totalSignUpSteps = 8
-    private let currentSignUpStep = 5
+    private let currentSignUpStep = SignUpStep.allCases.firstIndex(of: .location) ?? 0
     
     var body: some View {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
-                    ProgressView(value: Float(currentSignUpStep) / Float(totalSignUpSteps))
+                    ProgressView(value: Float(currentSignUpStep) / Float(SignUpStep.allCases.count))
                         .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                         .padding(.top, 30)
                         .padding(.horizontal, 16)
@@ -100,7 +99,7 @@ struct SignUpLocationView: View {
                 VStack {
                     Spacer()
                     SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                        registerViewModel.navigationPath.append("IntroductionStep")
+                        registerViewModel.navigationPath.append(NavigationStep.introduction.rawValue)
                     }
                     .disabled(!isButtonEnabled)
                     .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)

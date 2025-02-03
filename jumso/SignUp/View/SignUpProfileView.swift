@@ -10,16 +10,16 @@ struct SignUpProfileView: View {
     @State private var navigateToNextView: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     @StateObject private var keyboardManager = KeyboardManager.shared
+
     
     // ProgressBar 상태
-    private let totalSignUpSteps = 8
-    private let currentSignUpStep = 4
+    private let currentSignUpStep = SignUpStep.allCases.firstIndex(of: .profile) ?? 0
     
     var body: some View {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
-                    ProgressView(value: Float(currentSignUpStep) / Float(totalSignUpSteps))
+                    ProgressView(value: Float(currentSignUpStep) / Float(SignUpStep.allCases.count))
                         .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                         .padding(.top, 30)
                         .padding(.horizontal, 16)
@@ -58,7 +58,7 @@ struct SignUpProfileView: View {
                 VStack {
                     Spacer()
                     SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                        registerViewModel.navigationPath.append("LocationStep")
+                        registerViewModel.navigationPath.append(NavigationStep.location.rawValue)
                     }
                     .disabled(!isButtonEnabled)
                     .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)
@@ -94,9 +94,10 @@ struct SignUpProfileView: View {
                 isButtonEnabled = isFormValid()
             }
             .onChange(of: jobTitle) { newValue in
-                registerViewModel.profileData["Job Title"] = newValue // 직업 정보 저장
+                registerViewModel.profileData[ProfileSection.ProfileSectionRow.jobTitle.rawValue] = newValue
                 isButtonEnabled = isFormValid()
             }
+
     }
     
 //    private func isFormValid() -> Bool {
@@ -107,11 +108,12 @@ struct SignUpProfileView: View {
 //    }
     
     private func isFormValid() -> Bool {
-        let requiredFields = ProfileSection.BasicInfoRow.allCases.map { $0.rawValue } +
-        ProfileSection.AdditionalInfoRow.allCases.map { $0.rawValue }
+        let requiredFields = ProfileSection.ProfileSectionRow.allCases.map { $0.rawValue }
         
+        // jobTitle이 비어있지 않은지 확인
         return requiredFields.allSatisfy { selectedOptions[$0] != nil } && !jobTitle.isEmpty
     }
+
 
     
     // MARK: - 버튼 동작
@@ -145,20 +147,14 @@ struct ProfileContentView: View {
     @Binding var jobTitle: String
     
     var body: some View {
-        switch section {
-        case .basicInfo:
-            ForEach(ProfileSection.BasicInfoRow.allCases, id: \.self) { row in
-                ProfileDropdownCell(
-                    title: row.rawValue,
-                    options: getOptions(for: row),
-                    selectedOption: $selectedOptions[row.rawValue]
-                )
-            }
-        case .jobInfo:
-            TextField(ProfileSection.JobInfoRow.jobTitle.rawValue, text: $jobTitle)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-        case .additionalInfo:
-            ForEach(ProfileSection.AdditionalInfoRow.allCases, id: \.self) { row in
+        ForEach(ProfileSection.ProfileSectionRow.allCases.filter { $0.section == section }, id: \.self) { row in
+            if row == .jobTitle {
+                TextField(row.rawValue, text: $jobTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: jobTitle) { newValue in
+                        selectedOptions[row.rawValue] = newValue
+                    }
+            } else {
                 ProfileDropdownCell(
                     title: row.rawValue,
                     options: getOptions(for: row),
@@ -166,26 +162,20 @@ struct ProfileContentView: View {
                 )
             }
         }
+
     }
+    private func getOptions(for row: ProfileSection.ProfileSectionRow) -> [String] {
+            switch row {
+            case .height: return ProfileOptions.heightRange
+            case .bodyType: return ProfileOptions.bodyType
+            case .maritalStatus: return ProfileOptions.maritalStatus
+            case .religion: return ProfileOptions.religion
+            case .smoking: return ProfileOptions.smoking
+            case .drinking: return ProfileOptions.drinking
+            case .jobTitle: return []
+            }
+        }
     
-    private func getOptions(for row: Any) -> [String] {
-        switch row {
-        case ProfileSection.BasicInfoRow.height:
-            return (100...300).map { "\($0) cm" }
-        case ProfileSection.BasicInfoRow.bodyType:
-            return ["살짝 근육", "마름", "통통한편", "완전 근육"]
-        case ProfileSection.AdditionalInfoRow.maritalStatus:
-            return ["미혼", "기혼", "돌싱"]
-        case ProfileSection.AdditionalInfoRow.religion:
-            return ["무교", "기독교", "불교", "천주교", "기타"]
-        case ProfileSection.AdditionalInfoRow.smoking:
-            return ["흡연", "비흡연"]
-        case ProfileSection.AdditionalInfoRow.drinking:
-            return ["음주", "금주"]
-        default:
-            return []
-        }
-    }
 }
 
 

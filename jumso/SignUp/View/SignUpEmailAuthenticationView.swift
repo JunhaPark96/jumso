@@ -114,7 +114,7 @@ struct SignUpEmailAuthenticationView: View {
             switch result {
             case .success:
                 print("✅ 인증 메일 전송 성공")
-                registerViewModel.navigationPath.append("VerificationStep")
+                registerViewModel.navigationPath.append(NavigationStep.authenticationCode.rawValue)
             case .failure(let error):
                 print("❌ 인증 메일 전송 실패: \(error.localizedDescription)")
             }

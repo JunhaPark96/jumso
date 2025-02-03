@@ -12,14 +12,13 @@ struct SignUpIntroductionView: View {
     @State private var introduction: String = "" // 자기소개 내용 입력
     
     // ProgressBar 상태
-    private let totalSignUpSteps = 8
-    private let currentSignUpStep = 6
+    private let currentSignUpStep = SignUpStep.allCases.firstIndex(of: .introduction) ?? 0
     
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
                 // ✅ Progress Bar
-                ProgressView(value: Float(currentSignUpStep) / Float(totalSignUpSteps))
+                ProgressView(value: Float(currentSignUpStep) / Float(SignUpStep.allCases.count))
                     .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                     .padding(.top, 30)
                     .padding(.horizontal, 16)
@@ -120,7 +119,7 @@ struct SignUpIntroductionView: View {
                 SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
                     registerViewModel.profileData["Title"] = title
                     registerViewModel.profileData["Introduction"] = introduction
-                    registerViewModel.navigationPath.append("PreferenceStep")
+                    registerViewModel.navigationPath.append(NavigationStep.preference.rawValue)
                 }
                 .disabled(!isButtonEnabled)
                 .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)

@@ -3,7 +3,7 @@ import SwiftUI
 struct SignUpGenderView: View {
     @EnvironmentObject var registerViewModel: RegisterViewModel
     // MARK: - 상태 변수
-    @State private var selectedGender: Gender? = nil
+    @State private var selectedGender: Sex? = nil
     @State private var isButtonEnabled: Bool = false
     
     @State private var navigateToNextView: Bool = false
@@ -11,14 +11,13 @@ struct SignUpGenderView: View {
     @StateObject private var keyboardManager = KeyboardManager.shared
     
     // ProgressBar 상태
-    private let totalSignUpSteps = 8
-    private let currentSignUpStep = 3
+    private let currentSignUpStep = SignUpStep.allCases.firstIndex(of: .gender) ?? 0
     
     var body: some View {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
-                    ProgressView(value: Float(currentSignUpStep) / Float(totalSignUpSteps))
+                    ProgressView(value: Float(currentSignUpStep) / Float(SignUpStep.allCases.count))
                         .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                         .padding(.top, 50)
                         .padding(.horizontal, 16)
@@ -65,7 +64,7 @@ struct SignUpGenderView: View {
                         VStack {
                             Spacer()
                             SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
-                                registerViewModel.navigationPath.append("ProfileStep")
+                                registerViewModel.navigationPath.append(NavigationStep.profile.rawValue)
                             }
                             .disabled(!isButtonEnabled)
                             .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4) // 키보드 위 10pt
@@ -109,11 +108,6 @@ struct SignUpGenderView: View {
 //    private func handleNextButtonTap() {
 //        navigateToNextView = true
 //    }
-}
-
-// MARK: - Gender Enum
-enum Gender {
-    case MALE, FEMALE
 }
 
 // MARK: - GenderButton Component

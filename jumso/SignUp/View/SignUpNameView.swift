@@ -10,14 +10,13 @@ struct SignUpNameView: View {
     @State private var keyboardHeight: CGFloat = 0
     @StateObject private var keyboardManager = KeyboardManager.shared
     
-    let totalSignUpSteps = 8
-    let currentSignUpStep = 1
+    private let currentSignUpStep = SignUpStep.allCases.firstIndex(of: .name) ?? 0
     
     var body: some View {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
                     // Progress Bar
-                    ProgressView(value: Float(currentSignUpStep) / Float(totalSignUpSteps))
+                    ProgressView(value: Float(currentSignUpStep) / Float(SignUpStep.allCases.count))
                         .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                         .padding(.top, 50)
                         .padding(.horizontal, 16)
@@ -63,7 +62,7 @@ struct SignUpNameView: View {
 //                            }
                             SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
                                 registerViewModel.name = name
-                                registerViewModel.navigationPath.append("BirthDayStep") // 다음 뷰 전환
+                                registerViewModel.navigationPath.append(NavigationStep.birthDay.rawValue) // 다음 뷰 전환
                             }
                             .disabled(!isButtonEnabled)
                             .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 4) // 키보드 위 10pt
@@ -75,9 +74,7 @@ struct SignUpNameView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .navigationDestination(isPresented: $navigateToNextView) {
-                    SignUpBirthDayView()
-                }
+
                 
             } // 가장 바깥쪽 Vstack
             .onTapGesture {

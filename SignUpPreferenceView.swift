@@ -17,14 +17,13 @@ struct SignUpPreferenceView: View {
     @State private var selectedCompanies: Set<CompanyItem> = []
     
     // ProgressBar 상태
-    private let totalSignUpSteps = 8
-    private let currentSignUpStep = 7
+    private let currentSignUpStep = SignUpStep.allCases.firstIndex(of: .preference) ?? 0
     
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
                 // ✅ Progress Bar
-                ProgressView(value: Float(currentSignUpStep) / Float(totalSignUpSteps))
+                ProgressView(value: Float(currentSignUpStep) / Float(SignUpStep.allCases.count))
                     .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                     .padding(.top, 30)
                     .padding(.horizontal, 16)
@@ -40,57 +39,26 @@ struct SignUpPreferenceView: View {
                             Section(header: Text("기본 정보").font(.headline)) {
                                 SignUpProfileDropdownCell(
                                     title: "원하는 성별",
-                                    options: ["남성", "여성"],
+                                    options: SignUpOptions.genders,
                                     selectedOption: $selectedOptions["원하는 성별"]
                                 )
                                 
-                                SignUpSliderCell(
-                                    title: "최소 나이",
-                                    value: $ageMin,
-                                    range: 18...127,
-                                    unit: "살"
-                                )
-                                
-                                SignUpSliderCell(
-                                    title: "최대 나이",
-                                    value: $ageMax,
-                                    range: 18...127,
-                                    unit: "살"
-                                )
-                                
-                                SignUpSliderCell(
-                                    title: "최대 거리",
-                                    value: $maxDistance,
-                                    range: 0...127,
-                                    unit: "km"
-                                )
+                                SignUpSliderCell(title: "최소 나이", value: $ageMin, range: SignUpConstants.minAge...SignUpConstants.maxAge, unit: "살")
+                                SignUpSliderCell(title: "최대 나이", value: $ageMax, range: SignUpConstants.minAge...SignUpConstants.maxAge, unit: "살")
+                                SignUpSliderCell(title: "최대 거리", value: $maxDistance, range: SignUpConstants.minDistance...SignUpConstants.maxDistance, unit: "km")
                             }
                             
                             // 🔹 추가 정보 섹션
                             Section(header: Text("추가 정보").font(.headline)) {
-                                SignUpProfileDropdownCell(
-                                    title: "원하는 체형",
-                                    options: ["마름", "통통", "근육질"],
-                                    selectedOption: $selectedOptions["원하는 체형"]
-                                )
-                                
-                                SignUpProfileDropdownCell(
-                                    title: "원하는 교제 상태",
-                                    options: ["미혼", "기혼", "돌싱"],
-                                    selectedOption: $selectedOptions["원하는 교제 상태"]
-                                )
-                                
-                                SignUpProfileDropdownCell(
-                                    title: "원하는 종교",
-                                    options: ["무교", "기독교", "불교", "천주교"],
-                                    selectedOption: $selectedOptions["원하는 종교"]
-                                )
+                                SignUpProfileDropdownCell(title: "원하는 체형", options: ProfileOptions.bodyType, selectedOption: $selectedOptions["원하는 체형"])
+                                SignUpProfileDropdownCell(title: "원하는 교제 상태", options: ProfileOptions.maritalStatus, selectedOption: $selectedOptions["원하는 교제 상태"])
+                                SignUpProfileDropdownCell(title: "원하는 종교", options: ProfileOptions.religion, selectedOption: $selectedOptions["원하는 종교"])
                             }
                             
                             // 🔹 특성 선택 섹션
                             Section(header: Text("특성 선택").font(.headline)) {
                                 Button(action: {
-                                    registerViewModel.navigationPath.append("PropertySelection") // ✅ 네비게이션 경로 추가
+                                    registerViewModel.navigationPath.append(NavigationStep.propertySelection.rawValue) // ✅ 네비게이션 경로 추가
                                 }) {
                                     Text("특성 선택하기 (\(coordinator.selectedProperties.count))")
                                 }
@@ -98,10 +66,10 @@ struct SignUpPreferenceView: View {
                             }
                             
                             // 🔹 회사 선택 섹션
-
+                            
                             Section(header: Text("만나기 싫은 회사 선택").font(.headline)) {
                                 Button(action: {
-                                    registerViewModel.navigationPath.append("CompanySelection") // ✅ 네비게이션 경로 추가
+                                    registerViewModel.navigationPath.append(NavigationStep.companySelection.rawValue) // ✅ 네비게이션 경로 추가
                                 }) {
                                     Text("회사 선택하기 (\(coordinator.selectedCompanies.count))")
                                 }
@@ -124,10 +92,7 @@ struct SignUpPreferenceView: View {
                 Spacer()
                 SignUpReusableButton(title: "다음", isEnabled: isButtonEnabled) {
                     // 데이터를 RegisterViewModel에 저장
-                    registerViewModel.profileData["원하는 성별"] = selectedOptions["원하는 성별"]
-                    registerViewModel.profileData["원하는 체형"] = selectedOptions["원하는 체형"]
-                    registerViewModel.profileData["원하는 교제 상태"] = selectedOptions["원하는 교제 상태"]
-                    registerViewModel.profileData["원하는 종교"] = selectedOptions["원하는 종교"]
+                    registerViewModel.profileData.merge(selectedOptions) { _, new in new }
                     registerViewModel.profileData["최소 나이"] = "\(Int(ageMin))"
                     registerViewModel.profileData["최대 나이"] = "\(Int(ageMax))"
                     registerViewModel.profileData["최대 거리"] = "\(Int(maxDistance)) km"
@@ -135,7 +100,18 @@ struct SignUpPreferenceView: View {
                     registerViewModel.profileData["만나기 싫은 회사"] = coordinator.selectedCompanies.map { $0.name }.joined(separator: ", ")
                     
                     
-                    registerViewModel.navigationPath.append("NextStep")
+                    // ✅ API 요청 실행
+                    registerViewModel.submitRegistration { result in
+                        switch result {
+                        case .success:
+                            print("✅ 회원가입 성공! 로그인 진행...")
+                            DispatchQueue.main.async {
+                                registerViewModel.navigationPath.append(NavigationStep.complete.rawValue)
+                            }
+                        case .failure(let error):
+                            print("❌ 회원가입 실패: \(error.localizedDescription)")
+                        }
+                    }
                 }
                 .disabled(!isButtonEnabled)
                 .padding(.bottom, keyboardManager.keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 30)
