@@ -29,6 +29,10 @@ class RegisterViewModel: ObservableObject {
     @Published var currentCoordinates: CLLocationCoordinate2D? { didSet { logStateChange("Current Coordinates 변경") } }
     @Published var featureCoordinator = FeatureCoordinator()
     
+    // (개인 이메일 인증 관련)
+    @Published var isUsingPersonalEmail: Bool = false { didSet { logStateChange("개인 이메일 인증 여부 변경") } }
+    @Published var personalEmailDomain: String = "" { didSet { logStateChange("개인 이메일 도메인 변경") } }
+    
     private let signUpURL = "https://api.jumso.life/api/auth/signup"
     private let EnrollURL = "https://api.jumso.life/api/auth/enroll"
     

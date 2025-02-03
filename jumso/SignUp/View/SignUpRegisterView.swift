@@ -5,7 +5,6 @@ struct SignUpRegisterView: View {
     @EnvironmentObject var registerViewModel: RegisterViewModel // 중앙 데이터 관리
     @StateObject var coordinator = FeatureCoordinator()
     @State private var searchText: String = ""
-    //    @State private var navigationPath = NavigationPath() // Navigation Path 관리
     
     var body: some View {
         NavigationStack(path: $registerViewModel.navigationPath) { // Navigation Path와 연결
@@ -41,6 +40,57 @@ struct SignUpRegisterView: View {
                     }
                 }
                 .padding()
+                // 회사가 없을 경우 개인 이메일 사용 옵션
+                VStack {
+                    Button(action: {
+                        registerViewModel.isUsingPersonalEmail.toggle()
+                        if registerViewModel.isUsingPersonalEmail {
+                            registerViewModel.selectedCompany = nil
+                            registerViewModel.selectedEmailDomain = ""
+                        }
+                    }) {
+                        Text(registerViewModel.isUsingPersonalEmail ? "회사 이메일로 인증하기" : "목록에 회사가 없나요?")
+                            .font(.callout)
+                            .foregroundColor(.blue)
+                            .underline()
+                    }
+                    .padding(.top, 10)
+                    
+                    if registerViewModel.isUsingPersonalEmail {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("개인 이메일 입력")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                            
+                            TextField("example@gmail.com", text: $registerViewModel.personalEmailDomain)
+                                .padding()
+                                .background(Color(.systemGray6))
+                                .cornerRadius(10)
+                                .autocapitalization(.none)
+                                .keyboardType(.emailAddress)
+                            
+                            Button(action: {
+                                guard !registerViewModel.personalEmailDomain.isEmpty else { return }
+                                // ✅ 개인 이메일 인증 → 바로 인증 코드 화면으로 이동
+                                registerViewModel.fullEmailAddress = registerViewModel.personalEmailDomain
+                                registerViewModel.navigationPath.append(NavigationStep.authenticationCode.rawValue)
+                                print("📧 [DEBUG] 개인 이메일 인증 진행: \(registerViewModel.personalEmailDomain)")
+                                print("📧 [DEBUG] 개인 이메일 인증 진행: \(registerViewModel.personalEmailDomain)")
+                            }) {
+                                Text("이메일 인증 요청")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                            .disabled(registerViewModel.personalEmailDomain.isEmpty)
+                        }
+                        .padding()
+                    }
+                }
+                
                 
                 // 회사 리스트
                 List(viewModel.filteredCompanies, id: \.id) { company in
@@ -70,14 +120,8 @@ struct SignUpRegisterView: View {
                 if let stepEnum = NavigationStep(rawValue: step) {
                     switch stepEnum {
                     case .emailAuthentication:
-                        if registerViewModel.selectedCompany != nil {
-                            SignUpEmailAuthenticationView()
-                                .environmentObject(registerViewModel)
-                        } else {
-                            Text(NSLocalizedString("company_selection_required", comment: "회사 선택이 필요합니다."))
-                                .font(.title2)
-                                .foregroundColor(.red)
-                        }
+                        SignUpEmailAuthenticationView()
+                            .environmentObject(registerViewModel)
                     case .authenticationCode:
                         SignUpAuthenticationCodeView()
                             .environmentObject(registerViewModel)
@@ -122,7 +166,7 @@ struct SignUpRegisterView: View {
                         SignUpCompleteView()
                             .environmentObject(registerViewModel)
                     }
-                } 
+                }
                 
             }
         }

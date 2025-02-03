@@ -26,7 +26,7 @@ struct SignUpEmailAuthenticationView: View {
                         .onChange(of: emailID) { newValue in
                             print("✏️ 이메일 아이디 입력: \(newValue)")
                         }
-                    
+                    // 회사 이메일 인증 OR 개인 이메일 인증
                     if let company = registerViewModel.selectedCompany, company.emails.count > 1 {
                         Button(action: {
                             showDomainPicker = true
@@ -54,7 +54,7 @@ struct SignUpEmailAuthenticationView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                     }
-                }
+                } 
                 .frame(maxWidth: .infinity, alignment: .top)
                 .padding(.top, UIScreen.main.bounds.height / 6)
                 

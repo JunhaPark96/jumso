@@ -101,7 +101,7 @@ struct SignUpPasswordView: View {
         let maxButtonY = passwordFieldMaxY + 100 // 필드 아래 여백
         
         // 버튼이 올라갈 수 있는 최대 높이 계산
-        let buttonY = availableHeight - 70 // 버튼 높이 및 여백 고려
+//        let buttonY = availableHeight - 70 // 버튼 높이 및 여백 고려
         
         // 버튼이 필드 위로 올라가지 않도록 제한
         let padding = max(10, geometry.size.height - max(keyboardHeight + bottomSafeArea + 70, maxButtonY))
