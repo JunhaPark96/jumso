@@ -95,7 +95,7 @@ struct SignUpPasswordView: View {
         let bottomSafeArea = geometry.safeAreaInsets.bottom
         
         // 화면 높이에서 키보드 높이와 Safe Area를 뺀 영역
-        let availableHeight = geometry.size.height - keyboardHeight - bottomSafeArea
+//        let availableHeight = geometry.size.height - keyboardHeight - bottomSafeArea
         
         // 비밀번호 확인 필드의 아래쪽 위치에서 버튼 높이를 뺀 값
         let maxButtonY = passwordFieldMaxY + 100 // 필드 아래 여백
@@ -114,19 +114,6 @@ struct SignUpPasswordView: View {
         isButtonEnabled = !password.isEmpty && !confirmPassword.isEmpty
         isPasswordMatched = password == confirmPassword || confirmPassword.isEmpty
     }
-    
-    // MARK: - 버튼 동작
-    //    private func handleNextButtonTap() {
-    //        print("입력된 비밀번호: \(password)")
-    //        print("비밀번호 확인 값: \(confirmPassword)")
-    //
-    //        if password == confirmPassword {
-    //            print("비밀번호가 일치합니다.")
-    //        } else {
-    //            print("비밀번호가 일치하지 않습니다.")
-    //            isPasswordMatched = false
-    //        }
-    //    }
 }
 
 // MARK: - ViewOffsetKey 정의

@@ -1,7 +1,3 @@
-//
-//  SceneDelegate.swift
-//  jumso
-//
 
 import SwiftUI
 import UIKit
@@ -12,6 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var authViewModel = AuthViewModel()
     var chatListViewModel = ChatListViewModel()
     var registerViewModel = RegisterViewModel()
+    var deviceSizeManager = DeviceSizeManager.shared
     
     func scene(
         _ scene: UIScene,
@@ -28,9 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // ViewModel 초기화 상태 확인
-//        debugLog("✅ authViewModel 초기화 상태: \(authViewModel != nil)")
-//        debugLog("✅ chatListViewModel 초기화 상태: \(chatListViewModel != nil)")
-//        debugLog("✅ registerViewModel 초기화 상태: \(registerViewModel != nil)")
+        //        debugLog("✅ authViewModel 초기화 상태: \(authViewModel != nil)")
+        //        debugLog("✅ chatListViewModel 초기화 상태: \(chatListViewModel != nil)")
+        //        debugLog("✅ registerViewModel 초기화 상태: \(registerViewModel != nil)")
         
         // 로그인 여부에 따른 화면 분기
         if authViewModel.isLoggedIn {
@@ -41,45 +38,65 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             )
             window.rootViewController = tabBarController
         } else {
-            debugLog("🔑 사용자가 로그인되지 않았습니다. LoginViewController로 이동합니다.")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController else {
-                debugLog("❌ LoginViewController를 생성할 수 없습니다.")
-                return
-            }
-            debugLog("✅ LoginViewController가 생성되었습니다.")
-            loginViewController.authViewModel = authViewModel
-            debugLog("✅ LoginViewController에 authViewModel이 주입되었습니다.")
             
-            // UINavigationController로 래핑
-            let navigationController = UINavigationController(rootViewController: loginViewController)
-            window.rootViewController = navigationController
-            debugLog("✅ UINavigationController가 생성되고 LoginViewController를 포함했습니다.")
+            debugLog("🔑 사용자가 로그인되지 않았습니다. SwiftUI LoginView로 이동합니다.")
+            
+            let loginView = LoginView()
+                .environmentObject(authViewModel)
+                .environmentObject(registerViewModel)
+                .environmentObject(deviceSizeManager)
+            
+            window.rootViewController = UIHostingController(rootView: loginView)
+            debugLog("✅ UIHostingController로 LoginView 적용 완료")
+            //            debugLog("🔑 사용자가 로그인되지 않았습니다. LoginViewController로 이동합니다.")
+            //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            //            guard let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController else {
+            //                debugLog("❌ LoginViewController를 생성할 수 없습니다.")
+            //                return
+            //            }
+            //            debugLog("✅ LoginViewController가 생성되었습니다.")
+            //            loginViewController.authViewModel = authViewModel
+            //            debugLog("✅ LoginViewController에 authViewModel이 주입되었습니다.")
+            //
+            //            // UINavigationController로 래핑
+            //            let navigationController = UINavigationController(rootViewController: loginViewController)
+            //            window.rootViewController = navigationController
+            //            debugLog("✅ UINavigationController가 생성되고 LoginViewController를 포함했습니다.")
         }
         
         self.window = window
         window.makeKeyAndVisible()
         debugLog("✅ 윈도우가 화면에 표시되었습니다.")
     }
-
     
     func switchToLogin() {
-        debugLog("🔄 LoginViewController로 전환 중...")
-        guard let window = window else {
-            debugLog("❌ window가 nil입니다.")
-            return
-        }
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController else {
-            debugLog("❌ LoginViewController를 생성할 수 없습니다.")
-            return
-        }
-        
-        window.rootViewController = loginVC
+        guard let window = window else { return }
+        let loginView = LoginView()
+            .environmentObject(authViewModel)
+            .environmentObject(registerViewModel)
+            .environmentObject(deviceSizeManager)
+        window.rootViewController = UIHostingController(rootView: loginView)
         window.makeKeyAndVisible()
-        debugLog("✅ LoginViewController로 전환 완료.")
+        debugLog("✅ LoginView로 전환 완료.")
     }
+    
+    //    func switchToLogin() {
+    //        debugLog("🔄 LoginViewController로 전환 중...")
+    //        guard let window = window else {
+    //            debugLog("❌ window가 nil입니다.")
+    //            return
+    //        }
+    //
+    //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //        guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController else {
+    //            debugLog("❌ LoginViewController를 생성할 수 없습니다.")
+    //            return
+    //        }
+    //
+    //        window.rootViewController = loginVC
+    //        window.makeKeyAndVisible()
+    //        debugLog("✅ LoginViewController로 전환 완료.")
+    //    }
     
     func sceneDidDisconnect(_ scene: UIScene) {
         debugLog("SceneDelegate sceneDidDisconnect 호출됨")

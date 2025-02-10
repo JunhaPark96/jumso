@@ -110,7 +110,7 @@ struct SignUpEmailAuthenticationView: View {
         registerViewModel.fullEmailAddress = "\(emailID)@\(registerViewModel.selectedEmailDomain)"
         print("📧 [DEBUG] 이메일 인증할 주소: \(registerViewModel.fullEmailAddress)")
         
-        registerViewModel.requestEmailVerification { result in
+        registerViewModel.requestCompanyEmailVerification { result in
             switch result {
             case .success:
                 print("✅ 인증 메일 전송 성공")

@@ -65,15 +65,10 @@ struct SignUpAuthenticationCodeView: View {
                 
                 
                 // 인증 버튼 영역
-                //                SignUpReusableButton(title: "인증 확인", isEnabled: isButtonEnabled) {
-                //                    handleButtonTap()
-                //                }
                 SignUpReusableButton(title: registerViewModel.isVerifying ? "인증 중..." : "인증 확인", isEnabled: isButtonEnabled && !registerViewModel.isVerifying) {
                     handleVerifyCode()
                 }
-                //                .relativeButtonPosition(relativeHeight: 0.7, keyboardHeight: keyboardManager.keyboardHeight)
-                //                .background(Color.white)
-                //                .padding(.top, max(50, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : UIScreen.main.bounds.height / 6)))
+
                 
                 .padding(.top, max(100, min(120, keyboardHeight > 0 ? keyboardHeight - 50 : 100)))
                 .padding(.bottom, keyboardHeight > 0 ? 10 : UIScreen.main.bounds.height / 6)

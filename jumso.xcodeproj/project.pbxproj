@@ -27,6 +27,11 @@
 		3C295CE52D4F8E330043116D /* DateFormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE42D4F8E330043116D /* DateFormatterUtil.swift */; };
 		3C295CE72D4F993D0043116D /* SignUpCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE62D4F993D0043116D /* SignUpCompleteView.swift */; };
 		3C295CE92D4FA6C20043116D /* TempSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CE82D4FA6C20043116D /* TempSignUpRequest.swift */; };
+		3C295CED2D5233040043116D /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CEC2D5233040043116D /* PasswordResetView.swift */; };
+		3C295CEF2D5238AC0043116D /* DeviceSizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CEE2D5238AC0043116D /* DeviceSizeManager.swift */; };
+		3C295CF12D5239F90043116D /* DeviceSizeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CF02D5239F90043116D /* DeviceSizeConstants.swift */; };
+		3C295CF32D523C6F0043116D /* DeviceAdaptiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CF22D523C6F0043116D /* DeviceAdaptiveModifier.swift */; };
+		3C295CF52D54D89C0043116D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C295CF42D54D89C0043116D /* LoginView.swift */; };
 		3C2C29622C9B281000E03830 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29612C9B281000E03830 /* AppDelegate.swift */; };
 		3C2C29642C9B281000E03830 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29632C9B281000E03830 /* SceneDelegate.swift */; };
 		3C2C29662C9B281000E03830 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C29652C9B281000E03830 /* ViewController.swift */; };
@@ -153,6 +158,11 @@
 		3C295CE42D4F8E330043116D /* DateFormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtil.swift; sourceTree = "<group>"; };
 		3C295CE62D4F993D0043116D /* SignUpCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompleteView.swift; sourceTree = "<group>"; };
 		3C295CE82D4FA6C20043116D /* TempSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSignUpRequest.swift; sourceTree = "<group>"; };
+		3C295CEC2D5233040043116D /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		3C295CEE2D5238AC0043116D /* DeviceSizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSizeManager.swift; sourceTree = "<group>"; };
+		3C295CF02D5239F90043116D /* DeviceSizeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSizeConstants.swift; sourceTree = "<group>"; };
+		3C295CF22D523C6F0043116D /* DeviceAdaptiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAdaptiveModifier.swift; sourceTree = "<group>"; };
+		3C295CF42D54D89C0043116D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3C2C295E2C9B281000E03830 /* jumso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jumso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2C29612C9B281000E03830 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2C29632C9B281000E03830 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -530,6 +540,8 @@
 			isa = PBXGroup;
 			children = (
 				3CD83F422CA03A010028BDC3 /* LoginViewController.swift */,
+				3C295CEC2D5233040043116D /* PasswordResetView.swift */,
+				3C295CF42D54D89C0043116D /* LoginView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -556,6 +568,8 @@
 		3C87AE582CF5FF47006AAA74 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				3C295CEE2D5238AC0043116D /* DeviceSizeManager.swift */,
+				3C295CF02D5239F90043116D /* DeviceSizeConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -564,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				3C87AE652D01C452006AAA74 /* UIApplication+Extensions.swift */,
+				3C295CF22D523C6F0043116D /* DeviceAdaptiveModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -963,6 +978,7 @@
 				3C87AE832D11B3D9006AAA74 /* SignUpDebugLog.swift in Sources */,
 				3C3BE7022CEE1B8300695D7C /* MainTabBarController.swift in Sources */,
 				3C7C2FC12D4A2E4000186787 /* SignUpEnum.swift in Sources */,
+				3C295CF32D523C6F0043116D /* DeviceAdaptiveModifier.swift in Sources */,
 				3C2C938F2D2BC14900E0F2EB /* LoginResponse.swift in Sources */,
 				3C87AE6E2D05E1B3006AAA74 /* SignUpCompanySelectionView.swift in Sources */,
 				3CD83F432CA03A010028BDC3 /* LoginViewController.swift in Sources */,
@@ -989,6 +1005,7 @@
 				3C295CE92D4FA6C20043116D /* TempSignUpRequest.swift in Sources */,
 				3C87AE702D05E69D006AAA74 /* SignUpEmailAuthenticationView.swift in Sources */,
 				3C5F94C32CA9A2A400E477DD /* SignUpBirthDayViewController.swift in Sources */,
+				3C295CED2D5233040043116D /* PasswordResetView.swift in Sources */,
 				3C5402092CBBF0AE00C95EB8 /* SignUpPropertyselectionViewController.swift in Sources */,
 				3C295CE52D4F8E330043116D /* DateFormatterUtil.swift in Sources */,
 				3C87AE8F2D1C404A006AAA74 /* RoundedCorner.swift in Sources */,
@@ -1028,13 +1045,16 @@
 				3C3BE70A2CEE21EC00695D7C /* LoungeViewController.swift in Sources */,
 				3C5401FB2CBBA89500C95EB8 /* SignUpLocationViewController.swift in Sources */,
 				3C87AE772D117441006AAA74 /* SignUpReusableButton.swift in Sources */,
+				3C295CEF2D5238AC0043116D /* DeviceSizeManager.swift in Sources */,
 				3C0FECE92D22D3CA003166C0 /* SignUpIntroductionView.swift in Sources */,
 				3C169B602CB2C7FD00933AFE /* SignUpDistanceViewController.swift in Sources */,
 				3C87AE6C2D05E02C006AAA74 /* SignUpRegisterView.swift in Sources */,
 				3C3BE7062CEE21C100695D7C /* ChatViewController.swift in Sources */,
 				3C0AE78C2CF37A78004074DB /* RangeSlider.swift in Sources */,
 				3C5F94C12CA99CB400E477DD /* SignUpNameViewController.swift in Sources */,
+				3C295CF12D5239F90043116D /* DeviceSizeConstants.swift in Sources */,
 				3C2C93932D2BC7C000E0F2EB /* AFEventLogger.swift in Sources */,
+				3C295CF52D54D89C0043116D /* LoginView.swift in Sources */,
 				3C87AE7B2D118796006AAA74 /* SignUpPasswordView.swift in Sources */,
 				3C3BE7042CEE21AE00695D7C /* HomeViewController.swift in Sources */,
 				3C169B672CB2CE8300933AFE /* SignUpProfileTableViewCell.swift in Sources */,

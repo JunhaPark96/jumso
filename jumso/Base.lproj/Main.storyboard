@@ -123,6 +123,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uPj-dx-ocD"/>
+                    <connections>
+                        <outlet property="ForgetPasswordLabel" destination="maC-Pz-mDu" id="K4z-nd-NVT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

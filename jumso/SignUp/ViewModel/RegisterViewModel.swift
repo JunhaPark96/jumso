@@ -35,6 +35,8 @@ class RegisterViewModel: ObservableObject {
     
     private let signUpURL = "https://api.jumso.life/api/auth/signup"
     private let EnrollURL = "https://api.jumso.life/api/auth/enroll"
+    private let personalEmailVerifyURL = "https://api.jumso.life/api/auth/verify-personal-email" // 개인 이메일 인증 요청 URL
+    private let companyEmailVerifyURL = "https://api.jumso.life/api/auth/verify-company-email" // 회사 이메일 인증 요청 URL
     
     // MARK: - 디버깅 로그 출력
     private func logStateChange(_ message: String) {
@@ -50,27 +52,94 @@ class RegisterViewModel: ObservableObject {
     private func handleVerificationError(_ error: Error) {
         print("❌ [DEBUG] 인증 실패: \(error.localizedDescription)")
     }
-    // 서버로 이메일 인증 요청
-    func requestEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
-        guard !fullEmailAddress.isEmpty else {
-            print("❌ 이메일 주소가 없습니다.")
-            //            completion(false)
-            completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "이메일 주소가 없습니다."])))
-            return
+    
+    // MARK: - 개인 이메일 인증 요청
+        func requestPersonalEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
+            guard !fullEmailAddress.isEmpty else {
+                print("❌ 이메일 주소가 없습니다.")
+                completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "이메일 주소가 없습니다."])))
+                return
+            }
+            
+            var request = URLRequest(url: URL(string: personalEmailVerifyURL)!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let requestData: [String: String] = ["email": fullEmailAddress]
+            request.httpBody = try? JSONSerialization.data(withJSONObject: requestData, options: [])
+
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    completion(.failure(NSError(domain: "Email Verification Failed", code: 500, userInfo: nil)))
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.verificationCode = "123456" // 서버 응답 시 변경 가능
+                    completion(.success(()))
+                    print("✅ [DEBUG] 개인 이메일 인증 코드가 이메일로 전송되었습니다.")
+                }
+            }.resume()
         }
         
-        // 서버로 인증 코드 요청 (가짜 API 호출 시뮬레이션)
-        print("📧 [DEBUG] 이메일 인증 요청: \(fullEmailAddress)")
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
-            // 서버 응답 시뮬레이션: 성공
-            DispatchQueue.main.async {
-                self.verificationCode = "123456"
-                //                completion(true)
-                completion(.success(()))
-                print("✅ [DEBUG] 인증 코드가 이메일로 전송되었습니다.")
+        // MARK: - 회사 이메일 인증 요청 (기존 방식)
+        func requestCompanyEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
+            guard !fullEmailAddress.isEmpty else {
+                print("❌ 이메일 주소가 없습니다.")
+                completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "이메일 주소가 없습니다."])))
+                return
             }
+            
+            var request = URLRequest(url: URL(string: companyEmailVerifyURL)!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let requestData: [String: String] = ["email": fullEmailAddress]
+            request.httpBody = try? JSONSerialization.data(withJSONObject: requestData, options: [])
+
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    completion(.failure(NSError(domain: "Email Verification Failed", code: 500, userInfo: nil)))
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.verificationCode = "123456"
+                    completion(.success(()))
+                    print("✅ [DEBUG] 회사 이메일 인증 코드가 이메일로 전송되었습니다.")
+                }
+            }.resume()
         }
-    }
+    
+    // 서버로 이메일 인증 요청
+//    func requestEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
+//        guard !fullEmailAddress.isEmpty else {
+//            print("❌ 이메일 주소가 없습니다.")
+//            //            completion(false)
+//            completion(.failure(NSError(domain: "", code: 400, userInfo: [NSLocalizedDescriptionKey: "이메일 주소가 없습니다."])))
+//            return
+//        }
+//        
+//        // 서버로 인증 코드 요청 (가짜 API 호출 시뮬레이션)
+//        print("📧 [DEBUG] 이메일 인증 요청: \(fullEmailAddress)")
+//        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+//            // 서버 응답 시뮬레이션: 성공
+//            DispatchQueue.main.async {
+//                self.verificationCode = "123456"
+//                //                completion(true)
+//                completion(.success(()))
+//                print("✅ [DEBUG] 인증 코드가 이메일로 전송되었습니다.")
+//            }
+//        }
+//    }
     
     // 서버로 인증 코드 확인 요청
     func verifyCode(inputCode: String, completion: @escaping (Result<Void, Error>) -> Void) {

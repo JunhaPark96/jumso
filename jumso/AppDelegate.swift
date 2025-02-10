@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  jumso
-//
-//  Created by junha on 9/19/24.
-//
 
 import UIKit
 

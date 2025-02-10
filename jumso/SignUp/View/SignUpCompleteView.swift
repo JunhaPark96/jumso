@@ -33,10 +33,11 @@ struct SignUpCompleteView: View {
     private func navigateToLogin() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first else { return }
-
-        let loginVC = LoginViewController()
-        let navController = UINavigationController(rootViewController: loginVC)
-        window.rootViewController = navController
+        
+        // LoginView에 필요한 환경객체를 전달 (필요시)
+        let loginView = LoginView().environmentObject(AuthViewModel())
+        let hostingController = UIHostingController(rootView: loginView)
+        window.rootViewController = hostingController
         window.makeKeyAndVisible()
     }
 }

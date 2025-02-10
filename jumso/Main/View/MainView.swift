@@ -34,12 +34,12 @@ struct MainView: View {
 //                            .buttonStyle(PlainButtonStyle()) // 기본 스타일 제거
                             NavigationLink(
                                 destination: DetailedProfileView(viewModel: DetailedProfileViewModel(user: user))
-                                    .environmentObject(authViewModel) // 명시적 주입
-                                    .environmentObject(chatListViewModel) // 명시적 주입
+                                    .environmentObject(authViewModel)
+                                    .environmentObject(chatListViewModel)
                             ) {
                                 MainIntroductionView(introduction: user)
                             }
-                            .buttonStyle(PlainButtonStyle()) // 기본 스타일 제거
+                            .buttonStyle(PlainButtonStyle()) 
 
                         }
                     }

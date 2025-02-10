@@ -72,11 +72,16 @@ struct SignUpRegisterView: View {
                             Button(action: {
                                 guard !registerViewModel.personalEmailDomain.isEmpty else { return }
                                 // ✅ 개인 이메일 인증 → 바로 인증 코드 화면으로 이동
-                                registerViewModel.fullEmailAddress = registerViewModel.personalEmailDomain
-                                registerViewModel.navigationPath.append(NavigationStep.authenticationCode.rawValue)
-                                print("📧 [DEBUG] 개인 이메일 인증 진행: \(registerViewModel.personalEmailDomain)")
-                                print("📧 [DEBUG] 개인 이메일 인증 진행: \(registerViewModel.personalEmailDomain)")
-                            }) {
+                                registerViewModel.requestPersonalEmailVerification { result in
+                                        switch result {
+                                        case .success:
+                                            print("📧 [DEBUG] 개인 이메일 인증 요청 성공")
+                                            registerViewModel.navigationPath.append(NavigationStep.authenticationCode.rawValue)
+                                        case .failure(let error):
+                                            print("❌ [DEBUG] 개인 이메일 인증 요청 실패: \(error.localizedDescription)")
+                                        }
+                                    }
+                                }) {
                                 Text("이메일 인증 요청")
                                     .font(.headline)
                                     .frame(maxWidth: .infinity)
